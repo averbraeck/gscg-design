@@ -1,0 +1,6 @@
+@startuml
+:Game designer: --> (Design game)
+rectangle "Game design" as GD {
+}
+(Design game) --> GD
+@enduml
