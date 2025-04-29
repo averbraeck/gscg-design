@@ -1,4 +1,6 @@
 @startuml
+left to right direction
+
 "Portal Administrator" as PA
 User <|-- PA
 
