@@ -17,6 +17,8 @@ GP --> (Game play)
 (Game play) --> (Make decision) : << extend >>
 (Game play) --> (View scores) : << extend >>
 
+(Make decision) --> (Send data to\ngame data platform) : << include >>
+
 GP --> (Obtain debriefing)
 
 GP --> (Logout from game)

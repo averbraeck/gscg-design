@@ -20,6 +20,11 @@ SF --> (Facilitate session)
 (Facilitate session) --> (Stop game) : << extend >>
 (Facilitate session) --> (Show scores) : << extend >>
 
+(Start game) --> (Send data to\ngame data platform) : << include >>
+(Add news item) --> (Send data to\ngame data platform) : << include >>
+(Add intervention) --> (Send data to\ngame data platform) : << include >>
+(Stop game) --> (Send data to\ngame data platform) : << include >>
+
 SF --> (Debrief game)
 (Debrief game) --> (Show scores) : << extend >>
 (Debrief game) --> (Show gameplay) : << extend >>
