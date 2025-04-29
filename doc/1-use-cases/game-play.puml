@@ -1,0 +1,24 @@
+@startuml
+left to right direction
+
+"Game player" as GP
+User <|-- GP
+
+User --> (Set password)
+
+GP --> (Make userid)
+GP --> (Login to game)
+
+GP --> (Obtain briefing)
+
+GP --> (Game play)
+(Game play) --> (View state information) : << extend >>
+(Game play) --> (Read news) : << extend >>
+(Game play) --> (Make decision) : << extend >>
+(Game play) --> (View scores) : << extend >>
+
+GP --> (Obtain debriefing)
+
+GP --> (Logout from game)
+
+@enduml
