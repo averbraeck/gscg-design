@@ -1,0 +1,13 @@
+@startuml
+left to right direction
+
+"Data analyst" as DA
+User <|-- DA
+
+User --> (Set password)
+
+DA --> (Login to\ngame data platform)
+DA --> (Analyze data)
+DA --> (Logout from\ngame data platform)
+
+@enduml
