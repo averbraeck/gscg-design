@@ -1,0 +1,21 @@
+@startuml
+"Game designer" as GD
+User <|-- GD
+
+User --> (Register)
+(Register) --> (Set password) : << extend >>
+
+GD --> (Create game)
+
+GD --> (Clone game)
+
+GD --> (Design game)
+(Design game) --> (Choose game) : << extend >>
+(Design game) --> (Set goals) : << extend >>
+(Design game) --> (Set actors) : << extend >>
+(Design game) --> (Set scenario) : << extend >>
+(Set scenario) --> (Set parameters) : << extend >>
+(Set actors) --> (Set parameters) : << extend >>
+
+GD --> (Delete game)
+@enduml
