@@ -1,0 +1,20 @@
+@startuml
+left to right direction
+
+"Organization\nAdministrator" as OA
+User <|-- OA
+
+User --> (Set password)
+
+OA --> (Manage organization)
+(Manage organization) --> (Change description) : << extend >>
+(Manage organization) --> (Change logo) : << extend >>
+(Manage organization) --> (Allocate user\nto organization) : << extend >>
+
+OA --> (Manage user)
+(Manage user) --> (Create user) : << extend >>
+(Manage user) --> (Delete user) : << extend >>
+(Manage user) --> (Reset\npassword) : << extend >>
+(Manage user) --> (Change\naccess) : << extend >>
+
+@enduml
