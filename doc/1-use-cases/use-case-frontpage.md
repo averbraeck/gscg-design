@@ -27,7 +27,7 @@ Organization administration takes care of creating users for their organization,
 ## 4. Session administration
 Session design takes care of thde definition of a new game session (game play) and allocating facilitators. It is possible to set self registration for users, or to 
 
-![](organization-administration.svg)
+![](session-administration.svg)
 
 
 ## 5. Session facilitation
