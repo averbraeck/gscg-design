@@ -4,8 +4,7 @@ left to right direction
 "Game designer" as GD
 User <|-- GD
 
-User --> (Register)
-(Register) --> (Set password) : << extend >>
+User --> (Set password)
 
 GD --> (Create game)
 
