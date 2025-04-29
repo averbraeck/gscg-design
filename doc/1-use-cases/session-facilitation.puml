@@ -1,0 +1,27 @@
+@startuml
+left to right direction
+
+"Session\nFacilitator" as SF
+User <|-- SF
+
+User --> (Set password)
+
+SF --> (Brief game)
+
+SF --> (Facilitate users)
+(Facilitate users) --> (Allocate user) : << extend >>
+(Facilitate users) --> (Deallocate user) : << extend >>
+
+SF --> (Facilitate session)
+(Facilitate session) --> (Start game) : << extend >>
+(Facilitate session) --> (Change game speed) : << extend >>
+(Facilitate session) --> (Add news item) : << extend >>
+(Facilitate session) --> (Add intervention) : << extend >>
+(Facilitate session) --> (Stop game) : << extend >>
+(Facilitate session) --> (Show scores) : << extend >>
+
+SF --> (Debrief game)
+(Debrief game) --> (Show scores) : << extend >>
+(Debrief game) --> (Show gameplay) : << extend >>
+
+@enduml
