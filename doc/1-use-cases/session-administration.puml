@@ -1,0 +1,15 @@
+@startuml
+left to right direction
+
+"Session\nAdministrator" as SA
+User <|-- SA
+
+User --> (Set password)
+
+SA --> (Manage session)
+(Manage session) --> (Create session) : << extend >>
+(Manage session) --> (Set session dates) : << extend >>
+(Manage session) --> (Set player access) : << extend >>
+(Manage session) --> (Allocate facilitator) : << extend >>
+
+@enduml
