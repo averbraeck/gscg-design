@@ -3,6 +3,7 @@
 Last Updated: 2025-04-30
 
 __Changelog:__
+ - 2025-05-01 - Added export functions to analytics: [Issue #8](https://github.com/averbraeck/gscg-design/issues/8).
  - 2025-05-01 - Added communication function: [Issue #7](https://github.com/averbraeck/gscg-design/issues/7).
  - 2025-04-30 - Added display map function: [Issue #6](https://github.com/averbraeck/gscg-design/issues/6).
  - 2025-04-30 - Added 'Pause game': [Issue #4](https://github.com/averbraeck/gscg-design/issues/4). 
@@ -202,10 +203,18 @@ Non-functional requirements:
 
 - FC7.1 The data analyst must be able to login to the game data platform
 - FC7.2 The data analyst must be able to change their password
-- FC7.3 The game data platform must show the game data (session, player, facilitator events) for a game session to the data analyst
-- FC7.4 The game data platform must show the player scores for a game session to the data analyst
-- FC7.5 The game data platform must show the log data for a game session to the data analyst
-- FC7.6 The data analyst must be able to logout from the game data platform
+- FC7.3 The data analyst must be able to logout from the game data platform
+- FC7.4 The data analyst must be able to choose a game to analyze or export
+- FC7.5 The game data platform must show the session and facilitator events for a game session to the data analyst
+- FC7.6 The game data platform must show the player events for a game session to the data analyst
+- FC7.7 The game data platform must show the player scores for a game session to the data analyst
+- FC7.8 The game data platform must show the log data for a game session to the data analyst
+- FC7.9 The game data platform must show the errors for a game session to the data analyst
+- FC7.10 The game data platform must export the session and facilitator events for a game session to a file
+- FC7.11 The game data platform must export the player events for a game session to a file
+- FC7.12 The game data platform must export the player scores for a game session to a file
+- FC7.13 The game data platform must export the log data for a game session to a file
+- FC7.14 The game data platform must export the errors for a game session to a file
 
 Non-functional requirements:
 - NFC7.1 The game data platform must run in any modern browser (Chrome, Edge, Firefox, Brave, Safari, Opera)

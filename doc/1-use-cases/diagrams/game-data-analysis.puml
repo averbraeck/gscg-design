@@ -6,9 +6,24 @@ User <|-- DA
 
 User --> (Set password)
 
-DA --> (Login to\ngame data platform)
 DA --> (Analyze data)
-DA --> (Show scores)
+(Analyze data) --> (Show session event data\nand facilitator events)
+(Analyze data) --> (Show player event data)
+(Analyze data) --> (Show player scores)
+(Analyze data) --> (Show log data)
+(Analyze data) --> (Show errors)
+
+DA --> (Login to\ngame data platform)
+
+DA --> (Choose game)
+
 DA --> (Logout from\ngame data platform)
+
+DA --> (Export data)
+(Export data) --> (Export session event data\nand facilitator events)
+(Export data) --> (Export player event data)
+(Export data) --> (Export player scores)
+(Export data) --> (Export log data)
+(Export data) --> (Export errors)
 
 @enduml
