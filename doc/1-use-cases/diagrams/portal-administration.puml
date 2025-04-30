@@ -13,19 +13,19 @@ note bottom
   including super-admin
 end note
 
-(User administration) --> (Create user) : << include >>
-(User administration) --> (Delete user) : << include >>
-(User administration) --> (Reset user password) : << include >>
-(User administration) --> (Set user access) : << include >>
+(User administration) --> (Create user)
+(User administration) --> (Delete user)
+(User administration) --> (Reset user password)
+(User administration) --> (Set user access)
 
 PA --> (Manage game)
-(Manage game) --> (Create game) : << extend >>
-(Manage game) --> (Delete game) : << extend >>
-(Manage game) --> (Allocate user\nas game admin) : << extend >>
+(Manage game) --> (Create game)
+(Manage game) --> (Delete game)
+(Manage game) --> (Allocate user\nas game admin)
 
 PA --> (Manage organization)
-(Manage organization) --> (Create\norganization) : << extend >>
-(Manage organization) --> (Delete\norganization) : << extend >>
-(Manage organization) --> (Allocate user as\norganization admin) : << extend >>
+(Manage organization) --> (Create\norganization)
+(Manage organization) --> (Delete\norganization)
+(Manage organization) --> (Allocate user as\norganization admin)
 
 @enduml

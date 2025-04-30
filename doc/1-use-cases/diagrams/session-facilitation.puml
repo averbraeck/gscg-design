@@ -12,10 +12,10 @@ note bottom
   player
 end note
 
-(User administration) --> (Create user) : << include >>
-(User administration) --> (Delete user) : << include >>
-(User administration) --> (Reset user password) : << include >>
-(User administration) --> (Set user access) : << include >>
+(User administration) --> (Create user)
+(User administration) --> (Delete user)
+(User administration) --> (Reset user password)
+(User administration) --> (Set user access)
 
 SF --> (User allocation)
 (User allocation) --> (Allocate user to game)
@@ -25,27 +25,27 @@ SF --> (User allocation)
 SF --> (Brief game)
 
 SF --> (Start/stop game)
-(Start/stop game) --> (Start game) : << extend >>
-(Start/stop game) --> (Change game speed) : << extend >>
-(Start/stop game) --> (Pause game) : << extend >>
-(Start/stop game) --> (Stop game) : << extend >>
+(Start/stop game) --> (Start game)
+(Start/stop game) --> (Change game speed)
+(Start/stop game) --> (Pause game)
+(Start/stop game) --> (Stop game)
 
 SF --> (Facilitate session)
-(Facilitate session) --> (Add news item) : << extend >>
-(Facilitate session) --> (Add intervention) : << extend >>
-(Facilitate session) --> (Trigger intervention) : << extend >>
-(Facilitate session) --> (Chat with players) : << extend >>
-(Facilitate session) --> (Show actor map) : << include >>
-(Facilitate session) --> (Show scores) : << include >>
+(Facilitate session) --> (Add news item)
+(Facilitate session) --> (Add intervention)
+(Facilitate session) --> (Trigger intervention)
+(Facilitate session) --> (Chat with players)
+(Facilitate session) --> (Show actor map)
+(Facilitate session) --> (Show scores)
 
-(Start game) --> (Send data to\ngame data platform) : << include >>
-(Add news item) --> (Send data to\ngame data platform) : << include >>
-(Add intervention) --> (Send data to\ngame data platform) : << include >>
-(Trigger intervention) --> (Send data to\ngame data platform) : << include >>
-(Stop game) --> (Send data to\ngame data platform) : << include >>
+(Start game) --> (Send data to\ngame data platform)
+(Add news item) --> (Send data to\ngame data platform)
+(Add intervention) --> (Send data to\ngame data platform)
+(Trigger intervention) --> (Send data to\ngame data platform)
+(Stop game) --> (Send data to\ngame data platform)
 
 SF --> (Debrief game)
-(Debrief game) --> (Show scores) : << include >>
-(Debrief game) --> (Show gameplay) : << extend >>
+(Debrief game) --> (Show scores)
+(Debrief game) --> (Show gameplay)
 
 @enduml

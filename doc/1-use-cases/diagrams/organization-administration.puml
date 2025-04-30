@@ -15,17 +15,17 @@ note bottom
   - player
 end note
 
-(User administration) --> (Create user) : << include >>
-(User administration) --> (Delete user) : << include >>
-(User administration) --> (Reset user password) : << include >>
-(User administration) --> (Set user access) : << include >>
+(User administration) --> (Create user)
+(User administration) --> (Delete user)
+(User administration) --> (Reset user password)
+(User administration) --> (Set user access)
 
 OA --> (Manage organization)
-(Manage organization) --> (Change description) : << extend >>
-(Manage organization) --> (Change logo) : << extend >>
-(Manage organization) --> (Allocate user\nto organization) : << extend >>
-(Manage organization) --> (Show games in use) : << extend >>
-(Manage organization) --> (Show defined sessions) : << extend >>
-(Manage organization) --> (Show allocated users) : << extend >>
+(Manage organization) --> (Change description)
+(Manage organization) --> (Change logo)
+(Manage organization) --> (Allocate user\nto organization)
+(Manage organization) --> (Show games in use)
+(Manage organization) --> (Show defined sessions)
+(Manage organization) --> (Show allocated users)
 
 @enduml

@@ -12,14 +12,14 @@ GP --> (Login to game)
 GP --> (Show briefing)
 
 GP --> (Game play)
-(Game play) --> (Show state information) : << extend >>
-(Game play) --> (Show news) : << extend >>
-(Game play) --> (Chat with players\nand with facilitator) : << extend >>
-(Game play) --> (Make decision) : << extend >>
-(Game play) --> (Show actor map\n and highlight player) : << include >>
-(Game play) --> (Show scores) : << include >>
+(Game play) --> (Show state information)
+(Game play) --> (Show news)
+(Game play) --> (Chat with players\nand with facilitator)
+(Game play) --> (Make decision)
+(Game play) --> (Show actor map\n and highlight player)
+(Game play) --> (Show scores)
 
-(Make decision) --> (Send data to\ngame data platform) : << include >>
+(Make decision) --> (Send data to\ngame data platform)
 
 GP --> (Show debriefing)
 

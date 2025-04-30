@@ -12,17 +12,17 @@ note bottom
   player or facilitator
 end note
 
-(User administration) --> (Create user) : << include >>
-(User administration) --> (Delete user) : << include >>
-(User administration) --> (Reset user password) : << include >>
-(User administration) --> (Set user access) : << include >>
+(User administration) --> (Create user)
+(User administration) --> (Delete user)
+(User administration) --> (Reset user password)
+(User administration) --> (Set user access)
 
 "Manage\ngame session" as (Manage)
 SA --> Manage
-Manage --> (Create game session) : << extend >>
-Manage --> (Set session dates) : << extend >>
-Manage --> (Delete game session) : << extend >>
-Manage --> (Show sessions with status) : << extend >>
-Manage --> (Show facilitators and\nplayers for session) : << extend >>
+Manage --> (Create game session)
+Manage --> (Set session dates)
+Manage --> (Delete game session)
+Manage --> (Show sessions with status)
+Manage --> (Show facilitators and\nplayers for session)
 
 @enduml
