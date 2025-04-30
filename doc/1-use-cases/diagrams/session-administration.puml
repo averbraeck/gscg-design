@@ -1,6 +1,6 @@
 @startuml
 left to right direction
-
+ 
 "Session administrator" as SA
 User <|-- Administrator
 Administrator <|-- SA

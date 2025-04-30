@@ -1,6 +1,6 @@
 @startuml
 left to right direction
-
+ 
 "Game player" as GP
 User <|-- GP
 

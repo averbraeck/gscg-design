@@ -1,6 +1,6 @@
 @startuml
 left to right direction
-
+ 
 "Organization\nAdministrator" as OA
 User <|-- Administrator
 Administrator <|-- OA

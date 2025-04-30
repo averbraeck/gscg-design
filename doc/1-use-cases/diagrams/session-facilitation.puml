@@ -1,6 +1,6 @@
 @startuml
 left to right direction
-
+ 
 "Session\nFacilitator" as SF
 User <|-- Administrator
 Administrator <|-- SF
