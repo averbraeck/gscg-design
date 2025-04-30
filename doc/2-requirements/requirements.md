@@ -29,7 +29,7 @@ Non-functional requirements:
 - NFO1.2 The portal administration should run smoothly without noticeable delays
 - NFO1.3 The portal administration should have an intuitive interface
 - NFO1.4 The portal administration should give clear errors to the portal administrator in case actions are not permitted
-- NFO1.5 The portal administration should use a responsive UI to scale to the device preoperties 
+- NFO1.5 The portal administration should use a responsive UI to scale to the device properties 
 
 > [!NOTE]
 > Note for FC1.5: The access rights for a user are:
@@ -43,7 +43,7 @@ Non-functional requirements:
 > - game player, with a link to one or more game sessions
 
 > [!NOTE]
-> Note for NFO1.5: it is not required to scale all the way down to a mobile device. The GSCG game is expected to run on sceens with a size of at least 1024x768 pixels, and usually 1920x1080 or better.
+> Note for NFO1.5: it is not required to scale all the way down to a mobile device. The GSCG game is expected to run on screens with a size of at least 1024x768 pixels, and usually 1920x1080 or better.
 
 
 ## 2. Game design
@@ -63,9 +63,33 @@ Non-functional requirements:
 - NFO2.2 The game design should run smoothly without noticeable delays
 - NFO2.3 The game design should have an intuitive interface
 - NFO2.4 The game design should give clear errors to the game administrator in case actions are not permitted
-- NFO2.5 The game design should use a responsive UI to scale to the device preoperties 
+- NFO2.5 The game design should use a responsive UI to scale to the device properties 
+- NFO2.6 The game design should present one or more screens that provide an overview of the defined actors with their capabilities
 
 > [!NOTE]
-> Note for NFO1.5: it is not required to scale all the way down to a mobile device. The GSCG game is expected to run on sceens with a size of at least 1024x768 pixels, and usually 1920x1080 or better.
+> Note for NFO2.5: it is not required to scale all the way down to a mobile device. The GSCG game is expected to run on screens with a size of at least 1024x768 pixels, and usually 1920x1080 or better.
 
+
+## 3. Organization administration
+
+- FC2.1 The game designer must be able to change their own password to enter the GSCG portal
+- FC2.2 The game designer must be able to create a game instance
+- FC2.3 The game designer must be able to clone a game instance
+- FC2.4 The game designer must be able to choose a game instance to maintain
+- FC2.5 The game designer must be able to set the player goals for the chosen game instance
+- FC2.6 The game designer must be able to set the actors to use for the chosen game instance
+- FC2.7 The game designer must be able to set the scenario to use for the chosen game instance
+- FC2.8 The game designer must be able to set the parameters for an actor in the chosen game instance
+- FC2.9 The game designer must be able to set the parameters for a scenario in the chosen game instance
+
+Non-functional requirements:
+- NFC2.1 The game design must run in any modern browser (Chrome, Edge, Firefox, Brave, Safari, Opera)
+- NFO2.2 The game design should run smoothly without noticeable delays
+- NFO2.3 The game design should have an intuitive interface
+- NFO2.4 The game design should give clear errors to the game administrator in case actions are not permitted
+- NFO2.5 The game design should use a responsive UI to scale to the device properties 
+- NFO2.6 The game design should present one or more screens that provide an overview of the defined actors with their capabilities
+
+> [!NOTE]
+> Note for NFO2.5: it is not required to scale all the way down to a mobile device. The GSCG game is expected to run on screens with a size of at least 1024x768 pixels, and usually 1920x1080 or better.
 
