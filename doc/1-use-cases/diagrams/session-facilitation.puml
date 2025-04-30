@@ -17,24 +17,28 @@ end note
 (User administration) --> (Reset user password) : << include >>
 (User administration) --> (Set user access) : << include >>
 
+SF --> (User allocation)
+(User allocation) --> (Allocate user)
+(User allocation) --> (Deallocate user)
+
 SF --> (Brief game)
 
-SF --> (Facilitate users)
-(Facilitate users) --> (Allocate user) : << extend >>
-(Facilitate users) --> (Deallocate user) : << extend >>
+SF --> (Start/stop game)
+(Start/stop game) --> (Start game) : << extend >>
+(Start/stop game) --> (Change game speed) : << extend >>
+(Start/stop game) --> (Pause game) : << extend >>
+(Start/stop game) --> (Stop game) : << extend >>
 
 SF --> (Facilitate session)
-(Facilitate session) --> (Start game) : << extend >>
-(Facilitate session) --> (Change game speed) : << extend >>
 (Facilitate session) --> (Add news item) : << extend >>
 (Facilitate session) --> (Add intervention) : << extend >>
 (Facilitate session) --> (Trigger intervention) : << extend >>
-(Facilitate session) --> (Stop game) : << extend >>
 (Facilitate session) --> (Show scores) : << include >>
 
 (Start game) --> (Send data to\ngame data platform) : << include >>
 (Add news item) --> (Send data to\ngame data platform) : << include >>
 (Add intervention) --> (Send data to\ngame data platform) : << include >>
+(Trigger intervention) --> (Send data to\ngame data platform) : << include >>
 (Stop game) --> (Send data to\ngame data platform) : << include >>
 
 SF --> (Debrief game)

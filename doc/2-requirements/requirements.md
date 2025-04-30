@@ -3,6 +3,7 @@
 Last Updated: 2025-04-30
 
 __Changelog:__
+ - 2025-04-30 - Added 'Pause game': [Issue #4](https://github.com/averbraeck/gscg-design/issues/4). 
  - 2025-04-30 - Document Creation
  
 ## 0. Legend
@@ -145,13 +146,14 @@ Non-functional requirements:
 - FC5.9 The session facilitator must be able to start the game session
 - FC5.10 The event of starting the game session must be sent to the gamedata platform
 - FC5.11 The session facilitator must be able to change the game speed
-- FO5.12 The session facilitator should be able to insert an extra news item for the players
-- FC5.13 The event of adding a news item to the the game session must be sent to the gamedata platform
-- FO5.14 The session facilitator should be able to add an intervention into the game
-- FC5.15 The event of adding an intervention to the the game session must be sent to the gamedata platform
-- FO5.16 The session facilitator should be able to trigger an existing manual intervention during gameplay
-- FC5.17 The event of triggering an existing intervention during the the game play must be sent to the gamedata platform
-- FO5.18 The session facilitation should present an overview of the players allocated to a session
+- FC5.12 The session facilitator must be able to pause the game
+- FO5.13 The session facilitator should be able to insert an extra news item for the players
+- FC5.14 The event of adding a news item to the the game session must be sent to the gamedata platform
+- FO5.15 The session facilitator should be able to add an intervention into the game
+- FC5.16 The event of adding an intervention to the the game session must be sent to the gamedata platform
+- FO5.17 The session facilitator should be able to trigger an existing manual intervention during gameplay
+- FC5.18 The event of triggering an existing intervention during the the game play must be sent to the gamedata platform
+- FO5.19 The session facilitation should present an overview of the players allocated to a session
 
 Non-functional requirements:
 - NFC5.1 The session facilitation must run in any modern browser (Chrome, Edge, Firefox, Brave, Safari, Opera)
