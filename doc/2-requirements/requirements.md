@@ -7,7 +7,7 @@ __Changelog:__
  - 2025-04-30 - Document Creation
  
 ## 0. Legend
-The requirements are numbered respective to the use case from the document ['use-cases'](../1-use-cases/use-cases.md). The requirements are divided into Functional requirements, indicated with an abbreviation "F", and non-functional requirements, indicated with the abbreviation "NF". The requirements are categorized into two classes from the MoSCoW-framework, the "Must-haves", with the letter "C" for "constraint", and the "Should-haves", with the letter "O" for "objective". Combinations are, e.g. NFC2.3, indicating the third requirement for use-case 2, being a non-functional constraint (a must-have). All "F" and "HF" requirements are consecutively numbered within the use case, both starting with number 1. 
+The requirements are numbered respective to the use case from the document ['use-cases'](../1-use-cases/use-cases.md). The requirements are divided into Functional requirements, indicated with an abbreviation "F", and non-functional requirements, indicated with the abbreviation "NF". The requirements are categorized into two classes from the MoSCoW-framework, the "Must-haves", with the letter "C" for "constraint", and the "Should-haves", with the letter "O" for "objective". Combinations are, e.g. NFC2.3, indicating the third requirement for use-case 2, being a non-functional constraint (a must-have). All "F" and "NF" requirements are consecutively numbered within the use case, both starting with number 1. 
 
 
 ## 1. Portal administration
