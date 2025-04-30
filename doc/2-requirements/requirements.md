@@ -3,6 +3,7 @@
 Last Updated: 2025-04-30
 
 __Changelog:__
+ - 2025-05-01 - Added communication function: [Issue #7](https://github.com/averbraeck/gscg-design/issues/7).
  - 2025-04-30 - Added display map function: [Issue #6](https://github.com/averbraeck/gscg-design/issues/6).
  - 2025-04-30 - Added 'Pause game': [Issue #4](https://github.com/averbraeck/gscg-design/issues/4). 
  - 2025-04-30 - Document Creation
@@ -157,6 +158,7 @@ Non-functional requirements:
 - FC5.18 The event of triggering an existing intervention during the the game play must be sent to the gamedata platform
 - FO5.19 The session facilitation should present an overview of the players allocated to a session
 - FO5.20 The session facilitation should present a map with the actors displayed at their locations
+- FO5.21 The session facilitation should allow chatting with the active players in the game session
 
 Non-functional requirements:
 - NFC5.1 The session facilitation must run in any modern browser (Chrome, Edge, Firefox, Brave, Safari, Opera)
@@ -183,6 +185,7 @@ Non-functional requirements:
 - FO6.10 The game play platform should show the debriefing (note that the game might take place in a distributed setting)
 - FC6.11 The player must be able to logout from the game session
 - FO6.12 The game play platform should show a map with the actors displayed at their locations, highlighting the player
+- FO6.13 The game play platform should allow chatting with other players in the game session and with the facilitator
 
 Non-functional requirements:
 - NFC6.1 The game play must run in any modern browser (Chrome, Edge, Firefox, Brave, Safari, Opera)

@@ -14,6 +14,7 @@ GP --> (Show briefing)
 GP --> (Game play)
 (Game play) --> (Show state information) : << extend >>
 (Game play) --> (Show news) : << extend >>
+(Game play) --> (Chat with players\nand with facilitator) : << extend >>
 (Game play) --> (Make decision) : << extend >>
 (Game play) --> (Show actor map\n and highlight player) : << include >>
 (Game play) --> (Show scores) : << include >>
