@@ -9,17 +9,18 @@ User --> (Set password)
 GP --> (Make userid)
 GP --> (Login to game)
 
-GP --> (Obtain briefing)
+GP --> (Show briefing)
 
 GP --> (Game play)
-(Game play) --> (View state information) : << extend >>
-(Game play) --> (Read news) : << extend >>
+(Game play) --> (Show state information) : << extend >>
+(Game play) --> (Show news) : << extend >>
 (Game play) --> (Make decision) : << extend >>
+(Game play) --> (Show actor map\n and highlight player) : << include >>
 (Game play) --> (Show scores) : << include >>
 
 (Make decision) --> (Send data to\ngame data platform) : << include >>
 
-GP --> (Obtain debriefing)
+GP --> (Show debriefing)
 
 GP --> (Logout from game)
 

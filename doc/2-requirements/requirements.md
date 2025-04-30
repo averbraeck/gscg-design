@@ -3,6 +3,7 @@
 Last Updated: 2025-04-30
 
 __Changelog:__
+ - 2025-04-30 - Added display map function: [Issue #6](https://github.com/averbraeck/gscg-design/issues/6).
  - 2025-04-30 - Added 'Pause game': [Issue #4](https://github.com/averbraeck/gscg-design/issues/4). 
  - 2025-04-30 - Document Creation
  
@@ -60,6 +61,7 @@ Non-functional requirements:
 - FC2.9 The game designer must be able to set the parameters for a scenario in the chosen game instance
 - FO2.10 The game design should present one or more screens that provide an overview of the defined actors with their capabilities
 - FO2.11 The game design should present a timeline with the scenario events for the game instance
+- FO2.12 The game design should present a map with the actors displayed at their locations
 
 Non-functional requirements:
 - NFC2.1 The game design must run in any modern browser (Chrome, Edge, Firefox, Brave, Safari, Opera)
@@ -154,6 +156,7 @@ Non-functional requirements:
 - FO5.17 The session facilitator should be able to trigger an existing manual intervention during gameplay
 - FC5.18 The event of triggering an existing intervention during the the game play must be sent to the gamedata platform
 - FO5.19 The session facilitation should present an overview of the players allocated to a session
+- FO5.20 The session facilitation should present a map with the actors displayed at their locations
 
 Non-functional requirements:
 - NFC5.1 The session facilitation must run in any modern browser (Chrome, Edge, Firefox, Brave, Safari, Opera)
@@ -171,14 +174,15 @@ Non-functional requirements:
 - FC6.1 The player must be able to create a userid/password for the game session in case the game allows self-registration
 - FC6.2 The player must be able to change their password
 - FC6.3 The player must be able to login to the game session with a userid and password
-- FO6.4 The game play platform should display the briefing (note that the game might take place in a distributed setting)
-- FC6.5 The game play platform must display dynamic state information about the player's firm during game play
-- FC6.6 The game play platform must display the news at the correct times during game play
+- FO6.4 The game play platform should show the briefing (note that the game might take place in a distributed setting)
+- FC6.5 The game play platform must show dynamic state information about the player's firm during game play
+- FC6.6 The game play platform must show the news at the correct times during game play
 - FC6.7 The player must be able to enter decisions into the game play platform during game play
 - FC6.8 The game play platform must send player decisions to the gamedata platform
 - FC6.9 The game play platform must show the scores to the player during and after game play
-- FO6.10 The game play platform should display the debriefing (note that the game might take place in a distributed setting)
+- FO6.10 The game play platform should show the debriefing (note that the game might take place in a distributed setting)
 - FC6.11 The player must be able to logout from the game session
+- FO6.12 The game play platform should show a map with the actors displayed at their locations, highlighting the player
 
 Non-functional requirements:
 - NFC6.1 The game play must run in any modern browser (Chrome, Edge, Firefox, Brave, Safari, Opera)

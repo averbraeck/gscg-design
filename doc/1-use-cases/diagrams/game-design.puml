@@ -3,22 +3,21 @@ left to right direction
 
 "Game designer" as GD
 User <|-- GD
-
 User --> (Set password)
 
 GD --> (Create game)
 
 GD --> (Clone game)
-
 GD --> (Delete game)
 
-GD --> (Design game)
-(Design game) --> (Choose game)
+GD --> (Design game) : "         \n\n\n\n\n"
+(Design game) --> (Choose game) : "              "
 (Design game) --> (Set goals)
 (Design game) --> (Set actors)
-(Design game) --> (View defined actors)
+(Design game) --> (Show defined actors)
+(Design game) --> (Show actor map)
 (Design game) --> (Set scenario)
-(Design game) --> (View scenario timeline)
+(Design game) --> (Show scenario timeline)
 (Set scenario) --> (Set parameters)
 (Set actors) --> (Set parameters)
 

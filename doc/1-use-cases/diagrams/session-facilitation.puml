@@ -34,6 +34,7 @@ SF --> (Facilitate session)
 (Facilitate session) --> (Add news item) : << extend >>
 (Facilitate session) --> (Add intervention) : << extend >>
 (Facilitate session) --> (Trigger intervention) : << extend >>
+(Facilitate session) --> (Show actor map) : << include >>
 (Facilitate session) --> (Show scores) : << include >>
 
 (Start game) --> (Send data to\ngame data platform) : << include >>
