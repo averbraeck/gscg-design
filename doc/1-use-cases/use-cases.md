@@ -1,10 +1,12 @@
 # GSCG Use Cases
 
-Last Updated: 2025-04-29
+Last Updated: 2025-04-30
 
 __Changelog:__
  - 2025-04-03 - Document Creation
  - 2025-04-29 - First set of use cases added
+ - 2025-04-30 - Include options for "show scores" activity
+ 
  
 ## 1. Portal administration
 Portal administration takes care of creating (super) users, designing organizations, and allocating roles such as game designers or organization administrators. In portal administration, new games can be created as well, and unused games can be deleted.
