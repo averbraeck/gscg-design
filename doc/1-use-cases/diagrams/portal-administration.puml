@@ -2,23 +2,30 @@
 left to right direction
 
 "Portal Administrator" as PA
-User <|-- PA
+User <|-- Administrator
+Administrator <|-- PA
 
 User --> (Set password)
+
+Administrator --> (User administration)
+note bottom
+  all user types
+  including super-admin
+end note
+
+(User administration) --> (Create user) : << include >>
+(User administration) --> (Delete user) : << include >>
+(User administration) --> (Reset user password) : << include >>
+(User administration) --> (Set user access) : << include >>
 
 PA --> (Manage game)
 (Manage game) --> (Create game) : << extend >>
 (Manage game) --> (Delete game) : << extend >>
+(Manage game) --> (Allocate user\nas game admin) : << extend >>
 
 PA --> (Manage organization)
 (Manage organization) --> (Create\norganization) : << extend >>
 (Manage organization) --> (Delete\norganization) : << extend >>
 (Manage organization) --> (Allocate user\nto organization) : << extend >>
-
-PA --> (Manage user)
-(Manage user) --> (Create user) : << extend >>
-(Manage user) --> (Delete user) : << extend >>
-(Manage user) --> (Reset\npassword) : << extend >>
-(Manage user) --> (Change\naccess) : << extend >>
 
 @enduml

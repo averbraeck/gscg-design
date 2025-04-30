@@ -1,15 +1,26 @@
 @startuml
 left to right direction
 
-"Session\nAdministrator" as SA
-User <|-- SA
+"Session administrator" as SA
+User <|-- Administrator
+Administrator <|-- SA
 
 User --> (Set password)
 
-SA --> (Manage session)
-(Manage session) --> (Create session) : << extend >>
-(Manage session) --> (Set session dates) : << extend >>
-(Manage session) --> (Set player access) : << extend >>
-(Manage session) --> (Allocate facilitator) : << extend >>
+Administrator --> (User administration)
+note bottom
+  player or facilitator
+end note
+
+(User administration) --> (Create user) : << include >>
+(User administration) --> (Delete user) : << include >>
+(User administration) --> (Reset user password) : << include >>
+(User administration) --> (Set user access) : << include >>
+
+"Manage\ngame session" as (Manage)
+SA --> Manage
+Manage --> (Create game session) : << extend >>
+Manage --> (Set session dates) : << extend >>
+Manage --> (Delete game session) : << extend >>
 
 @enduml

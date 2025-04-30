@@ -2,9 +2,20 @@
 left to right direction
 
 "Session\nFacilitator" as SF
-User <|-- SF
+User <|-- Administrator
+Administrator <|-- SF
 
 User --> (Set password)
+
+Administrator --> (User administration)
+note bottom
+  player
+end note
+
+(User administration) --> (Create user) : << include >>
+(User administration) --> (Delete user) : << include >>
+(User administration) --> (Reset user password) : << include >>
+(User administration) --> (Set user access) : << include >>
 
 SF --> (Brief game)
 
@@ -19,7 +30,7 @@ SF --> (Facilitate session)
 (Facilitate session) --> (Add intervention) : << extend >>
 (Facilitate session) --> (Trigger intervention) : << extend >>
 (Facilitate session) --> (Stop game) : << extend >>
-(Facilitate session) --> (Show scores) : << iclude >>
+(Facilitate session) --> (Show scores) : << include >>
 
 (Start game) --> (Send data to\ngame data platform) : << include >>
 (Add news item) --> (Send data to\ngame data platform) : << include >>
