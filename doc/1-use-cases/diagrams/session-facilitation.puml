@@ -18,8 +18,9 @@ end note
 (User administration) --> (Set user access) : << include >>
 
 SF --> (User allocation)
-(User allocation) --> (Allocate user)
-(User allocation) --> (Deallocate user)
+(User allocation) --> (Allocate user to game)
+(User allocation) --> (Deallocate user from game)
+(User allocation) --> (Show players for session)
 
 SF --> (Brief game)
 

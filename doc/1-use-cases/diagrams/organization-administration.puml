@@ -24,5 +24,8 @@ OA --> (Manage organization)
 (Manage organization) --> (Change description) : << extend >>
 (Manage organization) --> (Change logo) : << extend >>
 (Manage organization) --> (Allocate user\nto organization) : << extend >>
+(Manage organization) --> (Show games in use) : << extend >>
+(Manage organization) --> (Show defined sessions) : << extend >>
+(Manage organization) --> (Show allocated users) : << extend >>
 
 @enduml

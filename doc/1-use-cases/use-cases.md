@@ -3,6 +3,7 @@
 Last Updated: 2025-04-30
 
 __Changelog:__
+ - 2025-04-30 - Added display functionality: [Issue #5](https://github.com/averbraeck/gscg-design/issues/5). 
  - 2025-04-30 - Added 'Pause game': [Issue #4](https://github.com/averbraeck/gscg-design/issues/4). 
  - 2025-04-30 - Added "Administrator" role according to [Issue #3](https://github.com/averbraeck/gscg-design/issues/3). 
  - 2025-04-30 - Include options for "show scores" activity

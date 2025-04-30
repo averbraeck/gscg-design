@@ -22,5 +22,7 @@ SA --> Manage
 Manage --> (Create game session) : << extend >>
 Manage --> (Set session dates) : << extend >>
 Manage --> (Delete game session) : << extend >>
+Manage --> (Show sessions with status) : << extend >>
+Manage --> (Show facilitators and\nplayers for session) : << extend >>
 
 @enduml

@@ -10,13 +10,16 @@ GD --> (Create game)
 
 GD --> (Clone game)
 
-GD --> (Design game)
-(Design game) --> (Choose game) : << extend >>
-(Design game) --> (Set goals) : << extend >>
-(Design game) --> (Set actors) : << extend >>
-(Design game) --> (Set scenario) : << extend >>
-(Set scenario) --> (Set parameters) : << extend >>
-(Set actors) --> (Set parameters) : << extend >>
-
 GD --> (Delete game)
+
+GD --> (Design game)
+(Design game) --> (Choose game)
+(Design game) --> (Set goals)
+(Design game) --> (Set actors)
+(Design game) --> (View defined actors)
+(Design game) --> (Set scenario)
+(Design game) --> (View scenario timeline)
+(Set scenario) --> (Set parameters)
+(Set actors) --> (Set parameters)
+
 @enduml
