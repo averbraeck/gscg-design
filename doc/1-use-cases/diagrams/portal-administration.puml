@@ -26,6 +26,6 @@ PA --> (Manage game)
 PA --> (Manage organization)
 (Manage organization) --> (Create\norganization) : << extend >>
 (Manage organization) --> (Delete\norganization) : << extend >>
-(Manage organization) --> (Allocate user\nto organization) : << extend >>
+(Manage organization) --> (Allocate user as\norganization admin) : << extend >>
 
 @enduml
