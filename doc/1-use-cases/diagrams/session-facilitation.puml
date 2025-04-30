@@ -17,8 +17,9 @@ SF --> (Facilitate session)
 (Facilitate session) --> (Change game speed) : << extend >>
 (Facilitate session) --> (Add news item) : << extend >>
 (Facilitate session) --> (Add intervention) : << extend >>
+(Facilitate session) --> (Trigger intervention) : << extend >>
 (Facilitate session) --> (Stop game) : << extend >>
-(Facilitate session) --> (Show scores) : << extend >>
+(Facilitate session) --> (Show scores) : << iclude >>
 
 (Start game) --> (Send data to\ngame data platform) : << include >>
 (Add news item) --> (Send data to\ngame data platform) : << include >>
@@ -26,7 +27,7 @@ SF --> (Facilitate session)
 (Stop game) --> (Send data to\ngame data platform) : << include >>
 
 SF --> (Debrief game)
-(Debrief game) --> (Show scores) : << extend >>
+(Debrief game) --> (Show scores) : << include >>
 (Debrief game) --> (Show gameplay) : << extend >>
 
 @enduml

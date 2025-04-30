@@ -15,7 +15,7 @@ GP --> (Game play)
 (Game play) --> (View state information) : << extend >>
 (Game play) --> (Read news) : << extend >>
 (Game play) --> (Make decision) : << extend >>
-(Game play) --> (View scores) : << extend >>
+(Game play) --> (Show scores) : << include >>
 
 (Make decision) --> (Send data to\ngame data platform) : << include >>
 

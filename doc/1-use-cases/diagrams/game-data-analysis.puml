@@ -8,6 +8,7 @@ User --> (Set password)
 
 DA --> (Login to\ngame data platform)
 DA --> (Analyze data)
+DA --> (Show scores)
 DA --> (Logout from\ngame data platform)
 
 @enduml
