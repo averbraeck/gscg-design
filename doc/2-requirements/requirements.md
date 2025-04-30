@@ -151,7 +151,7 @@ Non-functional requirements:
 - FC5.15 The event of adding an intervention to the the game session must be sent to the gamedata platform
 - FO5.16 The session facilitator should be able to trigger an existing manual intervention during gameplay
 - FC5.17 The event of triggering an existing intervention during the the game play must be sent to the gamedata platform
-- FO5.18 The session administration should present an overview of the players allocated to a session
+- FO5.18 The session facilitation should present an overview of the players allocated to a session
 
 Non-functional requirements:
 - NFC5.1 The session facilitation must run in any modern browser (Chrome, Edge, Firefox, Brave, Safari, Opera)
