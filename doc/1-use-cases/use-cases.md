@@ -1,8 +1,9 @@
 # GSCG Use Cases
 
-Last Updated: 2025-04-30
+Last Updated: 2025-05-01
 
 __Changelog:__
+ - 2025-05-01 - Define allowable player strategies: [Issue #12](https://github.com/averbraeck/gscg-design/issues/12).
  - 2025-05-01 - Strategy setting by player: [Issue #11](https://github.com/averbraeck/gscg-design/issues/11).
  - 2025-05-01 - Login/logout to the portal: [Issue #10](https://github.com/averbraeck/gscg-design/issues/10).
  - 2025-05-01 - Registration for game sessions: [Issue #9](https://github.com/averbraeck/gscg-design/issues/9).

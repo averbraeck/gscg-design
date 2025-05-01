@@ -21,6 +21,7 @@ GD --> (Design game) : "         \n\n\n\n\n"
 (Design game) --> (Show actor map)
 (Design game) --> (Set scenario)
 (Design game) --> (Show scenario timeline)
+(Design game) --> (Set allowable strategies)
 (Set scenario) --> (Set parameters)
 (Set actors) --> (Set parameters)
 

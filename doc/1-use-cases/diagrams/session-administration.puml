@@ -23,6 +23,7 @@ end note
 SA --> Manage : "\n\n\n\n\n\n\n\n\n\n"
 Manage --> (Create game session)
 Manage --> (Set session dates)
+Manage --> (Set allowable strategies)
 Manage --> (Delete game session)
 Manage --> (Allocate user to game)
 Manage --> (Allow self registration\nfor users)

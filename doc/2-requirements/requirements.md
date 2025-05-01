@@ -1,8 +1,9 @@
 # GSCG Requirements
 
-Last Updated: 2025-04-30
+Last Updated: 2025-05-01
 
 __Changelog:__
+ - 2025-05-01 - Define allowable player strategies: [Issue #12](https://github.com/averbraeck/gscg-design/issues/12).
  - 2025-05-01 - Strategy setting by player: [Issue #11](https://github.com/averbraeck/gscg-design/issues/11).
  - 2025-05-01 - Login/logout to the portal: [Issue #10](https://github.com/averbraeck/gscg-design/issues/10).
  - 2025-05-01 - Registration for game sessions: [Issue #9](https://github.com/averbraeck/gscg-design/issues/9).
@@ -71,6 +72,7 @@ Non-functional requirements:
 - FO2.12 The game design should present a map with the actors displayed at their locations
 - FC2.13 The game designer must be able to login to the portal
 - FC2.14 The game designer must be able to logout from the portal
+- FC2.15 The game designer must be able to set allowable strategies that can be chosen by the players
 
 Non-functional requirements:
 - NFC2.1 The game design must run in any modern browser (Chrome, Edge, Firefox, Brave, Safari, Opera)
@@ -134,6 +136,7 @@ Non-functional requirements:
 - FO4.13 The session administration should present an overview of the facilitators and players allocated to a session
 - FC4.14 The session administrator must be able to login to the portal
 - FC4.15 The session administrator must be able to logout from the portal
+- FC4.16 The session administrator must be able to set or change the allowable strategies that can be chosen by the players
 
 Non-functional requirements:
 - NFC4.1 The session administration must run in any modern browser (Chrome, Edge, Firefox, Brave, Safari, Opera)
