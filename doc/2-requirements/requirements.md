@@ -3,6 +3,7 @@
 Last Updated: 2025-04-30
 
 __Changelog:__
+ - 2025-05-01 - Registration for game sessions: [Issue #9](https://github.com/averbraeck/gscg-design/issues/9).
  - 2025-05-01 - Added export functions to analytics: [Issue #8](https://github.com/averbraeck/gscg-design/issues/8).
  - 2025-05-01 - Added communication function: [Issue #7](https://github.com/averbraeck/gscg-design/issues/7).
  - 2025-04-30 - Added display map function: [Issue #6](https://github.com/averbraeck/gscg-design/issues/6).
@@ -118,8 +119,11 @@ Non-functional requirements:
 - FC4.6 The session administrator must be able to create a game session
 - FC4.7 The session administrator must be able to change the dates of a game session
 - FC4.8 The session administrator must be able to delete a game session that has not yet been played
-- FO4.9 The session administration should present an overview of the sessions with dates and play status
-- FO4.10 The session administration should present an overview of the facilitators and players allocated to a session
+- FC4.9 The session administrator must be able to allocate users to a game instance
+- FC4.10 The session administrator must be able to turn on user self registration for a game session
+- FC4.11 The session administrator must be able to generate a batch of anonymous users with login codes and passwords
+- FO4.12 The session administration should present an overview of the sessions with dates and play status
+- FO4.13 The session administration should present an overview of the facilitators and players allocated to a session
 
 Non-functional requirements:
 - NFC4.1 The session administration must run in any modern browser (Chrome, Edge, Firefox, Brave, Safari, Opera)

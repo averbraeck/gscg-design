@@ -18,10 +18,13 @@ end note
 (User administration) --> (Set user access)
 
 "Manage\ngame session" as (Manage)
-SA --> Manage
+SA --> Manage : "\n\n\n\n\n\n\n\n\n\n"
 Manage --> (Create game session)
 Manage --> (Set session dates)
 Manage --> (Delete game session)
+Manage --> (Allocate user to game)
+Manage --> (Allow self registration\nfor users)
+Manage --> (Generate anonymous users)
 Manage --> (Show sessions with status)
 Manage --> (Show facilitators and\nplayers for session)
 
