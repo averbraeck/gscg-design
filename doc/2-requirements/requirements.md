@@ -28,11 +28,11 @@ Functional requirements:
 - FC1.6 The portal administrator must be able to create a new game instance
 - FC1.7 The portal administrator must be able to delete a game instance that has not yet been played
 - FC1.8 The portal administrator must be able to allocate a user to be the administrator of a game instance
-- FC1.8 The portal administrator must be able to create an organization
-- FC1.9 The portal administrator must be able to delete an organization (or to disallow access for users of the organization)
-- FC1.10 The portal administrator must be able to allocate a user to be the administrator of an organization
-- FC1.11 The portal administrator must be able to login to the portal
-- FC1.12 The portal administrator must be able to logout from the portal
+- FC1.9 The portal administrator must be able to create an organization
+- FC1.10 The portal administrator must be able to delete an organization (or to disallow access for users of the organization)
+- FC1.11 The portal administrator must be able to allocate a user to be the administrator of an organization
+- FC1.12 The portal administrator must be able to login to the portal
+- FC1.13 The portal administrator must be able to logout from the portal
 
 Non-functional requirements:
 - NFC1.1 The portal administration must run in any modern browser (Chrome, Edge, Firefox, Brave, Safari, Opera)
