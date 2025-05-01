@@ -3,6 +3,7 @@
 Last Updated: 2025-04-30
 
 __Changelog:__
+ - 2025-05-01 - Strategy setting by player: [Issue #11](https://github.com/averbraeck/gscg-design/issues/11).
  - 2025-05-01 - Login/logout to the portal: [Issue #10](https://github.com/averbraeck/gscg-design/issues/10).
  - 2025-05-01 - Registration for game sessions: [Issue #9](https://github.com/averbraeck/gscg-design/issues/9).
  - 2025-05-01 - Added export functions to analytics: [Issue #8](https://github.com/averbraeck/gscg-design/issues/8).
@@ -202,6 +203,9 @@ Non-functional requirements:
 - FC6.11 The player must be able to logout from the game session
 - FO6.12 The game play platform should show a map with the actors displayed at their locations, highlighting the player
 - FO6.13 The game play platform should allow chatting with other players in the game session and with the facilitator
+- FC6.14 The player must be able to define a strategy, dependent on the settings in the game
+- FC6.15 The player must be able to motivate their chosen strategy
+- FC6.16 The game play platform must send the strategy and the motivation of the player to the gamedata platform
 
 Non-functional requirements:
 - NFC6.1 The game play must run in any modern browser (Chrome, Edge, Firefox, Brave, Safari, Opera)

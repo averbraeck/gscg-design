@@ -8,8 +8,11 @@ User --> (Set password)
 
 GP --> (Make userid)
 GP --> (Login to game)
-
 GP --> (Show briefing)
+
+GP --> (Set strategy)
+(Set strategy) --> (Explain strategy choice)
+(Explain strategy choice) --> (Send data to\ngame data platform)
 
 GP --> (Game play)
 (Game play) --> (Show state information)
