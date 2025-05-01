@@ -5,7 +5,9 @@ left to right direction
 User <|-- Administrator
 Administrator <|-- OA
 
+User --> (Login)
 User --> (Set password)
+User --> (Logout)
 
 Administrator --> (User administration)
 note bottom

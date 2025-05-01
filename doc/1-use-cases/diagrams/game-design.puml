@@ -3,7 +3,10 @@ left to right direction
 
 "Game designer" as GD
 User <|-- GD
+
+User --> (Login)
 User --> (Set password)
+User --> (Logout)
 
 GD --> (Create game)
 

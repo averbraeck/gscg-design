@@ -2,9 +2,6 @@
 left to right direction
 
 "Data analyst" as DA
-User <|-- DA
-
-User --> (Set password)
 
 DA --> (Analyze data)
 (Analyze data) --> (Show session event data\nand facilitator events)

@@ -3,6 +3,7 @@
 Last Updated: 2025-04-30
 
 __Changelog:__
+ - 2025-05-01 - Login/logout to the portal: [Issue #10](https://github.com/averbraeck/gscg-design/issues/10).
  - 2025-05-01 - Registration for game sessions: [Issue #9](https://github.com/averbraeck/gscg-design/issues/9).
  - 2025-05-01 - Added export functions to analytics: [Issue #8](https://github.com/averbraeck/gscg-design/issues/8).
  - 2025-05-01 - Added communication function: [Issue #7](https://github.com/averbraeck/gscg-design/issues/7).
@@ -28,6 +29,8 @@ Functional requirements:
 - FC1.8 The portal administrator must be able to create an organization
 - FC1.9 The portal administrator must be able to delete an organization (or to disallow access for users of the organization)
 - FC1.10 The portal administrator must be able to allocate a user to be the administrator of an organization
+- FC1.11 The portal administrator must be able to login to the portal
+- FC1.12 The portal administrator must be able to logout from the portal
 
 Non-functional requirements:
 - NFC1.1 The portal administration must run in any modern browser (Chrome, Edge, Firefox, Brave, Safari, Opera)
@@ -65,6 +68,8 @@ Non-functional requirements:
 - FO2.10 The game design should present one or more screens that provide an overview of the defined actors with their capabilities
 - FO2.11 The game design should present a timeline with the scenario events for the game instance
 - FO2.12 The game design should present a map with the actors displayed at their locations
+- FC2.13 The game designer must be able to login to the portal
+- FC2.14 The game designer must be able to logout from the portal
 
 Non-functional requirements:
 - NFC2.1 The game design must run in any modern browser (Chrome, Edge, Firefox, Brave, Safari, Opera)
@@ -90,6 +95,8 @@ Non-functional requirements:
 - FO3.9 The organization administration should present an overview of the games in use
 - FO3.10 The organization administration should present an overview of the defined game sessions
 - FO3.11 The organization administration should present an overview of the users allocated to the organization
+- FC3.12 The organization administrator must be able to login to the portal
+- FC3.13 The organization administrator must be able to logout from the portal
 
 Non-functional requirements:
 - NFC3.1 The organization administration must run in any modern browser (Chrome, Edge, Firefox, Brave, Safari, Opera)
@@ -124,6 +131,8 @@ Non-functional requirements:
 - FC4.11 The session administrator must be able to generate a batch of anonymous users with login codes and passwords
 - FO4.12 The session administration should present an overview of the sessions with dates and play status
 - FO4.13 The session administration should present an overview of the facilitators and players allocated to a session
+- FC4.14 The session administrator must be able to login to the portal
+- FC4.15 The session administrator must be able to logout from the portal
 
 Non-functional requirements:
 - NFC4.1 The session administration must run in any modern browser (Chrome, Edge, Firefox, Brave, Safari, Opera)
@@ -164,6 +173,8 @@ Non-functional requirements:
 - FO5.19 The session facilitation should present an overview of the players allocated to a session
 - FO5.20 The session facilitation should present a map with the actors displayed at their locations
 - FO5.21 The session facilitation should allow chatting with the active players in the game session
+- FC5.22 The session administrator must be able to login to the portal
+- FC5.23 The session administrator must be able to logout from the portal
 
 Non-functional requirements:
 - NFC5.1 The session facilitation must run in any modern browser (Chrome, Edge, Firefox, Brave, Safari, Opera)
