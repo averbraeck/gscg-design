@@ -21,6 +21,7 @@ GP --> (Game play)
 (Game play) --> (Make decision)
 (Game play) --> (Show actor map\n and highlight player)
 (Game play) --> (Show scores)
+(Game play) --> (ABC)
 
 (Make decision) --> (Send data to\ngame data platform)
 
