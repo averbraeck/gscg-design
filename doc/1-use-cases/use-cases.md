@@ -44,7 +44,7 @@ Session design takes care of the definition of a new game session (game play) an
 
 
 ## 5. Session facilitation
-Session facilitation is takes care of starting, pausing and stopping of the game, as well as defining game speed. Briefing and debriefing are part of the facilitation. Facilitators can trigger pre-defined actions in the game, and they can communicate with the players. Note that the game can be played in a completely distributed setting, where a built-in communication function can be of use.
+Session facilitation takes care of starting, pausing and stopping of the game, as well as defining game speed. Briefing and debriefing are part of the facilitation. Facilitators can trigger pre-defined actions in the game, and they can communicate with the players. Note that the game can be played in a completely distributed setting, where a built-in communication function can be of use.
 
 ![](diagrams/session-facilitation.svg)
 
