@@ -9,10 +9,10 @@ The idea is to re-develop the game design and implementation with ideas from age
 
 ### References
 
-- [1] S.P.A. van Houten. A suite for developing and using business games: Supporting supply chain business games in a distributed context. Doctoral Thesis, TU Delft, 2007. url: https://resolver.tudelft.nl/uuid:4541bdf9-7e62-4047-9ac5-0656607bc806
-- [2] D.W.F. van Krevelen, M.E. Warnier, F. Brazier, A. Verbraeck and T. Corsi, "Transparency, consistency and modularity of strategic reasoning: An agent architecture for interactive business simulations," Proceedings of the 2011 Winter Simulation Conference (WSC), Phoenix, AZ, USA, 2011, pp. 1612-1623, doi: 10.1109/WSC.2011.6147878.
-- [3] IEEE Std 1516-2010. IEEE Standard for Modeling and Simulation (M&S) High Level Architecture (HLA).
-- [4] Y. Huang. Automated Simulation Model Generation. Doctoral Thesis, TU Delft, 2013. https://doi.org/10.4233/uuid:dab2b000-eba3-42ee-8eab-b4840f711e37
+- [1] S.P.A. van Houten. A suite for developing and using business games: Supporting supply chain business games in a distributed context. Doctoral Thesis, TU Delft, 2007. [https://resolver.tudelft.nl/uuid:4541bdf9-7e62-4047-9ac5-0656607bc806](https://resolver.tudelft.nl/uuid:4541bdf9-7e62-4047-9ac5-0656607bc806).
+- [2] D.W.F. van Krevelen, M.E. Warnier, F. Brazier, A. Verbraeck and T. Corsi, "Transparency, consistency and modularity of strategic reasoning: An agent architecture for interactive business simulations," Proceedings of the 2011 Winter Simulation Conference (WSC), Phoenix, AZ, USA, 2011, pp. 1612-1623, [doi:10.1109/WSC.2011.6147878](https://doi.org/10.1109/WSC.2011.6147878).
+- [3] IEEE Std 1516-2010. IEEE Standard for Modeling and Simulation (M&S) High Level Architecture (HLA). [doi:10.1109/IEEESTD.2010.5553440](https://doi.org/10.1109/IEEESTD.2010.5553440). 
+- [4] Y. Huang. Automated Simulation Model Generation. Doctoral Thesis, TU Delft, 2013. [doi:10.4233/uuid:dab2b000-eba3-42ee-8eab-b4840f711e37](https://doi.org/10.4233/uuid:dab2b000-eba3-42ee-8eab-b4840f711e37).
 
 
 
