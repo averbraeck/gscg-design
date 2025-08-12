@@ -1,42 +1,39 @@
-# Plan for development
+# Plan for GSCG development
 
-## Standards for systems and software engineering
+## Standards for Systems and Software Engineering
+
+The development process for the new Glocal Supply Chain Game (GSCG) implementation is primarily based on IEEE 12207 [1] for software lifecycle structure, INCOSE/ISO 15288 [2] for system-level traceability and verification processes, and RUP [3] for use case-driven functional decomposition. Additional conceptual framing was drawn from SEBoK [4], while simulation-specific architectural needs were informed by IEEE 1516 HLA standards [5].
 
 ### IEEE 12207
 
-Strengths: Covers all software lifecycle steps in clear process categories.
-
-Weakness: Less scenario-driven; no strong guidance for use cases or simulation-specific concerns.
-
-Best used for: Process compliance and traceability.
-
-Reference: ISO/IEC/IEEE 12207:2017 – Systems and software engineering — Software life cycle processes
+- Strengths: Covers all software lifecycle steps in clear process categories.
+- Weakness: Less scenario-driven; no strong guidance for use cases or simulation-specific concerns.
+- Best used for: Process compliance and traceability.
 
 
 ### INCOSE / ISO 15288
 
-Strengths: Complete system-level process model, strong on requirements, interfaces, and V&V.
-
-Weakness: More general; less helpful for software-specific modeling or simulation dynamics.
-
-Best used for: Engineering discipline and system context.
-
-Reference: INCOSE. (2015). Systems Engineering Handbook: A Guide for System Life Cycle Processes and Activities, 4th ed., aligned to ISO/IEC/IEEE 15288:2015
+- Strengths: Complete system-level process model, strong on requirements, interfaces, and V&V.
+- Weakness: More general; less helpful for software-specific modeling or simulation dynamics.
+- Best used for: Engineering discipline and system context.
 
 
 ### SEBoK (Systems Engineering Body of Knowledge)
 
-Strengths: Broad, interdisciplinary guidance; focuses on conceptual consistency, role of models, and lifecycle coherence.
+- Strengths: Broad, interdisciplinary guidance; focuses on conceptual consistency, role of models, and lifecycle coherence.
+- Weakness: More educational than prescriptive.
+- Best used for: Foundational definitions, best practices, and conceptual justification.
 
-Weakness: More educational than prescriptive.
+### References
+- [1] ISO/IEC/IEEE 12207:2017. Systems and Software Engineering — Software Life Cycle Processes.
+- [2] INCOSE. (2015). Systems Engineering Handbook: A Guide for System Life Cycle Processes and Activities, 4th ed.
+- [3] Kruchten, P. (2003). The Rational Unified Process: An Introduction. Addison-Wesley.
+- [4] Adcock, R., et al. (Eds.). (2023). Systems Engineering Body of Knowledge (SEBoK). [SEBoK Wiki](https://www.sebokwiki.org/wiki/Software_Engineering)
+- [5] IEEE Std 1516-2010. IEEE Standard for Modeling and Simulation (M&S) High Level Architecture (HLA).
 
-Best used for: Foundational definitions, best practices, and conceptual justification.
-
-Reference:  Adcock, R., et al. (Eds.). (2023). Systems Engineering Body of Knowledge (SEBoK). [SEBoK Wiki](https://www.sebokwiki.org/wiki/Software_Engineering)
 
 
-
-## Process description
+## Process Description
 
 ```
 1. Define Scope and Stakeholders
@@ -119,7 +116,7 @@ Reference:  Adcock, R., et al. (Eds.). (2023). Systems Engineering Body of Knowl
     - [ ] Deliverables: User manual, API reference, release package, web site
 
 
-## Relation between above steps and standards
+## Relation between above Steps and SE Standards
 
 | Step | IEEE 12207 | INCOSE / ISO 15288 | SEBoK |
 | ---- | ---------- | ------------------ | ----- |
@@ -130,6 +127,6 @@ Reference:  Adcock, R., et al. (Eds.). (2023). Systems Engineering Body of Knowl
 | 5. Design Simulation Components | Detailed Design Process | Design Definition | Design Engineering |
 | 6. Plan Integration Architecture | Interface & Integration Planning | Integration Definition & Planning | Systems Integration Strategy |
 | 7. Develop Components & Services | Software Construction | Implementation Process | Software Construction & Implementation |
-| 8. Integrate and Test (Incremental) | Integration & Software Testing | Integration Process, Verification | V&V Planning & Executionv
+| 8. Integrate and Test (Incremental) | Integration & Software Testing | Integration Process, Verification | V&V Planning & Execution |
 | 9. System Verification & Validation | Software Verification & Validation | Verification & Validation | Independent V&V |
 | 10. Final Documentation & Delivery | Documentation Process | Transition / Transition to Operations | Product Support, Configuration Management |
