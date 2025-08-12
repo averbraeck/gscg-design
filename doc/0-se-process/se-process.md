@@ -34,8 +34,8 @@
 
 1. Scope & Stakeholders
 
-  - Description: Identify goals, end-users, and constraints
-  - Deliverables: Project charter, stakeholder map
+- [ ] Description: Identify goals, end-users, and constraints
+- [ ] Deliverables: Project charter, stakeholder map
 
 2. Use Cases & Scenarios
 
