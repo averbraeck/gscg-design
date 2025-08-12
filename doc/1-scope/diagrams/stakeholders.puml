@@ -5,18 +5,18 @@ hide circle
 skinparam linetype ortho
 
 ' objects
-entity "portal" as portal { }
-entity "organization" as organization { }
-entity "game instance" as game { }
-entity "game session" as session { }
+entity "portal" as portal #back:lightgreen
+entity "organization" as organization #back:lightgreen
+entity "game instance" as game #back:lightgreen
+entity "game session" as session #back:lightgreen
 
-entity "portal admin" as padmin { }
-entity "org admin" as oadmin { } 
-entity "session admin" as sadmin { }
-entity "game designer" as designer { }
-entity "facilitator" as facilitator { }
-entity "data analyst" as analyst { }
-entity "game player" as player { }
+entity "portal admin" as padmin #back:lightblue
+entity "org admin" as oadmin #back:lightblue 
+entity "session admin" as sadmin #back:lightblue
+entity "game designer" as designer #back:lightblue
+entity "facilitator" as facilitator #back:lightblue
+entity "data analyst" as analyst #back:lightblue
+entity "game player" as player #back:lightblue
 
 ' relations
 game ||--o{ session
