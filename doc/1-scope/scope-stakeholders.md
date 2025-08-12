@@ -22,21 +22,6 @@ In the GSCG project, there are a number of stakeholders. The stakeholders have a
 
 ![](diagrams/stakeholders.svg)
 
-```mermaid
-erDiagram
-    "game instance" ||--o{ "game session" : has
-    portal ||--|{ "portal admin" : manages
-    portal ||--o{ organization : has
-    organization ||--o{ "org admin" : manages
-    organization ||--o{ "game session" : has
-    "game session" ||--|{ player : plays
-    "game session" ||--|{ facilitator : facilitates
-    "game session" ||--o{ "session admin" : manages
-    organization ||--|{ "game session" : has
-    designer }o--o{ "game instance" : maintains
-    "game session" }o--o{ "game analyst" : analyzes
-```
-
 A short definition of each stakeholder (user) is given below.
 
 ### Game player

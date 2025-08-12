@@ -1,24 +1,60 @@
 @startuml
 
-' config
+' === Global Config ===
 hide circle
 skinparam linetype ortho
+skinparam nodesep 70
+skinparam ranksep 60
+skinparam packageStyle rectangle
+skinparam defaultTextAlignment center
+skinparam entity {
+    BorderColor Black
+    FontSize 12
+    Padding 5
+    BackgroundColor White
+}
+skinparam minClassWidth 150
+skinparam minClassHeight 60
 
-' objects
-entity "portal" as portal #back:lightgreen
-entity "organization" as organization #back:lightgreen
-entity "game instance" as game #back:lightgreen
-entity "game session" as session #back:lightgreen
+' Transparent packages for grouping
+skinparam package {
+    BorderColor transparent
+    BackgroundColor transparent
+}
 
-entity "portal admin" as padmin #back:lightblue
-entity "org admin" as oadmin #back:lightblue 
-entity "session admin" as sadmin #back:lightblue
-entity "game designer" as designer #back:lightblue
-entity "facilitator" as facilitator #back:lightblue
-entity "data analyst" as analyst #back:lightblue
-entity "game player" as player #back:lightblue
+' === Layer 1: Portals ===
+package " " {
+    entity "Portal" as portal #lightgreen
+}
 
-' relations
+' === Layer 2: Organizations & Games ===
+package " " {
+    entity "Organization" as organization #lightgreen
+    entity "Game Instance" as game #lightgreen
+}
+
+' === Layer 3: Sessions ===
+package " " {
+    entity "Game Session" as session #lightgreen
+}
+
+' === Layer 4: Roles ===
+package " " {
+    entity "Portal Admin" as padmin #lightblue
+    entity "Org Admin" as oadmin #lightblue
+    entity "Session Admin" as sadmin #lightblue
+    entity "Game Designer" as designer #lightblue
+    entity "Facilitator" as facilitator #lightblue
+    entity "Data Analyst" as analyst #lightblue
+    entity "Game Player" as player #lightblue
+}
+
+' === Hidden edges to enforce vertical alignment ===
+' portal -[hidden]-> organization
+' organization -[hidden]-> session
+' game -[hidden]-> session
+
+' === Relationships ===
 game ||--o{ session
 portal ||--{ padmin
 portal ||--o{ organization
