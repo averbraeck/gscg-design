@@ -2,7 +2,7 @@
 
 ## Standards for Systems and Software Engineering
 
-The development process for the new Glocal Supply Chain Game (GSCG) implementation is primarily based on IEEE 12207 [1] for software lifecycle structure, INCOSE/ISO 15288 [2] for system-level traceability and verification processes, and RUP [3] for use case-driven functional decomposition. Additional conceptual framing was drawn from SEBoK [4], while simulation-specific architectural needs were informed by IEEE 1516 HLA standards [5].
+The development process for the new Global Supply Chain Game (GSCG) implementation is primarily based on IEEE 12207 [1] for software lifecycle structure, INCOSE/ISO 15288 [2] for system-level traceability and verification processes, and RUP [3] for use case-driven functional decomposition. Additional conceptual framing was drawn from SEBoK [4], while distributed simulation-specific architectural needs were informed by IEEE 1516 HLA standards [5].
 
 ### IEEE 12207
 
@@ -24,19 +24,20 @@ The development process for the new Glocal Supply Chain Game (GSCG) implementati
 - Weakness: More educational than prescriptive.
 - Best used for: Foundational definitions, best practices, and conceptual justification.
 
+
 ### References
 - [1] ISO/IEC/IEEE 12207:2017. Systems and Software Engineering — Software Life Cycle Processes.
 - [2] INCOSE. (2015). Systems Engineering Handbook: A Guide for System Life Cycle Processes and Activities, 4th ed.
 - [3] Kruchten, P. (2003). The Rational Unified Process: An Introduction. Addison-Wesley.
 - [4] Adcock, R., et al. (Eds.). (2023). Systems Engineering Body of Knowledge (SEBoK). [SEBoK Wiki](https://www.sebokwiki.org/wiki/Software_Engineering)
-- [5] IEEE Std 1516-2010. IEEE Standard for Modeling and Simulation (M&S) High Level Architecture (HLA).
+- [5] IEEE Standard 1516-2010. IEEE Standard for Modeling and Simulation (M&S) High Level Architecture (HLA).
 
 
 
 ## Process Description
 
 ```
-1. Define Scope and Stakeholders
+1. Define Scope and End-users
 2. Capture Use Cases and Operational Scenarios
 3. Define System Requirements
    └── Functional, Non-functional, Constraints
@@ -65,15 +66,15 @@ The development process for the new Glocal Supply Chain Game (GSCG) implementati
 
 ## Deliverables
 
-1. **Define Scope and Stakeholders**
+1. **Define Scope and End-users**
 
     - [ ] Description: Identify goals, end-users, and constraints
-    - [ ] Deliverables: Project charter, stakeholder map
+    - [ ] Deliverables: Project charter, map with end-users / roles, project constraints
 
 2. **Capture Use Cases and Operational Scenarios**
 
     - [ ] Description: Define simulation stories or mission threads
-    - [ ] Deliverables: Use case diagrams and descriptions, high-level sequence diagrams
+    - [ ] Deliverables: Use case diagrams and descriptions
 
 3. **Requirements Definition**
 
