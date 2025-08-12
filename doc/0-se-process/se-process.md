@@ -121,14 +121,15 @@ Reference:  Adcock, R., et al. (Eds.). (2023). Systems Engineering Body of Knowl
 
 ## Relation between above steps and standards
 
-Step | IEEE 12207 | INCOSE / ISO 15288 | SEBoK
-1. Define Scope & Stakeholders | Organizational Processes (Project Management), Acquisition | Stakeholder Requirements Definition (SRD) |  Stakeholder & Business Context
-2. Capture Use Cases & Scenarios | Software Requirements (User Requirements) | Stakeholder Needs & Requirements | Concept Definition, Operational Scenarios
-3. Define System Requirements | Software Requirements Process | System Requirements Definition (SRD) | Requirements Engineering
-4. Architect the System | Architectural Design Process | Architecture Definition | Logical/Physical Architecture
-5. Design Simulation Components | Detailed Design Process | Design Definition | Design Engineering
-6. Plan Integration Architecture | Interface & Integration Planning | Integration Definition & Planning | Systems Integration Strategy
-7. Develop Components & Services | Software Construction | Implementation Process | Software Construction & Implementation
-8. Integrate and Test (Incremental) | Integration & Software Testing | Integration Process, Verification | V&V Planning & Execution
-9. System Verification & Validation | Software Verification & Validation | Verification & Validation | Independent V&V 
-10. Final Documentation & Delivery | Documentation Process | Transition / Transition to Operations | Product Support, Configuration Management 
+| Step | IEEE 12207 | INCOSE / ISO 15288 | SEBoK |
+| ---- | ---------- | ------------------ | ----- |
+| 1. Define Scope & Stakeholders | Organizational Processes (Project Management), Acquisition | Stakeholder Requirements Definition (SRD) |  Stakeholder & Business Context |
+| 2. Capture Use Cases & Scenarios | Software Requirements (User Requirements) | Stakeholder Needs & Requirements | Concept Definition, Operational Scenarios |
+| 3. Define System Requirements | Software Requirements Process | System Requirements Definition (SRD) | Requirements Engineering |
+| 4. Architect the System | Architectural Design Process | Architecture Definition | Logical/Physical Architecture |
+| 5. Design Simulation Components | Detailed Design Process | Design Definition | Design Engineering |
+| 6. Plan Integration Architecture | Interface & Integration Planning | Integration Definition & Planning | Systems Integration Strategy |
+| 7. Develop Components & Services | Software Construction | Implementation Process | Software Construction & Implementation |
+| 8. Integrate and Test (Incremental) | Integration & Software Testing | Integration Process, Verification | V&V Planning & Executionv
+| 9. System Verification & Validation | Software Verification & Validation | Verification & Validation | Independent V&V |
+| 10. Final Documentation & Delivery | Documentation Process | Transition / Transition to Operations | Product Support, Configuration Management |
