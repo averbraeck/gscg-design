@@ -3,7 +3,6 @@
 ' config
 hide circle
 skinparam linetype ortho
-left to right direction
 
 ' objects
 entity "portal" as portal #back:lightgreen
