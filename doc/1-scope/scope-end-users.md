@@ -20,7 +20,7 @@ The idea is to re-develop the game design and implementation with ideas from age
 
 In the GSCG project, there are a number of end-users or roles (all in blue). The end-users have a relation to the overall portal on a server, and potentially to an organization, game instance and/or game session (all in green).
 
-![](diagrams/stakeholders.svg)
+![](diagrams/end-users.svg)
 
 A short definition of each end-user is given below.
 
