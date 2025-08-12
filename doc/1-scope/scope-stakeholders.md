@@ -23,17 +23,18 @@ In the GSCG project, there are a number of stakeholders. The stakeholders have a
 ![](diagrams/stakeholders.svg)
 
 ```mermaid
-game ||--o{ session
-portal ||--{ padmin
-portal ||--o{ organization
-organization ||-o{ oadmin
-organization ||-o{ session
-session ||--{ player
-session ||--{ facilitator
-session ||--o{ sadmin
-organization ||--{ session
-designer }o--o{ game
-game }o--o{ analyst
+erDiagram
+  game ||--o{ session
+  portal ||--{ "portal admin"
+  portal ||--o{ organization
+  organization ||-o{ "org admin"
+  organization ||-o{ "game session"
+  "game session" ||--{ player
+  "game session" ||--{ facilitator
+  "game session" ||--o{ "session admin"
+  organization ||--{ "game session"
+  designer }o--o{ game
+  game }o--o{ "game analyst"
 ```
 
 A short definition of each stakeholder (user) is given below.
