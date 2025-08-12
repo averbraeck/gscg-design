@@ -23,8 +23,8 @@ entity "game player" as player #back:lightblue
 game ||--o{ session
 portal ||--{ padmin
 portal ||--o{ organization
-organization ||-o{ oadmin
-organization ||-o{ session
+organization ||--o{ oadmin
+organization ||--o{ session
 session ||--{ player
 session ||--{ facilitator
 session ||--o{ sadmin
