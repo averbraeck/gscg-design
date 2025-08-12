@@ -20,6 +20,8 @@ The idea is to re-develop the game design and implementation with ideas from age
 
 In the GSCG project, there are a number of stakeholders. The stakeholders have a relation to the overall portal on a server, and potentially to an organization, game instance and/or game session.
 
+![](diagrams/stakeholders.svg)
+
 ```mermaid
 erDiagram
     "game instance" ||--o{ "game session" : has
