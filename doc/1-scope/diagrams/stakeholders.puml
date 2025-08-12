@@ -1,0 +1,38 @@
+@startuml
+
+' config
+hide circle
+skinparam linetype ortho
+left to right direction
+
+' objects
+entity "portal" as portal { }
+entity "organization" as organization { }
+entity "game instance" as game { }
+entity "game session" as session { }
+
+entity "portal admin" as padmin { }
+entity "org admin" as oadmin { } 
+entity "session admin" as sadmin { }
+entity "game designer" as designer { }
+entity "facilitator" as facilitator { }
+entity "data analyst" as analyst { }
+entity "game player" as player { }
+
+' relations
+portal ||--{ padmin
+organization ||-o{ oadmin
+portal ||--o{ organization
+designer }o--o{ game
+game ||--o{ session
+session }--|| organization
+game ||--o{ player
+game ||--o{ facilitator
+game }o--o{ analyst
+session ||--{ player
+session ||--{ facilitator
+session ||--o{ sadmin
+organization ||--{ sadmin
+organization ||--{ session
+
+@enduml
