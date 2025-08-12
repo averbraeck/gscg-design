@@ -20,19 +20,16 @@ entity "data analyst" as analyst { }
 entity "game player" as player { }
 
 ' relations
-portal ||--{ padmin
-organization ||-o{ oadmin
-portal ||--o{ organization
-designer }o--o{ game
 game ||--o{ session
-session }--|| organization
-game ||--o{ player
-game ||--o{ facilitator
-game }o--o{ analyst
+portal ||--{ padmin
+portal ||--o{ organization
+organization ||-o{ oadmin
+organization ||-o{ session
 session ||--{ player
 session ||--{ facilitator
 session ||--o{ sadmin
-organization ||--{ sadmin
 organization ||--{ session
+designer }o--o{ game
+game }o--o{ analyst
 
 @enduml
