@@ -29,8 +29,8 @@ The development process for the new Global Supply Chain Game (GSCG) implementati
 - [1] ISO/IEC/IEEE 12207:2017. Systems and Software Engineering — Software Life Cycle Processes.
 - [2] INCOSE. (2015). Systems Engineering Handbook: A Guide for System Life Cycle Processes and Activities, 4th ed.
 - [3] Kruchten, P. (2003). The Rational Unified Process: An Introduction. Addison-Wesley.
-- [4] Adcock, R., et al. (Eds.). (2023). Systems Engineering Body of Knowledge (SEBoK). [SEBoK Wiki](https://www.sebokwiki.org/wiki/Software_Engineering)
-- [5] IEEE Standard 1516-2010. IEEE Standard for Modeling and Simulation (M&S) High Level Architecture (HLA).
+- [4] Adcock, R., et al. (Eds.). (2023). Systems Engineering Body of Knowledge (SEBoK). [https://www.sebokwiki.org/wiki/Software_Engineering](https://www.sebokwiki.org/wiki/Software_Engineering)
+- [5] IEEE Standard 1516-2010. IEEE Standard for Modeling and Simulation (M&S) High Level Architecture (HLA).  [doi:10.1109/IEEESTD.2010.5553440](https://doi.org/10.1109/IEEESTD.2010.5553440). 
 
 
 
