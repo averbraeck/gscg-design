@@ -27,7 +27,6 @@ organization ||--o{ session
 session ||--{ player
 session ||--{ facilitator
 session ||--o{ sadmin
-organization ||--{ session
 designer }o--o{ game
 game }o--o{ analyst
 
