@@ -24,17 +24,17 @@ In the GSCG project, there are a number of stakeholders. The stakeholders have a
 
 ```mermaid
 erDiagram
-    "game instance" ||--o{ "game session"
-    portal ||--|{ "portal admin"
-    portal ||--o{ organization
-    organization ||-o{ "org admin"
-    organization ||-o{ "game session"
-    "game session" ||--|{ player
-    "game session" ||--|{ facilitator
-    "game session" ||--o{ "session admin"
-    organization ||--|{ "game session"
-    designer }o--o{ "game instance"
-    "game session" }o--o{ "game analyst"
+    "game instance" ||--o{ "game session" : has
+    portal ||--|{ "portal admin" : manages
+    portal ||--o{ organization : has
+    organization ||-o{ "org admin" : manages
+    organization ||-o{ "game session" : has
+    "game session" ||--|{ player : plays
+    "game session" ||--|{ facilitator : facilitates
+    "game session" ||--o{ "session admin" : manages
+    organization ||--|{ "game session" : has
+    designer }o--o{ "game instance" : maintains
+    "game session" }o--o{ "game analyst" : analyzes
 ```
 
 A short definition of each stakeholder (user) is given below.
