@@ -1,5 +1,11 @@
 # Database design
 
+Last Updated: 2025-08-11
+
+__Changelog:__
+ - 2025-08-11 - Document creation
+
+
 The GSCG database is designed in three layers:
 
 1. **User layer** with the organizations and users and their access rights.

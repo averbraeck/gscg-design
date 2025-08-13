@@ -1,5 +1,12 @@
 # 1. Scope and Stakeholders
 
+Last Updated: 2025-08-12
+
+__Changelog:__
+ - 2025-08-12 - Added role diagram, made roles more clear, changed 'stakeholders' into 'end-users'
+ - 2025-08-09 - Document creation
+
+
 ## 1.1. Project goals
 
 The goal of the project is to develop a new version of the Global Supply Chain Game (GSCG) that is described on the website [https://gscg.org](https://gscg.org). The original version was developed and described in the dissertation by van Houten [1]. The game implementation is outdated and not compliant with the latest insights into distributed simulation. The game was also heavily dependent on Java software running locally on the players' computers, which required difficult installation. The intention of the new implementation is to be fully Web-based on the client side.
