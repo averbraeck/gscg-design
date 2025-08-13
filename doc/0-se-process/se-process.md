@@ -1,5 +1,12 @@
 # Plan for GSCG development
 
+Last Updated: 2025-08-12
+
+__Changelog:__
+ - 2025-08-12 - Changed 'stakeholders' into 'end-users' in step 1
+ - 2025-08-09 - Document creation
+
+
 ## Standards for Systems and Software Engineering
 
 The development process for the new Global Supply Chain Game (GSCG) implementation is primarily based on IEEE 12207 [1] for software lifecycle structure, INCOSE/ISO 15288 [2] for system-level traceability and verification processes, and RUP [3] for use case-driven functional decomposition. Additional conceptual framing was drawn from SEBoK [4], while distributed simulation-specific architectural needs were informed by IEEE 1516 HLA standards [5].
