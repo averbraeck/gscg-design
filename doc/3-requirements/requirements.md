@@ -1,8 +1,9 @@
-# GSCG Requirements
+# 3. GSCG Requirements
 
 Last Updated: 2025-05-01
 
 __Changelog:__
+ - 2025-08-13 - Add chapter number for SE-step "3" to the headers in the document
  - 2025-05-01 - Define allowable player strategies: [Issue #12](https://github.com/averbraeck/gscg-design/issues/12).
  - 2025-05-01 - Strategy setting by player: [Issue #11](https://github.com/averbraeck/gscg-design/issues/11).
  - 2025-05-01 - Login/logout to the portal: [Issue #10](https://github.com/averbraeck/gscg-design/issues/10).
@@ -13,11 +14,11 @@ __Changelog:__
  - 2025-04-30 - Added 'Pause game': [Issue #4](https://github.com/averbraeck/gscg-design/issues/4). 
  - 2025-04-30 - Document Creation
  
-## 0. Legend
+## 3.0. Legend
 The requirements are numbered respective to the use case from the document ['use-cases'](../1-use-cases/use-cases.md). The requirements are divided into Functional requirements, indicated with an abbreviation "F", and non-functional requirements, indicated with the abbreviation "NF". The requirements are categorized into two classes from the MoSCoW-framework, the "Must-haves", with the letter "C" for "constraint", and the "Should-haves", with the letter "O" for "objective". Combinations are, e.g. NFC2.3, indicating the third non-functional requirement for use-case 2, being a constraint (a must-have). All "F" and "NF" requirements are consecutively numbered within the use case, both starting with number 1. 
 
 
-## 1. Portal administration
+## 3.1. Portal administration
 
 Functional requirements:
 - FC1.1 The portal administrator must be able to change their own password to enter the GSCG portal
@@ -56,7 +57,7 @@ Non-functional requirements:
 > Note for NFO1.5: it is not required to scale all the way down to a mobile device. The GSCG game is expected to run on screens with a size of at least 1024x768 pixels, and usually 1920x1080 or better.
 
 
-## 2. Game design
+## 3.2. Game design
 
 - FC2.1 The game designer must be able to change their own password to enter the GSCG portal
 - FC2.2 The game designer must be able to create a game instance
@@ -85,7 +86,7 @@ Non-functional requirements:
 > Note for NFO2.5: it is not required to scale all the way down to a mobile device. The GSCG game is expected to run on screens with a size of at least 1024x768 pixels, and usually 1920x1080 or better.
 
 
-## 3. Organization administration
+## 3.3. Organization administration
 
 - FC3.1 The organization administrator must be able to change their own password to enter the GSCG portal
 - FC3.2 The organization administrator must be able to create a user
@@ -119,7 +120,7 @@ Non-functional requirements:
 > Note for NFO3.5: it is not required to scale all the way down to a mobile device. The GSCG game is expected to run on screens with a size of at least 1024x768 pixels, and usually 1920x1080 or better.
 
 
-## 4. Session administration
+## 3.4. Session administration
 
 - FC4.1 The session administrator must be able to change their own password to enter the GSCG portal
 - FC4.2 The session administrator must be able to create a user
@@ -154,7 +155,7 @@ Non-functional requirements:
 > Note for NFO4.5: it is not required to scale all the way down to a mobile device. The GSCG game is expected to run on screens with a size of at least 1024x768 pixels, and usually 1920x1080 or better.
 
 
-## 5. Session facilitation
+## 3.5. Session facilitation
 
 - FC5.1 The session facilitator must be able to change their own password to enter the GSCG portal
 - FC5.2 The session facilitator must be able to create a player for the game session
@@ -191,7 +192,7 @@ Non-functional requirements:
 > Note for NFO5.5: it is not required to scale all the way down to a mobile device. The GSCG game is expected to run on screens with a size of at least 1024x768 pixels, and usually 1920x1080 or better.
 
 
-## 6. Game play
+## 3.6. Game play
 
 - FC6.1 The player must be able to create a userid/password for the game session in case the game allows self-registration
 - FC6.2 The player must be able to change their password
@@ -221,7 +222,7 @@ Non-functional requirements:
 > Note for NFO6.5: Also for players, it is not required to scale all the way down to a mobile device. The GSCG game is expected to run on screens with a size of at least 1024x768 pixels, and usually 1920x1080 or better. Tests for tablets, Chromebooks, and other devises that students bring to class might be necessary.
 
 
-## 7. Game data analytics
+## 3.7. Game data analytics
 
 - FC7.1 The data analyst must be able to login to the game data platform
 - FC7.2 The data analyst must be able to change their password
