@@ -1,8 +1,9 @@
 # 2. GSCG Use Cases
 
-Last Updated: 2025-05-01
+Last Updated: 2025-08-26
 
 __Changelog:__
+ - 2025-08-26 - Add missing function in use case diagram for game design (consistency with requirements)
  - 2025-08-13 - Add chapter number for SE-step "2" to the headers in the document
  - 2025-05-01 - Define allowable player strategies: [Issue #12](https://github.com/averbraeck/gscg-design/issues/12).
  - 2025-05-01 - Strategy setting by player: [Issue #11](https://github.com/averbraeck/gscg-design/issues/11).
