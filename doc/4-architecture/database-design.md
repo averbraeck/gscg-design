@@ -1,4 +1,4 @@
-# Database design
+# 4.1. Database design
 
 Last Updated: 2025-08-11
 
