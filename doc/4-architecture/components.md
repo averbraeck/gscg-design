@@ -5,7 +5,8 @@ Last updated: 25-0802925
 __Changelog:__
  - 2025-08-25 - Document creation
  - 2025-08-26 - Update of the diagram with clearer communication with the persistence layer
-
+ - 2025-08-26 - Made the data sources consistent with database design document
+ 
 
 ## Architectural diagram
  

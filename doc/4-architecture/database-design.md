@@ -8,6 +8,8 @@ __Changelog:__
  - 2025-08-26 - Made the terminology consistent with the architecture document
 
 
+## High-level database design
+
 The GSCG database is designed in three separate 'compartments' that are related, but managed by different roles:
 
 1. **GSCG Admin data** with the organizations and users and their access rights.
