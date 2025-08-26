@@ -22,7 +22,9 @@ GD --> (Design game) : "         \n\n\n\n\n"
 (Design game) --> (Set scenario)
 (Design game) --> (Show scenario timeline)
 (Design game) --> (Set allowable strategies)
+(Design game) --> (Set news items)
 (Set scenario) --> (Set parameters)
+(Set scenario) --> (Set interventions)
 (Set actors) --> (Set parameters)
 
 @enduml
