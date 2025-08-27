@@ -8,6 +8,7 @@ __Changelog:__
  - 2025-08-26 - Made the terminology consistent with the architecture document
  - 2025-08-26 - Added main tables for GSCG Admin data
  - 2025-08-27 - Added design for GSCG Admin Data database tables
+ - 2025-08-27 - Added design for Game Design Data database tables
 
 
 ## High-level database design
@@ -41,5 +42,14 @@ The GSCG Admin data supports the roles, use cases and requirements for the Porta
 The design of the GSCG Admin data tables looks as follows:
 
 ![](diagrams/gscg-database-admin.png)
+
+
+## Game design data
+
+Game design data contains all data necessary to create and start a game. The database from the previous GSCG project was extremely complicated, with multiple layers defining templates for actor definitions and their parameters on one layer, and actor instances and parameter values on another layer. This made the database complex, and instantiation slow. The database and the code to be executed do have a relation, of course. A database record (or set of records) defining an actor should contain the relevant properties for that actor as it is defined in the code. In that sense, the database 'mirrors' the simulation objects that have to be instantiated. The old database design was as follows:
+
+![](diagrams/gscg_database_20070305.png)
+
+Defining a game was a multi-month project due to the complexity of the database. In the design for this project, it might therefore be good to take a more lean approach, while keeping flexibility and maintainability. The tables for the game will be described in a number of steps below.
 
 
