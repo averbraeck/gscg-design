@@ -6,6 +6,7 @@ __Changelog:__
  - 2025-08-25 - Document creation
  - 2025-08-26 - Update of the diagram with clearer communication with the persistence layer
  - 2025-08-26 - Made the data sources consistent with database design document
+ - 2025-08-27 - Update architecture diagram: give access to Model Factory for admins and facilitator
  
 
 ## Architectural diagram
@@ -15,8 +16,9 @@ On a very high level, the overall GSCG application looks as follows:
 ![](diagrams/gscg-architecture.png)
 
 All roles as identified in the use cases interact with the applications through a web page. On the server, several applications (e.g., servlets) are running for the different roles. All data is persisted in one or more databases. Three different data sets are identified:
-.
-- GSCG data with the organizational details, users, and game designs and game settings per organization
+
+- GSCG data with the organizational details and users per organization
+- Game design data with game definitions and game settings
 - Game state data with the persisted game so it can be restarted at a later date or after a crash.
 - Game play data for game data analytics (potentially through an external service such as gamedata.nl). 
 
