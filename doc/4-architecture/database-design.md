@@ -11,7 +11,7 @@ __Changelog:__
  - 2025-08-27 - Added design for Game Design Data database tables
 
 
-## High-level database design
+## 4.1.1. High-level database design
 
 The GSCG database is designed in three separate 'compartments' that are related, but managed by different roles:
 
@@ -24,7 +24,7 @@ The results from the game can also be sent to the external data platform [gameda
 4. **Game Play data** with game sessions, game state, and game results
 
 
-## GSCG Admin data
+## 4.1.2. GSCG Admin data
 
 The GSCG Admin data supports the roles, use cases and requirements for the Portal Administrator, Organization Administrator, and Session Administrator. Important tasks are user administration, game administration, organization administration, and session administration. This leads to the following envisioned tables in the database:
 
@@ -44,7 +44,7 @@ The design of the GSCG Admin data tables looks as follows:
 ![](diagrams/gscg-database-admin.png)
 
 
-## Game design data
+## 4.1.3. Game design data
 
 Game design data contains all data necessary to create and start a game. The database from the previous GSCG project was extremely complicated, with multiple layers defining software templates for actor definitions and their parameters on one layer, and the game definition and parameter values on another layer. This made the database complex, and instantiation slow. The database and the code to be executed do have a relation, of course. A database record (or set of records) defining an actor should contain the relevant properties for that actor as it is defined in the code. In that sense, the database 'mirrors' the simulation objects that have to be instantiated. The old database design was as follows:
 
@@ -80,13 +80,16 @@ The actor table defines the organizations (agents) in the game with their locati
 - `actor` is the instantiation of an `actor_type` in the `game_version`. It has a `location` and one or more instances of `role`.
 - `role_type` defines a role for an `actor_type` such as Purchasing, Selling, Producing, Banking or Transporting in the simulation library. Therefore, it contains a reference to a `java_type`.
 - `role` is the instantiation of an `role_type` in the `game_version`. The `role` has a `content_receiver` that specifies when content (messages) can be received and how long it takes to process.
-- `content_receiver` is a simple specification of the delay that occurs when receiving content (messages). This definition can probably be extended with versions that have weekend closure, that work office hours in a certain time zone, etc.
+- `content_receiver` is a simple specification of the delay that occurs when receiving content (messages).
 - `location` specifies an (x,y) or (lon,lat) position for the `actor`. It is located on a `landmass`.
 - `landmass` is important, since trucks and trains cannot transport goods between landmasses, only on landmasses. For quick calculations on a landmass, the average truck speed is given for the landmass.
 
 The partial relations look as follows:
 
 ![](diagrams/gscg-database-actor-role.png)
+
+> [!NOTE]
+> The definition of `content_receiver` can probably be extended with versions that have weekend closure, that work office hours in a certain time zone, etc.
 
 
 ### Actor and Role parameter/value tables
@@ -124,4 +127,27 @@ The partial relations look as follows:
 
 ![](diagrams/gscg-database-handler-process.png)
 
+Additionally, handlers can be restricted from which actors they process messages (e.g., take an order), and for which products they process messages (e.g., take an order):
+
+![](diagrams/gscg-database-handler-valid.png)
+
+> [!NOTE]
+> The `handler_valid_actor` now works on the `actor` instance level. Maybe the restriction should be defined on the `actor_type` level. As an example, a personal client can typically not buy products from a factory. Factory is an `actor_type` with many instances. Maybe two restrictions can be added: one for `actor`, and one for `actor_type`.
+
+
+### Transport tables
+
+Transport modes and distances are provided in the transport tables. The `location` and `landmass` have already been defined above.
+
+- `transport_mode` defines a transport mode, such as `Truck`, `Rail`, `Air` or `Ship`. Variants of these transport modes with different characteristics can of course also be defined.
+- `handled_sku` indicates which type of packaging for products are handled by the `transport_mode`. A ship dies not take aircraft pallets, and an airplane cannot transport a 40 ft ISO container. The table links `sku` to `transport_mode` for the valid sku's that can be transported.
+- `transfer` defines a link in the transport network. It indicates you can transport goods (products) from `location` A to `location` B with a certain `transport_mode`. An indication of the distance and travel time is provided as well. 
+
+![](diagrams/gscg-database-transport.png)
+
+> [!NOTE]
+> Typically, the supply chain model will be set-up as a hub-and-spoke network. Actors are connected to the nearest hub per transport mode, such as ports, airports and rail terminals. Trucking on a landmass can be estimated using the `truck_speed` attribute in the `landmass` definition using a rough estimate of the distance between the two locations on the landmass.
+
+
+## 4.1.4. Game state data
 
