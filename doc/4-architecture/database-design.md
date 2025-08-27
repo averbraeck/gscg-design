@@ -89,7 +89,7 @@ The partial relations look as follows:
 ![](diagrams/gscg-database-actor-role.png)
 
 
-### Actor and Role parameters
+### Actor and Role parameter/value tables
 
 The actors and roles have parameters that need to be defined in the database. Every parameter has a type and a value for the game instance. The `actor_type`, `actor`, `role_type` and `role` have already been defined above. The tables and relations look as follows:
 
@@ -103,5 +103,25 @@ The actors and roles have parameters that need to be defined in the database. Ev
 The partial relations look as follows:
 
 ![](diagrams/gscg-database-parameters.png)
+
+
+### Handler and Process tables
+
+The `handler` is the rule class for an actor that takes care of handling a certain `content_type`, such as an `Order`, a `RequestForQuote`, a `Payment` or a `Shipment`. A `process` is the definition of an autonomous process. The autonomous process in the simulation is not triggered by the receipt of a content message, such as the handler, but it acts autonomously, often based on a gien frequency. An example is a marker that buys products on a regular basis, or a Make-to-Stock producer of goods that makes its goods available to the market, irrespective of demand. The tables `role_type` and `role` have already been defined above.
+
+- `parameter_type` defines the java types that can be used, such as `int`, `double`, `DistContinuous`, `DistDiscrete`, `Speed`, `Length`, etc. Note that the definition is 'blue', which means that it is defined outside of the `game` or `game_version`. 
+- `handler_type` links to the definition of the handler in Java through the `java_type` field. It is linked to the `role_type` hat is defined on the level of a `game`.
+- `handler` is a specific instantiation of the `handler_type` for a `role`, which is defined on the level of a `game_version`. 
+- `content_type` is the type of message that the `handler` can handle in the simulation. Note that the definition is 'blue', which means that it is defined outside of the `game` or `game_version`. 
+- `handler_parameter` belongs to a `handler_type` and indicates which parameters can or should be defined for a `handler` instance.
+- `handler_value` provides the value of a `handler_parameter` for a `handler` instance.
+- `process_type` links to the definition of the autonomous process in Java through the `java_type` field. It is linked to the `role_type` hat is defined on the level of a `game`.
+- `process` is a specific instantiation of the `process_type` for a `role`, which is defined on the level of a `game_version`. 
+- `process_parameter` belongs to a `process_type` and indicates which parameters can or should be defined for a `process` instance.
+- `process_value` provides the value of a `process_parameter` for a `process` instance.
+
+The partial relations look as follows:
+
+![](diagrams/gscg-database-handler-process.png)
 
 
