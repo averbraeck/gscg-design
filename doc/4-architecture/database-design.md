@@ -52,7 +52,39 @@ Game design data contains all data necessary to create and start a game. The dat
 
 Defining a game was a multi-month project due to the complexity of the database. In the design for this project, it might therefore be good to take a more lean approach, while keeping flexibility and maintainability. The tables for the game will be described in a number of steps below.
 
-The overall diagram (with a couple or relations left out) is still complicated:
+The overall diagram (with a couple or relations left out) is still complicated. Blue types refer to the Admin tables. Green tables define a game without values for the parameters. These tables set-up a rough scaffold for the game. Red tables define the details for the game, such as locations, distances, and values for the parameters of the actors, handlers, and autonomous processes.
 
 ![](diagrams/gscg-database-game-design.png)
+
+Let's break down the database into several sub-components:
+
+### Product tables
+
+The product tables define the product, sku, and bill-of-materials:
+
+- `product` gives the main characteristics of a product in the game or simulation. It specifies the name, the sock keping unit (`sku`), the average volume and weight (with units), the depreciation as a fraction per day, and a (starting / average) unit market price per `sku`.
+- `sku` defines the way that the product is typically transported, such as on a pallet, in a 20 ft or 40 ft container, in a box, as a unit, etc. Each of the sku types has a maximum volume and weight, defining how many `product` instances fit in one `sku`.
+- `bill_of_materials` defines the assembly of a `product` from semi-finished products or raw materials. The `bill_of_materials` uniquely belongs to a product and has multiple instances of a `bom_item`. Note that the `bill_of_materials` for a `product` van be `null`.
+- `bom_item` is one product that is needed to assemble into another product, with the `amount` of `product` that is needed as one of its attributes.
+
+The partial relations look as follows:
+
+![](diagrams/gscg-database-product.png)
+
+
+### Actor and Role tables
+
+The actor table defines the organizations (agents) in the game with their location, whereas the role specifies the processing per type of decision that has to be made. The tables and relations look as follows:
+
+- `actor_type` is a reference to an exisiting Java implementation of a type of actor in the simulation library. Therefore, it contains a reference to a `java_type`. The `actor_type` is defined on the game-level, since different instances of `game_version` can have a different set of defined actors.
+- `actor` is the instantiation of an `actor_type` in the `game_version`. It has a `location` and one or more instances of `role`.
+- `role_type` defines a role for an `actor_type` such as Purchasing, Selling, Producing, Banking or Transporting in the simulation library. Therefore, it contains a reference to a `java_type`.
+- `role` is the instantiation of an `role_type` in the `game_version`. The `role` has a `content_receiver` that specifies when content (messages) can be received and how long it takes to process.
+- `content_receiver` is a simple specification of the delay that occurs when receiving content (messages). This definition can probably extended with versions that have weekend closure, that work office hours in a certain time zone, etc.
+- `location` specifies an (x,y) or (lon,lat) position for the `actor`. It is located on a `landmass`.
+- `landmass` is important, since trucks and trains cannot transport goods between landmasses, only on landmasses. 
+
+The partial relations look as follows:
+
+![](diagrams/gscg-database-actor-role.png)
 
