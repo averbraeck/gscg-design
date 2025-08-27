@@ -80,11 +80,28 @@ The actor table defines the organizations (agents) in the game with their locati
 - `actor` is the instantiation of an `actor_type` in the `game_version`. It has a `location` and one or more instances of `role`.
 - `role_type` defines a role for an `actor_type` such as Purchasing, Selling, Producing, Banking or Transporting in the simulation library. Therefore, it contains a reference to a `java_type`.
 - `role` is the instantiation of an `role_type` in the `game_version`. The `role` has a `content_receiver` that specifies when content (messages) can be received and how long it takes to process.
-- `content_receiver` is a simple specification of the delay that occurs when receiving content (messages). This definition can probably extended with versions that have weekend closure, that work office hours in a certain time zone, etc.
+- `content_receiver` is a simple specification of the delay that occurs when receiving content (messages). This definition can probably be extended with versions that have weekend closure, that work office hours in a certain time zone, etc.
 - `location` specifies an (x,y) or (lon,lat) position for the `actor`. It is located on a `landmass`.
-- `landmass` is important, since trucks and trains cannot transport goods between landmasses, only on landmasses. 
+- `landmass` is important, since trucks and trains cannot transport goods between landmasses, only on landmasses. For quick calculations on a landmass, the average truck speed is given for the landmass.
 
 The partial relations look as follows:
 
 ![](diagrams/gscg-database-actor-role.png)
+
+
+### Actor and Role parameters
+
+The actors and roles have parameters that need to be defined in the database. Every parameter has a type and a value for the game instance. The `actor_type`, `actor`, `role_type` and `role` have already been defined above. The tables and relations look as follows:
+
+- `parameter_type` defines the java types that can be used, such as `int`, `double`, `DistContinuous`, `DistDiscrete`, `Speed`, `Length`, etc. Note that the definition is 'blue', which means that it is defined outside of the `game` or `game_version`. 
+- `actor_parameter` belongs to an `actor_type` and indicates which parameters can or should be defined for an `actor` instance.
+- `actor_value` provides the value of an `actor_parameter` for an `actor` instance.
+- `role_parameter` belongs to a `role_type` and indicates which parameters can or should be defined for a `role` instance.
+- `role_value` provides the value of a `role_parameter` for a `role` instance.
+
+
+The partial relations look as follows:
+
+![](diagrams/gscg-database-parameters.png)
+
 
