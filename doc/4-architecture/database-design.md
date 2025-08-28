@@ -9,6 +9,7 @@ __Changelog:__
  - 2025-08-26 - Added main tables for GSCG Admin data
  - 2025-08-27 - Added design for GSCG Admin Data database tables
  - 2025-08-27 - Added design for Game Design Data database tables
+ - 2025-08-28 - Added design choices for Game State and Game Play data
 
 
 ## 4.1.1. High-level database design
@@ -166,4 +167,28 @@ In the game, events and news messages can be inserted at pre-defined times, rand
 
 
 ## 4.1.4. Game state data
+
+Several solutions exist for the storage of game state data:
+
+1. Storing all *transactions*. The advantage of this approach is that it is very easy. Transactions are triggered by the messages (content) sent between supply chain actors. Additional transactions are player input and facilitator input. Given known seeds of the random number generators, the game is fully reproducible with this information. Theoretically, storing the messages is not even necessary, since they are either triggered by a previous message, or by (predictable) agent behavior or by player or facilitator input. The disadvantage is that for restoring the state of the game, the entire game has to be replayed from t=0.
+2. Saving the *entire state* of the game regularly, e.g., once per play day or week. The advantage of this approach is that it allows for a quick restore. The disadvantage is that tracing the progress of the game for analysis purposes is much harder, although that is actually the task of the Game Play data for analytics. Another disadvantage is that the latest player decisions are lost.
+3. *Combining* a regular state save with the transactions since the last state save. The advantage is that it is complete and can do a quick full restore. The disadvantage is that two mechanisms have to be implemented.
+
+The data tables for game state data will be defined after a choice has been made. This asks for a bit deeper analysis of the software setup.
+
+> [!NOTE]
+> A choice has to be made for the persistence layer of the GSCG platform.
+
+
+
+## 4.1.5 Game play data for analysis
+
+The game play data that is sent to the data analysis platform (scores, play information for analysis) does not need any extra information in the database. The database for game analytics has already been set-up and mirrors the Admin data for GSCG as defined above: see [gamedata documentation](https://github.com/averbraeck/gamedata-common/blob/main/docs) for more info. The database is defined as follows:
+
+![](https://raw.githubusercontent.com/averbraeck/gamedata-common/main/docs/20241231_Gamedata.png)
+
+The structure with tables for `organization`, `user`, `game`, `game_version`, `game_session` and `player` plus linking tables to define the access of different users is very similar to the set-up of the Admin data for GSCG.
+
+No additional data has to be stored for game play right now, in case the game play information is sent to the gamedata platform. In case we want to store this information locally in the GSCG database, several of the tables from the gamedata database can be copied into the GSCG database.
+
 
