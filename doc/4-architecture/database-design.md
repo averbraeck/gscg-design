@@ -192,3 +192,80 @@ The structure with tables for `organization`, `user`, `game`, `game_version`, `g
 No additional data has to be stored for game play right now, in case the game play information is sent to the gamedata platform. In case we want to store this information locally in the GSCG database, several of the tables from the gamedata database can be copied into the GSCG database.
 
 
+## 4.1.6. Checking against requirements
+
+Below, all requirements of GSCG are checked against the availability of the data to support that requirement.
+
+
+### 4.1.6.1. Portal administration.
+
+- General: the `user` table has a field `portal_admin` that defines the portal administrator.
+- FC1.1 The portal administrator must be able to change their own password to enter the GSCG portal
+  <br>The `user.password` field is in the database.
+- FC1.2 The portal administrator must be able to create a user
+  <br>The `user` table is in the database.
+- FC1.3 The portal administrator must be able to delete a user
+  <br>The `user` table is in the database.
+- FC1.4 The portal administrator must be able to reset the password of a user
+  <br>The `user.password` field is in the database.
+- FC1.5 The portal administrator must be able to change the access rights of a user (* see below)
+  <br>The `organization_role`, `game_role` and `game_session_role` tables in the database define the access rights of a user.
+- FC1.6 The portal administrator must be able to create a new game instance
+  <br>The `game` table is in the database.
+- FC1.7 The portal administrator must be able to delete a game instance that has not yet been played
+  <br>The `game` table is in the database. The foreign key to `game_version` prevents deletion of an active game.
+- FC1.8 The portal administrator must be able to allocate a user to be the administrator of a game instance
+  <br>The `game_role` table with the boolean `edit` field makes a user a game administrator.
+- FC1.9 The portal administrator must be able to create an organization
+  <br>The `organization` table is in the database.
+- FC1.10 The portal administrator must be able to delete an organization (or to disallow access for users of the organization)
+  <br>The `organization` table is in the database. User access is provided by the `organization_role` table.
+  <br>**Note:** a field `archived` or `inactive` could be added to the `organization`, `user` and `organization_role` to indicate it cannot be used right now.
+- FC1.11 The portal administrator must be able to allocate a user to be the administrator of an organization
+  <br>The `admin` field in `organization_role` codes organization administration.
+- FC1.12 The portal administrator must be able to login to the portal
+  <br>No consequences for database.
+- FC1.13 The portal administrator must be able to logout from the portal
+  <br>No consequences for database.
+
+The non-functional requirements have no effect on the database.
+
+* Details for access rights from the requirements:
+
+Note for FC1.5: The access rights for a user are:
+- super-administrator
+- organization administrator, with a link to one or more organizations
+  <br>The `admin` field in `organization_role` codes organization administration.
+- organization member, with a link to one or more organizations
+  <br>The `edit` and `view` field in `organization_role` codes organization access for a `user`.
+- game administrator, with a link to one or more game instances
+  <br>The `edit` field in `game_role` codes game admin access for a `user`.
+- game member, with a link to one or more game instances
+  <br>The `view` field in `game_role` codes game view access for a `user`.
+- session administrator, with a link to one or more game sessions
+  <br>The `edit` field in `game_session_role` codes game session admin access for a `user`.
+- session facilitator, with a link to one or more game sessions
+  <br>The `view` field in `game_session_role` codes facilitator access for a `user`.
+- game player, with a link to one or more game sessions
+  <br>The `game_session_id` field in `player` codes game session access for a `player`.
+
+
+### 4.1.6.2. Game design.
+
+- General: the `game_role` table with the boolean `edit` field makes a `user` a game administrator.
+- FC2.1 The game designer must be able to change their own password to enter the GSCG portal
+- FC2.2 The game designer must be able to create a game instance
+- FC2.3 The game designer must be able to clone a game instance
+- FC2.4 The game designer must be able to choose a game instance to maintain
+- FC2.5 The game designer must be able to set the player goals for the chosen game instance
+- FC2.6 The game designer must be able to set the actors to use for the chosen game instance
+- FC2.7 The game designer must be able to set the scenario to use for the chosen game instance
+- FC2.8 The game designer must be able to set the parameters for an actor in the chosen game instance
+- FC2.9 The game designer must be able to set the parameters for a scenario in the chosen game instance
+- FO2.10 The game design should present one or more screens that provide an overview of the defined actors with their capabilities
+- FO2.11 The game design should present a timeline with the scenario events for the game instance
+- FO2.12 The game design should present a map with the actors displayed at their locations
+- FC2.13 The game designer must be able to login to the portal
+- FC2.14 The game designer must be able to logout from the portal
+- FC2.15 The game designer must be able to set allowable strategies that can be chosen by the players
+
