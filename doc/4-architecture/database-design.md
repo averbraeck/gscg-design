@@ -132,7 +132,7 @@ Additionally, handlers can be restricted from which actors they process messages
 ![](diagrams/gscg-database-handler-valid.png)
 
 > [!NOTE]
-> The `handler_valid_actor` now works on the `actor` instance level. Maybe the restriction should be defined on the `actor_type` level. As an example, a personal client can typically not buy products from a factory. Factory is an `actor_type` with many instances. Maybe two restrictions can be added: one for `actor`, and one for `actor_type`.
+> The `handler_valid_actor` now works on the `actor` instance level. Maybe the restriction should be defined on the `actor_type` level. As an example, a personal customer can typically not buy products from a factory. Factory is an `actor_type` with many instances. Maybe two restrictions can be added: one for `actor`, and one for `actor_type`.
 
 
 ### Transport tables
@@ -147,6 +147,22 @@ Transport modes and distances are provided in the transport tables. The `locatio
 
 > [!NOTE]
 > Typically, the supply chain model will be set-up as a hub-and-spoke network. Actors are connected to the nearest hub per transport mode, such as ports, airports and rail terminals. Trucking on a landmass can be estimated using the `truck_speed` attribute in the `landmass` definition using a rough estimate of the distance between the two locations on the landmass.
+
+
+### Scenario tables
+
+In the game, events and news messages can be inserted at pre-defined times, random times, or facilitator-triggered times. Events can relate to actors, roles, handlers, autonomous processes, transport links, or any other variable in the simulation or game. Therefore, no explicit links to tables in the database are made for now, since the events can relate to many of the tables in the database. `game_version`, `actor_type` and `actor` have already been defined before.
+
+- `game_scenario` defines a scenario for a `game_version`. Note that a `game_version` can have multiple instances of a `game_scenario`. The facilitator can activate one scenario at a time for game play. In a `game_scenario`, events and news messages can be defined.
+- `event` is a table that can activate or deactivate a game object, such as an actor or a transport mode. To identify the object, the type is given as well as the database id or the object name. The event can be triggered at a time, time interval, or based on facilitator input. An `event` *can* have an associated `news_message` that will be fired exactly when the event is triggered.
+- `trigger_fixed` is a trigger at a fixed point in time. When the game clock is a `datetime`, this can be specified. When the gametime is a `double` or a `Duration`, this can be specified as well, including the unit. When `facilitator_trigger` equals 1, the facilitator can trigger the event as well. When all timestamp fields are `null`, and `facilitator_trigger` equals 1, the event can *only* be triggered by the facilitator. 
+- `trigger_interval` is a trigger that will be fired on a uniform interval between two timestamps. The timestamps can either be expressed as a a `datetime`, or as a `double` or a `Duration`, including the unit. The `trigger_interval` can also be triggered by the facilitator, analogous to the `trigger_fixed`. 
+- `news_message` is a communication to the players. A `news_message` can either be triggered at a fixed time, or it is associated with an `event`. The players to whom the `news_message` will be sent can be restricted by the `news_actor` and `news_actor_type` tables. When both are blank, the `news_message` is sent to all players.
+- `news_actor` specifies to which actor instances a `news_message` is sent.
+- `news_actor_type` specifies to which actor types a `news_message` is sent.
+
+![](diagrams/gscg-database-scenario.png)
+
 
 
 ## 4.1.4. Game state data
