@@ -10,6 +10,7 @@ __Changelog:__
  - 2025-08-27 - Added design for GSCG Admin Data database tables
  - 2025-08-27 - Added design for Game Design Data database tables
  - 2025-08-28 - Added design choices for Game State and Game Play data
+ - 2025-08-29 - Checked the full set of requirements against the database design 
 
 
 ## 4.1.1. High-level database design
@@ -389,25 +390,37 @@ The non-functional requirements have no effect on the database.
 - FC5.1 The session facilitator must be able to change their own password to enter the GSCG portal
   <br>The `user.password` field is in the database.
 - FC5.2 The session facilitator must be able to create a player for the game session
+  <br>The session facilitator has access to the `game_session` with attached `player` records.
 - FC5.3 The session facilitator must be able to delete a player for the game session
+  <br>The session facilitator has access to the `game_session` with attached `player` records.
 - FC5.4 The session facilitator must be able to reset the password of a user allocated to the game session
+  <br>The session facilitator has access to the `game_session` with attached `player` records. Each `player` record has a `password` field (with a `salt`).
 - FC5.5 The session facilitator must be able to change the access rights of a player for the game session
+  <br>There are no access rights for players. A field to *block* a `player` from playing can be added. See NOTE.
 - FC5.6 The session facilitator must be able to allocate an existing user to the game session
+  <br>A `player` can be linked to a `user` in the database through a nullable field `user_id`.
 - FC5.7 The session facilitator must be able to deallocate an existing user from the game session
+  <br>A `user` can be unlinked from a `game_session` by deleting the `player` record.
 - FO5.8 The session facilitator should provide a briefing of the game to the players
+  <br>The briefing is not yet in the database. See NOTE.
 - FC5.9 The session facilitator must be able to start the game session
+  <br>No consequence for database.
 - FC5.10 The event of starting the game session must be sent to the gamedata platform
   <br>No consequences for database.
 - FC5.11 The session facilitator must be able to change the game speed
+  <br>No consequence for database.
 - FC5.12 The session facilitator must be able to pause the game
+  <br>No consequence for database.
 - FO5.13 The session facilitator should be able to insert an extra news item for the players
+  <br>This is not yet foreseen in the database. Adding a `news_item` record means that it is added for **all** game sessions. So, a specific news item should be added that is added for the game session. See NOTE.
 - FC5.14 The event of adding a news item to the the game session must be sent to the gamedata platform
   <br>No consequences for database.
 - FO5.15 The session facilitator should be able to add an intervention into the game
+  <br>This is not yet foreseen in the database. Adding a `event` record means that it is added for **all** game sessions. So, a specific event should be added that is added for the game session. See NOTE.
 - FC5.16 The event of adding an intervention to the the game session must be sent to the gamedata platform
   <br>No consequences for database.
 - FO5.17 The session facilitator should be able to trigger an existing manual intervention during gameplay
-  <br>The `trigger_interval` and `trigger_fixed` tables have a boolean field called `facilitator_trigger`. If true, the facilitator can trigger the event. Maybe we have to restrict the number of times that an event can be triggered. See NOTE.
+  <br>The `trigger_interval` and `trigger_fixed` tables have a boolean field called `facilitator_trigger`. If true, the facilitator can trigger the event. Maybe we have to restrict the number of times that an event can be triggered. See NOTE. We might also record the fact that an event has been triggered. See NOTE.
 - FC5.18 The event of triggering an existing intervention during the the game play must be sent to the gamedata platform
   <br>No consequences for database.
 - FO5.19 The session facilitation should present an overview of the players allocated to a session
@@ -424,13 +437,34 @@ The non-functional requirements have no effect on the database.
 The non-functional requirements have no effect on the database.
 
 > [!NOTE]
+> **General**: An objective is missing: The session facilitator should provide a debriefing of the game to the players.
+
+> [!NOTE]
 > **FC5**: The boolean `edit` and `view` fields are not fine-grained enough to distinguish between a game session admin and a facilitator.
 
 > [!NOTE]
-> **FO5.21**: A table for storing chats between players and between facilitator and player should be added to the database.
+> **FC5.5**: A field to block a `player` from playing can be added.
+
+> [!NOTE]
+> **FO5.8**: A table for storing the briefing for a `game_version` and a more specific briefing for a `game_session` should be added to the database.
+
+> [!NOTE]
+> **General**: A table for storing the debriefing for a `game_version` and a more specific debriefing for a `game_session` should be added to the database.
+
+> [!NOTE]
+> **FO5.13**. When a facilitator adds a `news_item` record, this means that it is added for **all** game sessions. So, a specific news item table should be added that is only applicable to the game session. This asks for a new table in the database.
+
+> [!NOTE]
+> **FO5.15**. When a facilitator adds an `event` record, this means that it is added for **all** game sessions. So, a specific event table should be added that only applies to the game session. This asks for a new table in the database.
 
 > [!NOTE]
 > **FO5.17**: Add a maximum number of times an event has been triggered to the database.
+
+> [!NOTE]
+> **FO5.17**: Record that an event has been triggered to the database. This probably asks for a new table that is linked to the `game_session`.
+
+> [!NOTE]
+> **FO5.21**: A table for storing chats between players and between facilitator and player should be added to the database.
 
 
 ### 4.1.6.6. Game play
@@ -442,20 +476,45 @@ The non-functional requirements have no effect on the database.
 - FC6.3 The player must be able to login to the game session with a userid and password
   <br>The `player.name` and `player.password` fields are in the database.
 - FO6.4 The game play platform should show the briefing (note that the game might take place in a distributed setting)
+  <br>The briefing is not yet in the database. See NOTE.
 - FC6.5 The game play platform must show dynamic state information about the player's firm during game play
+  <br>The dynamic state information is not yet explicitly stored in the database, since the **Game Play** data has not yet been fixed. 
 - FC6.6 The game play platform must show the news at the correct times during game play
+  <br>Each `news_message` has a `trigger_fixed` record attached to it, defining when the news item should be displayed to the player.
 - FC6.7 The player must be able to enter decisions into the game play platform during game play
+  <br>The storage of player decisions is not yet included in the database design, since the **Game Play** data has not yet been fixed. 
 - FC6.8 The game play platform must send player decisions to the gamedata platform
+  <br>No consequences for database.
 - FC6.9 The game play platform must show the scores to the player during and after game play
+  <br>The storage of player scores is not yet included in the database design, since the **Game Play** data has not yet been fixed. 
 - FO6.10 The game play platform should show the debriefing (note that the game might take place in a distributed setting)
+  <br>The debriefing is not yet in the database. See NOTE.
 - FC6.11 The player must be able to logout from the game session
+  <br>No consequences for database.
 - FO6.12 The game play platform should show a map with the actors displayed at their locations, highlighting the player
+  <br>All `actor` instances have a `location` with lat,lon or x,y.
 - FO6.13 The game play platform should allow chatting with other players in the game session and with the facilitator
+  <br>Chats should probably also stored in the database. This is not yet included. See NOTE.
 - FC6.14 The player must be able to define a strategy, dependent on the settings in the game
+  <br>The storage of a player strategy is not yet included in the database design, since the **Game Play** data has not yet been fixed. 
 - FC6.15 The player must be able to motivate their chosen strategy
+  <br>The storage of a motivation for a player strategy is not yet included in the database design, since the **Game Play** data has not yet been fixed. 
 - FC6.16 The game play platform must send the strategy and the motivation of the player to the gamedata platform
+  <br>No consequences for database.
 
 The non-functional requirements have no effect on the database.
+
+> [!NOTE]
+> **FC6.5**, **FC6.7**, **FC6.9**, **FC6.14**, **FC6.15**: Check these requirements again when Game Play data has been added to the database.
+
+> [!NOTE]
+> **FO6.13**: A table for storing chats between players and between facilitator and player should be added to the database.
+
+> [!NOTE]
+> **FO6.4**: A table for storing the briefing for a `game_version` and a more specific briefing for a `game_session` should be added to the database.
+
+> [!NOTE]
+> **FO6.10**: A table for storing the debriefing for a `game_version` and a more specific debriefing for a `game_session` should be added to the database.
 
 
 ### 4.1.6.7. Game data analytics
