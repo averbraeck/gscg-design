@@ -3,16 +3,18 @@
 Last Updated: 2025-05-01
 
 __Changelog:__
- - 2025-08-13 - Add chapter number for SE-step "3" to the headers in the document
- - 2025-05-01 - Define allowable player strategies: [Issue #12](https://github.com/averbraeck/gscg-design/issues/12).
- - 2025-05-01 - Strategy setting by player: [Issue #11](https://github.com/averbraeck/gscg-design/issues/11).
- - 2025-05-01 - Login/logout to the portal: [Issue #10](https://github.com/averbraeck/gscg-design/issues/10).
- - 2025-05-01 - Registration for game sessions: [Issue #9](https://github.com/averbraeck/gscg-design/issues/9).
- - 2025-05-01 - Added export functions to analytics: [Issue #8](https://github.com/averbraeck/gscg-design/issues/8).
- - 2025-05-01 - Added communication function: [Issue #7](https://github.com/averbraeck/gscg-design/issues/7).
- - 2025-04-30 - Added display map function: [Issue #6](https://github.com/averbraeck/gscg-design/issues/6).
- - 2025-04-30 - Added 'Pause game': [Issue #4](https://github.com/averbraeck/gscg-design/issues/4). 
  - 2025-04-30 - Document Creation
+ - 2025-04-30 - Added 'Pause game': [Issue #4](https://github.com/averbraeck/gscg-design/issues/4). 
+ - 2025-04-30 - Added display map function: [Issue #6](https://github.com/averbraeck/gscg-design/issues/6).
+ - 2025-05-01 - Added communication function: [Issue #7](https://github.com/averbraeck/gscg-design/issues/7).
+ - 2025-05-01 - Added export functions to analytics: [Issue #8](https://github.com/averbraeck/gscg-design/issues/8).
+ - 2025-05-01 - Registration for game sessions: [Issue #9](https://github.com/averbraeck/gscg-design/issues/9).
+ - 2025-05-01 - Login/logout to the portal: [Issue #10](https://github.com/averbraeck/gscg-design/issues/10).
+ - 2025-05-01 - Strategy setting by player: [Issue #11](https://github.com/averbraeck/gscg-design/issues/11).
+ - 2025-05-01 - Define allowable player strategies: [Issue #12](https://github.com/averbraeck/gscg-design/issues/12).
+ - 2025-08-13 - Add chapter number for SE-step "3" to the headers in the document
+ - 2025-08-29 - Added won't haves for deleting a game after play [Issue #15](https://github.com/averbraeck/gscg-design/issues/15).
+ 
  
 ## 3.0. Legend
 The requirements are numbered respective to the use case from the document ['use-cases'](../1-use-cases/use-cases.md). The requirements are divided into Functional requirements, indicated with an abbreviation "F", and non-functional requirements, indicated with the abbreviation "NF". The requirements are categorized into two classes from the MoSCoW-framework, the "Must-haves", with the letter "C" for "constraint", and the "Should-haves", with the letter "O" for "objective". Combinations are, e.g. NFC2.3, indicating the third non-functional requirement for use-case 2, being a constraint (a must-have). All "F" and "NF" requirements are consecutively numbered within the use case, both starting with number 1. 
@@ -41,6 +43,10 @@ Non-functional requirements:
 - NFO1.3 The portal administration should have an intuitive user interface
 - NFO1.4 The portal administration should give clear errors to the portal administrator in case actions are not permitted
 - NFO1.5 The portal administration should have a responsive UI to scale to the device properties 
+
+Won't haves:
+- W1.1 The portal administrator won't be able to delete a game instance that has already been played
+
 
 > [!NOTE]
 > Note for FC1.5: The access rights for a user are:
@@ -145,6 +151,10 @@ Non-functional requirements:
 - NFO4.3 The session administration should have an intuitive user interface
 - NFO4.4 The session administration should give clear errors to the session administrator in case actions are not permitted
 - NFO4.5 The session administration should have a responsive UI to scale to the device properties 
+
+Won't haves:
+- W4.1 The session administrator won't be able to delete a game instance that has already been played
+
 
 > [!NOTE]
 > Note for FC4.2 through 4.5: The users that can be maintained are:
