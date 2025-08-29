@@ -14,6 +14,7 @@ __Changelog:__
  - 2025-05-01 - Define allowable player strategies: [Issue #12](https://github.com/averbraeck/gscg-design/issues/12).
  - 2025-08-13 - Add chapter number for SE-step "3" to the headers in the document
  - 2025-08-29 - Added won't haves for deleting a game after play [Issue #15](https://github.com/averbraeck/gscg-design/issues/15).
+ - 2025-08-29 - Made the non-fuctional requirements testable [Issue #17](https://github.com/averbraeck/gscg-design/issues/17).
  
  
 ## 3.0. Legend
@@ -39,10 +40,10 @@ Functional requirements:
 
 Non-functional requirements:
 - NFC1.1 The portal administration must run in any modern browser (Chrome, Edge, Firefox, Brave, Safari, Opera)
-- NFO1.2 The portal administration should run smoothly without noticeable delays
-- NFO1.3 The portal administration should have an intuitive user interface
-- NFO1.4 The portal administration should give clear errors to the portal administrator in case actions are not permitted
-- NFO1.5 The portal administration should have a responsive UI to scale to the device properties 
+- NFO1.2 The portal administration should run smoothly without noticeable delays. A delay of 100 ms is instantaneous, 500 ms is a noticeable delay (see Nielsen, 1993, Usability Engineering). ISO 9241-210 / ISO 9241-110 advices to be under 1 s for commands and under 200 ms for typing feedback. Here, we want the UI to always react within 500 ms.
+- NFO1.3 The portal administration should have an intuitive user interface. This means that in a usability test, 90% of new users can execute given tasks in the administration panel without prior training, with less than 5 minutes total to get familiar with the overall user interface, and less than 1 minute per (singular) task, where a task is any of the tasks mentioned in the functional constraints above.
+- NFO1.4 The portal administration should give clear errors to the portal administrator in case actions are not permitted. A clear error (ISO 9241-110): has plain, non-cryptic language, is specific for the error at hand, is actionable by providing possible solutions, is relevant in the user's context, is helpful in explaining why the error occurs, and is clearly visible to the user.
+- NFO1.5 The portal administration should have a responsive UI to scale to the device properties. A responsive UI means that the output scales with the window or device size, and does not have a fixed maximum width.
 
 Won't haves:
 - W1.1 The portal administrator won't be able to delete a game instance that has already been played
@@ -72,8 +73,8 @@ Won't haves:
 - FC2.5 The game designer must be able to set the player goals for the chosen game instance
 - FC2.6 The game designer must be able to set the actors to use for the chosen game instance
 - FC2.7 The game designer must be able to set the scenario to use for the chosen game instance
-- FC2.8 The game designer must be able to set the parameters for an actor in the chosen game instance
-- FC2.9 The game designer must be able to set the parameters for a scenario in the chosen game instance
+- FC2.8 The game designer must be able to set the parameters for an actor in the chosen game instance (see note)
+- FC2.9 The game designer must be able to set the parameters for a scenario in the chosen game instance (see note)
 - FO2.10 The game design should present one or more screens that provide an overview of the defined actors with their capabilities
 - FO2.11 The game design should present a timeline with the scenario events for the game instance
 - FO2.12 The game design should present a map with the actors displayed at their locations
@@ -81,12 +82,15 @@ Won't haves:
 - FC2.14 The game designer must be able to logout from the portal
 - FC2.15 The game designer must be able to set allowable strategies that can be chosen by the players
 
+> [!NOTE]
+> Parameters are the properties of an object, such as the dimensions and price of a product, the location of an actor, or the time duration of a transport.
+
 Non-functional requirements:
 - NFC2.1 The game design must run in any modern browser (Chrome, Edge, Firefox, Brave, Safari, Opera)
-- NFO2.2 The game design should run smoothly without noticeable delays
-- NFO2.3 The game design should have an intuitive user interface
-- NFO2.4 The game design should give clear errors to the game designer in case actions are not permitted
-- NFO2.5 The game design should have a responsive UI to scale to the device properties 
+- NFO2.2 The game design should run smoothly without noticeable delays. A delay of 100 ms is instantaneous, 500 ms is a noticeable delay (see Nielsen, 1993, Usability Engineering). ISO 9241-210 / ISO 9241-110 advices to be under 1 s for commands and under 200 ms for typing feedback. Here, we want the UI to always react within 500 ms.
+- NFO2.3 The game design should have an intuitive user interface. This means that in a usability test, 90% of new users can execute given tasks in the game design panel without prior training, with less than 5 minutes total to get familiar with the overall user interface, and less than 1 minute per task, where a task is any of the (singular) tasks mentioned in the functional constraints above.
+- NFO2.4 The game design should give clear errors to the game designer in case actions are not permitted. A clear error (ISO 9241-110): has plain, non-cryptic language, is specific for the error at hand, is actionable by providing possible solutions, is relevant in the user's context, is helpful in explaining why the error occurs, and is clearly visible to the user.
+- NFO2.5 The game design should have a responsive UI to scale to the device properties. A responsive UI means that the output scales with the window or device size, and does not have a fixed maximum width.
 
 > [!NOTE]
 > Note for NFO2.5: it is not required to scale all the way down to a mobile device. The GSCG game is expected to run on screens with a size of at least 1024x768 pixels, and usually 1920x1080 or better.
@@ -110,10 +114,10 @@ Non-functional requirements:
 
 Non-functional requirements:
 - NFC3.1 The organization administration must run in any modern browser (Chrome, Edge, Firefox, Brave, Safari, Opera)
-- NFO3.2 The organization administration should run smoothly without noticeable delays
-- NFO3.3 The organization administration should have an intuitive user interface
-- NFO3.4 The organization administration should give clear errors to the organization administrator in case actions are not permitted
-- NFO3.5 The organization administration should have a responsive UI to scale to the device properties 
+- NFO3.2 The organization administration should run smoothly without noticeable delays. A delay of 100 ms is instantaneous, 500 ms is a noticeable delay (see Nielsen, 1993, Usability Engineering). ISO 9241-210 / ISO 9241-110 advices to be under 1 s for commands and under 200 ms for typing feedback. Here, we want the UI to always react within 500 ms.
+- NFO3.3 The organization administration should have an intuitive user interface. This means that in a usability test, 90% of new users can execute given tasks in the organization administration panel without prior training, with less than 5 minutes total to get familiar with the overall user interface, and less than 1 minute per task, where a task is any of the (singular) tasks mentioned in the functional constraints above.
+- NFO3.4 The organization administration should give clear errors to the organization administrator in case actions are not permitted. A clear error (ISO 9241-110): has plain, non-cryptic language, is specific for the error at hand, is actionable by providing possible solutions, is relevant in the user's context, is helpful in explaining why the error occurs, and is clearly visible to the user.
+- NFO3.5 The organization administration should have a responsive UI to scale to the device properties. A responsive UI means that the output scales with the window or device size, and does not have a fixed maximum width. 
 
 > [!NOTE]
 > Note for FC3.2 through 3.5: The users that can be maintained are:
@@ -147,10 +151,10 @@ Non-functional requirements:
 
 Non-functional requirements:
 - NFC4.1 The session administration must run in any modern browser (Chrome, Edge, Firefox, Brave, Safari, Opera)
-- NFO4.2 The session administration should run smoothly without noticeable delays
-- NFO4.3 The session administration should have an intuitive user interface
-- NFO4.4 The session administration should give clear errors to the session administrator in case actions are not permitted
-- NFO4.5 The session administration should have a responsive UI to scale to the device properties 
+- NFO4.2 The session administration should run smoothly without noticeable delays. A delay of 100 ms is instantaneous, 500 ms is a noticeable delay (see Nielsen, 1993, Usability Engineering). ISO 9241-210 / ISO 9241-110 advices to be under 1 s for commands and under 200 ms for typing feedback. Here, we want the UI to always react within 500 ms.
+- NFO4.3 The session administration should have an intuitive user interface. This means that in a usability test, 90% of new users can execute given tasks in the session administration panel without prior training, with less than 5 minutes total to get familiar with the overall user interface, and less than 1 minute per (singular) task, where a task is any of the tasks mentioned in the functional constraints above.
+- NFO4.4 The session administration should give clear errors to the session administrator in case actions are not permitted. A clear error (ISO 9241-110): has plain, non-cryptic language, is specific for the error at hand, is actionable by providing possible solutions, is relevant in the user's context, is helpful in explaining why the error occurs, and is clearly visible to the user.
+- NFO4.5 The session administration should have a responsive UI to scale to the device properties. A responsive UI means that the output scales with the window or device size, and does not have a fixed maximum width.
 
 Won't haves:
 - W4.1 The session administrator won't be able to delete a game instance that has already been played
@@ -193,10 +197,10 @@ Won't haves:
 
 Non-functional requirements:
 - NFC5.1 The session facilitation must run in any modern browser (Chrome, Edge, Firefox, Brave, Safari, Opera)
-- NFO5.2 The session facilitation should run smoothly without noticeable delays
-- NFO5.3 The session facilitation should have an intuitive user interface
-- NFO5.4 The session facilitation should give clear errors to the session facilitator in case actions are not permitted
-- NFO5.5 The session facilitation should have a responsive UI to scale to the device properties 
+- NFO5.2 The session facilitation should run smoothly without noticeable delays. A delay of 100 ms is instantaneous, 500 ms is a noticeable delay (see Nielsen, 1993, Usability Engineering). ISO 9241-210 / ISO 9241-110 advices to be under 1 s for commands and under 200 ms for typing feedback. Here, we want the UI to always react within 500 ms.
+- NFO5.3 The session facilitation should have an intuitive user interface. This means that in a usability test, 90% of new users can execute given tasks in the session facilitator panel without prior training, with less than 5 minutes total to get familiar with the overall user interface, and less than 1 minute per task, where a task is any of the tasks mentioned in the functional constraints above.
+- NFO5.4 The session facilitation should give clear errors to the session facilitator in case actions are not permitted. A clear error (ISO 9241-110): has plain, non-cryptic language, is specific for the error at hand, is actionable by providing possible solutions, is relevant in the user's context, is helpful in explaining why the error occurs, and is clearly visible to the user.
+- NFO5.5 The session facilitation should have a responsive UI to scale to the device properties. A responsive UI means that the output scales with the window or device size, and does not have a fixed maximum width. 
 
 > [!NOTE]
 > Note for NFO5.5: it is not required to scale all the way down to a mobile device. The GSCG game is expected to run on screens with a size of at least 1024x768 pixels, and usually 1920x1080 or better.
@@ -223,10 +227,10 @@ Non-functional requirements:
 
 Non-functional requirements:
 - NFC6.1 The game play must run in any modern browser (Chrome, Edge, Firefox, Brave, Safari, Opera)
-- NFO6.2 The game play should run smoothly without noticeable delays
-- NFO6.3 The game play should have an intuitive user interface
-- NFO6.4 The game play should give clear errors to the player in case actions or decisions are not permitted
-- NFO6.5 The game play application should have a responsive UI to scale to the device properties 
+- NFO6.2 The game play should run smoothly without noticeable delays. A delay of 100 ms is instantaneous, 500 ms is a noticeable delay (see Nielsen, 1993, Usability Engineering). ISO 9241-210 / ISO 9241-110 advices to be under 1 s for commands and under 200 ms for typing feedback. Here, we want the UI to always react within 500 ms.
+- NFO6.3 The game play should have an intuitive user interface. This means that in a usability test, 90% of new players can execute given tasks in the player environment without prior training, with less than 5 minutes total to get familiar with the overall user interface, and less than 1 minute per task, where a task is any of the (singular) tasks mentioned in the functional constraints above.
+- NFO6.4 The game play should give clear errors to the player in case actions or decisions are not permitted. A clear error (ISO 9241-110): has plain, non-cryptic language, is specific for the error at hand, is actionable by providing possible solutions, is relevant in the user's context, is helpful in explaining why the error occurs, and is clearly visible to the user.
+- NFO6.5 The game play application should have a responsive UI to scale to the device properties. A responsive UI means that the output scales with the window or device size, and does not have a fixed maximum width. 
 
 > [!NOTE]
 > Note for NFO6.5: Also for players, it is not required to scale all the way down to a mobile device. The GSCG game is expected to run on screens with a size of at least 1024x768 pixels, and usually 1920x1080 or better. Tests for tablets, Chromebooks, and other devises that students bring to class might be necessary.
@@ -251,9 +255,9 @@ Non-functional requirements:
 
 Non-functional requirements:
 - NFC7.1 The game data platform must run in any modern browser (Chrome, Edge, Firefox, Brave, Safari, Opera)
-- NFO7.2 The game data platform should run smoothly without noticeable delays
-- NFO7.3 The game data platform should have an intuitive user interface
-- NFO7.4 The game data platform should have a responsive UI to scale to the device properties 
+- NFO7.2 The game data platform should run smoothly without noticeable delays. A delay of 100 ms is instantaneous, 500 ms is a noticeable delay (see Nielsen, 1993, Usability Engineering). ISO 9241-210 / ISO 9241-110 advices to be under 1 s for commands and under 200 ms for typing feedback. Here, we want the UI to always react within 500 ms.
+- NFO7.3 The game data platform should have an intuitive user interface. This means that in a usability test, 90% of new users can execute given tasks in the game data analytics panel without prior training, with less than 5 minutes total to get familiar with the overall user interface, and less than 1 minute per (singular) task, where a task is any of the tasks mentioned in the functional constraints above.
+- NFO7.4 The game data platform should have a responsive UI to scale to the device properties. A responsive UI means that the output scales with the window or device size, and does not have a fixed maximum width. 
 
 > [!NOTE]
 > Note for NFO7.4: it is not required to scale all the way down to a mobile device. The gamedata platform is expected to run on screens with a size of at least 1920x1080 pixels or better.
