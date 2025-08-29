@@ -146,7 +146,7 @@ Transport modes and distances are provided in the transport tables. The `locatio
 
 ![](diagrams/gscg-database-transport.png)
 
-> [!NOTE]
+> [!TIP]
 > Typically, the supply chain model will be set-up as a hub-and-spoke network. Actors are connected to the nearest hub per transport mode, such as ports, airports and rail terminals. Trucking on a landmass can be estimated using the `truck_speed` attribute in the `landmass` definition using a rough estimate of the distance between the two locations on the landmass.
 
 
@@ -234,6 +234,7 @@ The non-functional requirements have no effect on the database.
 
 Note for FC1.5: The access rights for a user are:
 - super-administrator
+  <br>the `user` table has a field `portal_admin` that defines the portal administrator.
 - organization administrator, with a link to one or more organizations
   <br>The `admin` field in `organization_role` codes organization administration.
 - organization member, with a link to one or more organizations
@@ -256,24 +257,44 @@ Note for FC1.5: The access rights for a user are:
 - FC2.1 The game designer must be able to change their own password to enter the GSCG portal
   <br>The `user.password` field is in the database.
 - FC2.2 The game designer must be able to create a game instance
+  <br>The `game` table is in the database.
 - FC2.3 The game designer must be able to clone a game instance
+  <br>The `game` table is in the database.
 - FC2.4 The game designer must be able to choose a game instance to maintain
+  <br>The `game` table is in the database.
 - FC2.5 The game designer must be able to set the player goals for the chosen game instance
+  <br>This still needs to be designed and added to the database. SEE NOTE.
 - FC2.6 The game designer must be able to set the actors to use for the chosen game instance
+  <br>The database contains `actor_type` and `actor` with `role_type` and `role`.
 - FC2.7 The game designer must be able to set the scenario to use for the chosen game instance
+  <br>The database has a table `game_scenario`.
 - FC2.8 The game designer must be able to set the parameters for an actor in the chosen game instance
+  <br>The tables `actor` and `role` have configurable parameters and values.
 - FC2.9 The game designer must be able to set the parameters for a scenario in the chosen game instance
+  <br>The table `game_scenario` has events and triggers, as well as news messages in separate tables.
 - FO2.10 The game design should present one or more screens that provide an overview of the defined actors with their capabilities
+  <br>No effect on database.
 - FO2.11 The game design should present a timeline with the scenario events for the game instance
+  <br>The `trigger` tables with timestamps for a `game_scenario` help to present a timeline.
 - FO2.12 The game design should present a map with the actors displayed at their locations
+  <br>Actors have a `location` in the database with lat/lon.
 - FC2.13 The game designer must be able to login to the portal
+  <br>No consequences for database.
 - FC2.14 The game designer must be able to logout from the portal
+  <br>No consequences for database.
 - FC2.15 The game designer must be able to set allowable strategies that can be chosen by the players
+  <br>This still needs to be designed and added to the database. SEE NOTE.
 
 The non-functional requirements have no effect on the database.
 
 > [!NOTE]
-> The requirements should make a better distinction between a `game`, a `game_version` and a `game_session`. The term 'game instance' is ambiguous.
+> **General**: The requirements should make a better distinction between a `game`, a `game_version` and a `game_session`. The term 'game instance' is ambiguous.
+
+> [!NOTE]
+> **FC2.5**: Player goals have to be added to the database.
+
+> [!NOTE]
+> **FC2.15**: Allowable Player strategies have to be added to the database.
 
 
 ### 4.1.6.3. Organization administration.
@@ -282,17 +303,29 @@ The non-functional requirements have no effect on the database.
 - FC3.1 The organization administrator must be able to change their own password to enter the GSCG portal
   <br>The `user.password` field is in the database.
 - FC3.2 The organization administrator must be able to create a user
+  <br>The `user` table is in the database.
 - FC3.3 The organization administrator must be able to delete a user
+  <br>The `user` table is in the database.
 - FC3.4 The organization administrator must be able to reset the password of a user
-- FC3.5 The organization administrator must be able to change the access rights of a user (* see below)
+  <br>The `user.password` field is in the database.
+- FC3.5 The organization administrator must be able to change the access rights of a user
+  <br>The `organization_role` table in the database define the access rights of a user.
 - FC3.6 The organization administrator must be able to change the description of the organization
+  <br>The `organization` table has a field `name`.
 - FC3.7 The organization administrator must be able to change the logo of the organization
+  <br>The `organization` table has a field `logo` (binary blob).
 - FC3.8 The organization administrator must be able to allocate existing platform users to the organization
+  <br>The `organization_role` table in the database links a `user` to an `organization`.
 - FO3.9 The organization administration should present an overview of the games in use
+  <br>The `organization_game` table contains the games in use by the `organization`.
 - FO3.10 The organization administration should present an overview of the defined game sessions
+  <br>The `game_session` table is uniquely linked to an `organization_game` and can therefore be used to provide a list of game sessions only for that `organization`.
 - FO3.11 The organization administration should present an overview of the users allocated to the organization
+  <br>The `organization_role` table provides all users linked to the `organization`.
 - FC3.12 The organization administrator must be able to login to the portal
+  <br>No consequences for database.
 - FC3.13 The organization administrator must be able to logout from the portal
+  <br>No consequences for database.
 
 The non-functional requirements have no effect on the database.
 
@@ -303,27 +336,56 @@ The non-functional requirements have no effect on the database.
 - FC4.1 The session administrator must be able to change their own password to enter the GSCG portal
   <br>The `user.password` field is in the database.
 - FC4.2 The session administrator must be able to create a user
+  <br>The `user` table is in the database.
 - FC4.3 The session administrator must be able to delete a user
+  <br>The `user` table is in the database.
 - FC4.4 The session administrator must be able to reset the password of a user
-- FC4.5 The session administrator must be able to change the access rights of a user (* see below)
+  <br>The `user.password` field is in the database.
+- FC4.5 The session administrator must be able to change the access rights of a user
+  <br>The `game_session_role` tables in the database define the access rights of a user.
 - FC4.6 The session administrator must be able to create a game session
+  <br>This is not logical from the database right now. See NOTE.
 - FC4.7 The session administrator must be able to change the dates of a game session
+  <br>A `game_session` has fields `play_date`, `valid_from` and `valid_until` (all `DATETIME` fields).
 - FC4.8 The session administrator must be able to delete a game session that has not yet been played
+  <br>A session administrator has access to the session through the table `game_session_role`.
 - FC4.9 The session administrator must be able to allocate users to a game instance
+  <br>Players can be allocated to a game session: A `player` has a `game_session_id`.
 - FC4.10 The session administrator must be able to turn on user self registration for a game session
+  <br>A field is missing here. See NOTE.
 - FC4.11 The session administrator must be able to generate a batch of anonymous users with login codes and passwords
+  <br>The table `player` has a `name` and `password` field (with `salt`).
 - FO4.12 The session administration should present an overview of the sessions with dates and play status
+  <br>Not easy right now. See NOTE.
 - FO4.13 The session administration should present an overview of the facilitators and players allocated to a session
+  <br>Players are linked to a game sesion and can be easily enumerated. Facilitators are users that have a `game_session_role` with an `edit` allocation. Probably the fields `edit` and `view` can be made more explicit. See NOTE.
 - FC4.14 The session administrator must be able to login to the portal
+  <br>No consequences for database.
 - FC4.15 The session administrator must be able to logout from the portal
+  <br>No consequences for database.
 - FC4.16 The session administrator must be able to set or change the allowable strategies that can be chosen by the players
 
 The non-functional requirements have no effect on the database.
 
+> [!NOTE]
+> **FC4.6**: It is not logical for a session admin to be able to create a session in the database, since the session admin is allocated to individual sessions through the `game_session_role` table. Non-existent game sessions are not linked and can therefore not be created. This has to be solved, probably in the `organization_role` table, or in a new table `organization_game_role`.
+
+> [!NOTE]
+> **FC4.9**, **FC4.10**, **FC4.11**: Instead of `user`, `player` should be mentioned. Users and players are two distinct tables and roles in the design of GSCG.
+
+> [!NOTE]
+> **FC4.10**: A field `self_registration` should be added to the `game_session`.
+
+> [!NOTE]
+> **FO4.12**: Maybe a table `organization_game_role` should be added to allow to appoint session administrators for a certain `game` from an `organization`.
+
+> [!NOTE]
+> **FO4.13**: The fields `edit` and `view` for the `same_session_role` are not descriptive enough to indicate who is a facilitator for a session. Maybe change the fields to `facilitator` and `observer`?
+
 
 ### 4.1.6.5. Session facilitation
 
-- General: the `game_session_role` table with the boolean `view` field makes a `user` a session facilitator.
+- General: the `game_session_role` table with the boolean `edit` field makes a `user` a session facilitator.
 - FC5.1 The session facilitator must be able to change their own password to enter the GSCG portal
   <br>The `user.password` field is in the database.
 - FC5.2 The session facilitator must be able to create a player for the game session
@@ -335,24 +397,40 @@ The non-functional requirements have no effect on the database.
 - FO5.8 The session facilitator should provide a briefing of the game to the players
 - FC5.9 The session facilitator must be able to start the game session
 - FC5.10 The event of starting the game session must be sent to the gamedata platform
+  <br>No consequences for database.
 - FC5.11 The session facilitator must be able to change the game speed
 - FC5.12 The session facilitator must be able to pause the game
 - FO5.13 The session facilitator should be able to insert an extra news item for the players
 - FC5.14 The event of adding a news item to the the game session must be sent to the gamedata platform
+  <br>No consequences for database.
 - FO5.15 The session facilitator should be able to add an intervention into the game
 - FC5.16 The event of adding an intervention to the the game session must be sent to the gamedata platform
+  <br>No consequences for database.
 - FO5.17 The session facilitator should be able to trigger an existing manual intervention during gameplay
+  <br>The `trigger_interval` and `trigger_fixed` tables have a boolean field called `facilitator_trigger`. If true, the facilitator can trigger the event. Maybe we have to restrict the number of times that an event can be triggered. See NOTE.
 - FC5.18 The event of triggering an existing intervention during the the game play must be sent to the gamedata platform
+  <br>No consequences for database.
 - FO5.19 The session facilitation should present an overview of the players allocated to a session
+  <br>Players are linked to a game sesion and can be easily enumerated.
 - FO5.20 The session facilitation should present a map with the actors displayed at their locations
+  <br>All `actor` instances have a `location` with lat,lon or x,y.
 - FO5.21 The session facilitation should allow chatting with the active players in the game session
+  <br>Chats should probably also stored in the database. This is not yet included. See NOTE.
 - FC5.22 The session administrator must be able to login to the portal
+  <br>No consequences for database.
 - FC5.23 The session administrator must be able to logout from the portal
+  <br>No consequences for database.
 
 The non-functional requirements have no effect on the database.
 
 > [!NOTE]
-> The boolean `edit` and `view` fields are not fine-grained enough to distinguish between a game session admin and a facilitator.
+> **FC5**: The boolean `edit` and `view` fields are not fine-grained enough to distinguish between a game session admin and a facilitator.
+
+> [!NOTE]
+> **FO5.21**: A table for storing chats between players and between facilitator and player should be added to the database.
+
+> [!NOTE]
+> **FO5.17**: Add a maximum number of times an event has been triggered to the database.
 
 
 ### 4.1.6.6. Game play
