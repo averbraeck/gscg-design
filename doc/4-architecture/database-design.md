@@ -15,6 +15,7 @@ __Changelog:__
  - 2025-08-29 - Add `timezone_offset` to the location [Issue #36](https://github.com/averbraeck/gscg-design/issues/36).
  - 2025-08-29 - Improve clarity of game terms in requirements [Issue #21](https://github.com/averbraeck/gscg-design/issues/21).
  - 2025-08-29 - Clarify `player` versus `user` in requirements [Issue #25](https://github.com/averbraeck/gscg-design/issues/25).
+ - 2025-08-29 - Requirement missing for debriefing by facilitator [Issue #28](https://github.com/averbraeck/gscg-design/issues/28).
  
 
 ## 4.1.1. High-level database design
@@ -428,11 +429,9 @@ The non-functional requirements have no effect on the database.
   <br>No consequences for database.
 - FC5.23 The session administrator must be able to logout from the portal
   <br>No consequences for database.
+- FO5.24 The session facilitator should provide a debriefing of the game to the players
 
 The non-functional requirements have no effect on the database.
-
-> [!NOTE]
-> **General**: An objective is missing: The session facilitator should provide a debriefing of the game to the players.
 
 > [!NOTE]
 > **FC5**: The boolean `edit` and `view` fields are not fine-grained enough to distinguish between a game session admin and a facilitator.
@@ -444,7 +443,7 @@ The non-functional requirements have no effect on the database.
 > **FO5.8**: A table for storing the briefing for a `game_version` and a more specific briefing for a `game_session` should be added to the database.
 
 > [!NOTE]
-> **General**: A table for storing the debriefing for a `game_version` and a more specific debriefing for a `game_session` should be added to the database.
+> **FO5.24**: A table for storing the debriefing for a `game_version` and a more specific debriefing for a `game_session` should be added to the database.
 
 > [!NOTE]
 > **FO5.13**. When a facilitator adds a `news_item` record, this means that it is added for **all** game sessions. So, a specific news item table should be added that is only applicable to the game session. This asks for a new table in the database.

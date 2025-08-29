@@ -17,6 +17,7 @@ __Changelog:__
  - 2025-08-29 - Made the non-fuctional requirements testable [Issue #17](https://github.com/averbraeck/gscg-design/issues/17).
  - 2025-08-29 - Improve clarity of game terms in requirements [Issue #21](https://github.com/averbraeck/gscg-design/issues/21).
  - 2025-08-29 - Clarify `player` versus `user` in requirements [Issue #25](https://github.com/averbraeck/gscg-design/issues/25).
+ - 2025-08-29 - Requirement missing for debriefing by facilitator [Issue #28](https://github.com/averbraeck/gscg-design/issues/28).
  
  
 ## 3.0. Legend
@@ -196,6 +197,7 @@ Won't haves:
 - FO5.21 The session facilitation should allow chatting with the active players in the game session
 - FC5.22 The session administrator must be able to login to the portal
 - FC5.23 The session administrator must be able to logout from the portal
+- FO5.24 The session facilitator should provide a debriefing of the game to the players
 
 Non-functional requirements:
 - NFC5.1 The session facilitation must run in any modern browser (Chrome, Edge, Firefox, Brave, Safari, Opera)
