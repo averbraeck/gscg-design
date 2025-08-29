@@ -20,17 +20,17 @@ end note
 (User administration) --> (Set user access)
 
 SF --> (User allocation)
-(User allocation) --> (Allocate user to game)
-(User allocation) --> (Deallocate user from game)
+(User allocation) --> (Allocate user to session)
+(User allocation) --> (Deallocate user from session)
 (User allocation) --> (Show players for session)
 
 SF --> (Brief game)
 
-SF --> (Start/stop game)
-(Start/stop game) --> (Start game)
-(Start/stop game) --> (Change game speed)
-(Start/stop game) --> (Pause game)
-(Start/stop game) --> (Stop game)
+SF --> (Start/stop game session)
+(Start/stop game session) --> (Start game session)
+(Start/stop game session) --> (Change game speed)
+(Start/stop game session) --> (Pause game session)
+(Start/stop game session) --> (Stop game session)
 
 SF --> (Facilitate session)
 (Facilitate session) --> (Add news item)
@@ -40,11 +40,11 @@ SF --> (Facilitate session)
 (Facilitate session) --> (Show actor map)
 (Facilitate session) --> (Show scores)
 
-(Start game) --> (Send data to\ngame data platform)
+(Start game session) --> (Send data to\ngame data platform)
 (Add news item) --> (Send data to\ngame data platform)
 (Add intervention) --> (Send data to\ngame data platform)
 (Trigger intervention) --> (Send data to\ngame data platform)
-(Stop game) --> (Send data to\ngame data platform)
+(Stop game session) --> (Send data to\ngame data platform)
 
 SF --> (Debrief game)
 (Debrief game) --> (Show scores)
