@@ -10,7 +10,7 @@ __Changelog:__
  - 2025-08-27 - Added design for GSCG Admin Data database tables
  - 2025-08-27 - Added design for Game Design Data database tables
  - 2025-08-28 - Added design choices for Game State and Game Play data
- - 2025-08-29 - Checked the full set of requirements against the database design 
+ - 2025-08-29 - Checked database design against the full set of requirements
 
 
 ## 4.1.1. High-level database design
