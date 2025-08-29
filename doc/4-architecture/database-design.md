@@ -14,6 +14,7 @@ __Changelog:__
  - 2025-08-29 - Enhance `content_receiver` class [Issue #18](https://github.com/averbraeck/gscg-design/issues/18).
  - 2025-08-29 - Add `timezone_offset` to the location [Issue #36](https://github.com/averbraeck/gscg-design/issues/36).
  - 2025-08-29 - Improve clarity of game terms in requirements [Issue #21](https://github.com/averbraeck/gscg-design/issues/21).
+ - 2025-08-29 - Clarify `player` versus `user` in requirements [Issue #25](https://github.com/averbraeck/gscg-design/issues/25).
  
 
 ## 4.1.1. High-level database design
@@ -289,9 +290,6 @@ Note for FC1.5: The access rights for a user are:
 The non-functional requirements have no effect on the database.
 
 > [!NOTE]
-> **General**: The requirements should make a better distinction between a `game`, a `game_version` and a `game_session`. The term 'game instance' is ambiguous.
-
-> [!NOTE]
 > **FC2.5**: Player goals have to be added to the database.
 
 > [!NOTE]
@@ -350,11 +348,11 @@ The non-functional requirements have no effect on the database.
   <br>A `game_session` has fields `play_date`, `valid_from` and `valid_until` (all `DATETIME` fields).
 - FC4.8 The session administrator must be able to delete a game session that has not yet been played
   <br>A session administrator has access to the session through the table `game_session_role`.
-- FC4.9 The session administrator must be able to allocate users to a game session
+- FC4.9 The session administrator must be able to allocate players to a game session
   <br>Players can be allocated to a game session: A `player` has a `game_session_id`.
-- FC4.10 The session administrator must be able to turn on user self registration for a game session
+- FC4.10 The session administrator must be able to turn on player self registration for a game session
   <br>A field is missing here. See NOTE.
-- FC4.11 The session administrator must be able to generate a batch of anonymous users with login codes and passwords
+- FC4.11 The session administrator must be able to generate a batch of anonymous players with login codes and passwords
   <br>The table `player` has a `name` and `password` field (with `salt`).
 - FO4.12 The session administration should present an overview of the sessions with dates and play status
   <br>Not easy right now. See NOTE.
@@ -370,9 +368,6 @@ The non-functional requirements have no effect on the database.
 
 > [!NOTE]
 > **FC4.6**: It is not logical for a session admin to be able to create a session in the database, since the session admin is allocated to individual sessions through the `game_session_role` table. Non-existent game sessions are not linked and can therefore not be created. This has to be solved, probably in the `organization_role` table, or in a new table `organization_game_role`.
-
-> [!NOTE]
-> **FC4.9**, **FC4.10**, **FC4.11**: Instead of `user`, `player` should be mentioned. Users and players are two distinct tables and roles in the design of GSCG.
 
 > [!NOTE]
 > **FC4.10**: A field `self_registration` should be added to the `game_session`.
@@ -393,7 +388,7 @@ The non-functional requirements have no effect on the database.
   <br>The session facilitator has access to the `game_session` with attached `player` records.
 - FC5.3 The session facilitator must be able to delete a player for the game session
   <br>The session facilitator has access to the `game_session` with attached `player` records.
-- FC5.4 The session facilitator must be able to reset the password of a user allocated to the game session
+- FC5.4 The session facilitator must be able to reset the password of a player allocated to the game session
   <br>The session facilitator has access to the `game_session` with attached `player` records. Each `player` record has a `password` field (with a `salt`).
 - FC5.5 The session facilitator must be able to change the access rights of a player for the game session
   <br>There are no access rights for players. A field to *block* a `player` from playing can be added. See NOTE.

@@ -16,6 +16,7 @@ __Changelog:__
  - 2025-08-29 - Added won't haves for deleting a game after play [Issue #15](https://github.com/averbraeck/gscg-design/issues/15).
  - 2025-08-29 - Made the non-fuctional requirements testable [Issue #17](https://github.com/averbraeck/gscg-design/issues/17).
  - 2025-08-29 - Improve clarity of game terms in requirements [Issue #21](https://github.com/averbraeck/gscg-design/issues/21).
+ - 2025-08-29 - Clarify `player` versus `user` in requirements [Issue #25](https://github.com/averbraeck/gscg-design/issues/25).
  
  
 ## 3.0. Legend
@@ -141,9 +142,9 @@ Non-functional requirements:
 - FC4.6 The session administrator must be able to create a game session
 - FC4.7 The session administrator must be able to change the dates of a game session
 - FC4.8 The session administrator must be able to delete a game session that has not yet been played
-- FC4.9 The session administrator must be able to allocate users to a game session
-- FC4.10 The session administrator must be able to turn on user self registration for a game session
-- FC4.11 The session administrator must be able to generate a batch of anonymous users with login codes and passwords
+- FC4.9 The session administrator must be able to allocate players to a game session
+- FC4.10 The session administrator must be able to turn on player self registration for a game session
+- FC4.11 The session administrator must be able to generate a batch of anonymous players with login codes and passwords
 - FO4.12 The session administration should present an overview of the sessions with dates and play status
 - FO4.13 The session administration should present an overview of the facilitators and players allocated to a session
 - FC4.14 The session administrator must be able to login to the portal
@@ -175,7 +176,7 @@ Won't haves:
 - FC5.1 The session facilitator must be able to change their own password to enter the GSCG portal
 - FC5.2 The session facilitator must be able to create a player for the game session
 - FC5.3 The session facilitator must be able to delete a player for the game session
-- FC5.4 The session facilitator must be able to reset the password of a user allocated to the game session
+- FC5.4 The session facilitator must be able to reset the password of a player allocated to the game session
 - FC5.5 The session facilitator must be able to change the access rights of a player for the game session
 - FC5.6 The session facilitator must be able to allocate an existing user to the game session
 - FC5.7 The session facilitator must be able to deallocate an existing user from the game session
