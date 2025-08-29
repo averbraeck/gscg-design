@@ -8,21 +8,21 @@ User --> (Login)
 User --> (Set password)
 User --> (Logout)
 
-GD --> (Create game)
+GD --> (Create game version)
 
-GD --> (Clone game)
-GD --> (Delete game)
+GD --> (Clone game version)
+GD --> (Delete game version)
 
-GD --> (Design game) : "         \n\n\n\n\n"
-(Design game) --> (Choose game) : "              "
-(Design game) --> (Set goals)
-(Design game) --> (Set actors)
-(Design game) --> (Show defined actors)
-(Design game) --> (Show actor map)
-(Design game) --> (Set scenario)
-(Design game) --> (Show scenario timeline)
-(Design game) --> (Set allowable strategies)
-(Design game) --> (Set news items)
+GD --> (Design game version) : "         \n\n\n\n\n"
+(Design game version) --> (Choose game version) : "              "
+(Design game version) --> (Set goals)
+(Design game version) --> (Set actors)
+(Design game version) --> (Show defined actors)
+(Design game version) --> (Show actor map)
+(Design game version) --> (Set scenario)
+(Design game version) --> (Show scenario timeline)
+(Design game version) --> (Set allowable strategies)
+(Design game version) --> (Set news items)
 (Set scenario) --> (Set parameters)
 (Set scenario) --> (Set interventions)
 (Set actors) --> (Set parameters)
