@@ -17,7 +17,7 @@ __Changelog:__
  - 2025-08-29 - Made the non-fuctional requirements testable [Issue #17](https://github.com/averbraeck/gscg-design/issues/17).
  - 2025-08-29 - Improve clarity of game terms in requirements [Issue #21](https://github.com/averbraeck/gscg-design/issues/21).
  - 2025-08-29 - Clarify `player` versus `user` in requirements [Issue #25](https://github.com/averbraeck/gscg-design/issues/25).
- - 2025-08-29 - Requirement missing for debriefing by facilitator [Issue #28](https://github.com/averbraeck/gscg-design/issues/28).
+ - 2025-08-29 - Requirement added for debriefing by facilitator [Issue #28](https://github.com/averbraeck/gscg-design/issues/28).
  
  
 ## 3.0. Legend
