@@ -11,7 +11,9 @@ __Changelog:__
  - 2025-08-27 - Added design for Game Design Data database tables
  - 2025-08-28 - Added design choices for Game State and Game Play data
  - 2025-08-29 - Checked database design against the full set of requirements
-
+ - 2025-08-29 - Enhance `content_receiver` class [Issue #18](https://github.com/averbraeck/gscg-design/issues/18).
+ - 2025-08-29 - Add `timezone_offset` to the location [Issue #36](https://github.com/averbraeck/gscg-design/issues/36).
+ 
 
 ## 4.1.1. High-level database design
 
@@ -82,16 +84,13 @@ The actor table defines the organizations (agents) in the game with their locati
 - `actor` is the instantiation of an `actor_type` in the `game_version`. It has a `location` and one or more instances of `role`.
 - `role_type` defines a role for an `actor_type` such as Purchasing, Selling, Producing, Banking or Transporting in the simulation library. Therefore, it contains a reference to a `java_type`.
 - `role` is the instantiation of an `role_type` in the `game_version`. The `role` has a `content_receiver` that specifies when content (messages) can be received and how long it takes to process.
-- `content_receiver` is a simple specification of the delay that occurs when receiving content (messages).
-- `location` specifies an (x,y) or (lon,lat) position for the `actor`. It is located on a `landmass`.
+- `content_receiver` is a specification of the delay that occurs when receiving content (messages). It handles fixed delays, stochastic delays and working times of the actor (See Issue #18).
+- `location` specifies an (x,y) or (lon,lat) position for the `actor`. It is located on a `landmass`. A location also has a timezone offset for global trade, see Issue #36.
 - `landmass` is important, since trucks and trains cannot transport goods between landmasses, only on landmasses. For quick calculations on a landmass, the average truck speed is given for the landmass.
 
 The partial relations look as follows:
 
 ![](diagrams/gscg-database-actor-role.png)
-
-> [!NOTE]
-> The definition of `content_receiver` can probably be extended with versions that have weekend closure, that work office hours in a certain time zone, etc.
 
 
 ### Actor and Role parameter/value tables
