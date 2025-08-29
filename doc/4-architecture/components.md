@@ -30,3 +30,17 @@ A rough indication of the simulation itself is given in the diagram as well. The
 - Agents 1 through m for automated actions of organizations that are not player-controlled.
 - Supply chain organizations 1 through n for actions that are controlled by players.
 - User Interface (UI) wrappers to control the organizations by the players.
+
+
+## Handling of time in the simulation and database
+
+The **Global** Supply Chain Game looks at world-wide trade. This means that different companies operate in different time zones, with different office times. In the game play, these differences are important; placing an order just before or after COB before the weekend can make a big difference in when the goods can be received.
+
+The simulator clock has one central game time, which can probably best be expressed in UTC. Different actors then are in a different time zone + or - a number of hours from UTC. For this reason, the location of an actor has a `timezone_offset` that indicates the number of hours ahead or behind UTC. It is expressed as a double, since not all countries have an integer difference for the number of hours away from UTC.
+
+The following rules apply:
+- All timestamps are expressed in UTC, in the global game time.
+- When game time is shown to all players, UTC is used.
+- When it matters, both UTC and local time can be shown on the screen. 
+- Office hours of an actor (or role) are expressed in local time (e.g., 08:00-17:00).
+
