@@ -13,6 +13,7 @@ __Changelog:__
  - 2025-08-29 - Checked database design against the full set of requirements
  - 2025-08-29 - Enhance `content_receiver` class [Issue #18](https://github.com/averbraeck/gscg-design/issues/18).
  - 2025-08-29 - Add `timezone_offset` to the location [Issue #36](https://github.com/averbraeck/gscg-design/issues/36).
+ - 2025-08-29 - Improve clarity of game terms in requirements [Issue #21](https://github.com/averbraeck/gscg-design/issues/21).
  
 
 ## 4.1.1. High-level database design
@@ -210,11 +211,11 @@ Below, all requirements of GSCG are checked against the availability of the data
   <br>The `user.password` field is in the database.
 - FC1.5 The portal administrator must be able to change the access rights of a user (* see below)
   <br>The `organization_role`, `game_role` and `game_session_role` tables in the database define the access rights of a user.
-- FC1.6 The portal administrator must be able to create a new game instance
+- FC1.6 The portal administrator must be able to create a new game
   <br>The `game` table is in the database.
-- FC1.7 The portal administrator must be able to delete a game instance that has not yet been played
+- FC1.7 The portal administrator must be able to delete a game that has no game versions
   <br>The `game` table is in the database. The foreign key to `game_version` prevents deletion of an active game.
-- FC1.8 The portal administrator must be able to allocate a user to be the administrator of a game instance
+- FC1.8 The portal administrator must be able to allocate a user to be the game administrator for a game
   <br>The `game_role` table with the boolean `edit` field makes a user a game administrator.
 - FC1.9 The portal administrator must be able to create an organization
   <br>The `organization` table is in the database.
@@ -233,15 +234,15 @@ The non-functional requirements have no effect on the database.
 (*) Details for access rights from the requirements:
 
 Note for FC1.5: The access rights for a user are:
-- super-administrator
+- portal-administrator
   <br>the `user` table has a field `portal_admin` that defines the portal administrator.
 - organization administrator, with a link to one or more organizations
   <br>The `admin` field in `organization_role` codes organization administration.
 - organization member, with a link to one or more organizations
   <br>The `edit` and `view` field in `organization_role` codes organization access for a `user`.
-- game administrator, with a link to one or more game instances
+- game designer, with a link to one or more games
   <br>The `edit` field in `game_role` codes game admin access for a `user`.
-- game member, with a link to one or more game instances
+- game member, with a link to one or more games
   <br>The `view` field in `game_role` codes game view access for a `user`.
 - session administrator, with a link to one or more game sessions
   <br>The `edit` field in `game_session_role` codes game session admin access for a `user`.
@@ -256,25 +257,25 @@ Note for FC1.5: The access rights for a user are:
 - General: the `game_role` table with the boolean `edit` field makes a `user` a game administrator.
 - FC2.1 The game designer must be able to change their own password to enter the GSCG portal
   <br>The `user.password` field is in the database.
-- FC2.2 The game designer must be able to create a game instance
-  <br>The `game` table is in the database.
-- FC2.3 The game designer must be able to clone a game instance
-  <br>The `game` table is in the database.
-- FC2.4 The game designer must be able to choose a game instance to maintain
-  <br>The `game` table is in the database.
-- FC2.5 The game designer must be able to set the player goals for the chosen game instance
+- FC2.2 The game designer must be able to create a game version
+  <br>The `game_version` table is in the database.
+- FC2.3 The game designer must be able to clone a game version
+  <br>The `game_version` table is in the database.
+- FC2.4 The game designer must be able to choose a game version to maintain
+  <br>The `game_version` table is in the database.
+- FC2.5 The game designer must be able to set the player goals for the chosen game version
   <br>This still needs to be designed and added to the database. SEE NOTE.
-- FC2.6 The game designer must be able to set the actors to use for the chosen game instance
+- FC2.6 The game designer must be able to set the actors to use for the chosen game version
   <br>The database contains `actor_type` and `actor` with `role_type` and `role`.
-- FC2.7 The game designer must be able to set the scenario to use for the chosen game instance
+- FC2.7 The game designer must be able to set the scenario to use for the chosen game version
   <br>The database has a table `game_scenario`.
-- FC2.8 The game designer must be able to set the parameters for an actor in the chosen game instance
+- FC2.8 The game designer must be able to set the parameters for an actor in the chosen game version
   <br>The tables `actor` and `role` have configurable parameters and values.
-- FC2.9 The game designer must be able to set the parameters for a scenario in the chosen game instance
+- FC2.9 The game designer must be able to set the parameters for a scenario in the chosen game version
   <br>The table `game_scenario` has events and triggers, as well as news messages in separate tables.
 - FO2.10 The game design should present one or more screens that provide an overview of the defined actors with their capabilities
   <br>No effect on database.
-- FO2.11 The game design should present a timeline with the scenario events for the game instance
+- FO2.11 The game design should present a timeline with the scenario events for the game version
   <br>The `trigger` tables with timestamps for a `game_scenario` help to present a timeline.
 - FO2.12 The game design should present a map with the actors displayed at their locations
   <br>Actors have a `location` in the database with lat/lon.
@@ -349,7 +350,7 @@ The non-functional requirements have no effect on the database.
   <br>A `game_session` has fields `play_date`, `valid_from` and `valid_until` (all `DATETIME` fields).
 - FC4.8 The session administrator must be able to delete a game session that has not yet been played
   <br>A session administrator has access to the session through the table `game_session_role`.
-- FC4.9 The session administrator must be able to allocate users to a game instance
+- FC4.9 The session administrator must be able to allocate users to a game session
   <br>Players can be allocated to a game session: A `player` has a `game_session_id`.
 - FC4.10 The session administrator must be able to turn on user self registration for a game session
   <br>A field is missing here. See NOTE.

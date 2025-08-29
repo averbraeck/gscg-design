@@ -15,6 +15,7 @@ __Changelog:__
  - 2025-08-13 - Add chapter number for SE-step "3" to the headers in the document
  - 2025-08-29 - Added won't haves for deleting a game after play [Issue #15](https://github.com/averbraeck/gscg-design/issues/15).
  - 2025-08-29 - Made the non-fuctional requirements testable [Issue #17](https://github.com/averbraeck/gscg-design/issues/17).
+ - 2025-08-29 - Improve clarity of game terms in requirements [Issue #21](https://github.com/averbraeck/gscg-design/issues/21).
  
  
 ## 3.0. Legend
@@ -29,9 +30,9 @@ Functional requirements:
 - FC1.3 The portal administrator must be able to delete a user
 - FC1.4 The portal administrator must be able to reset the password of a user
 - FC1.5 The portal administrator must be able to change the access rights of a user (* see below)
-- FC1.6 The portal administrator must be able to create a new game instance
-- FC1.7 The portal administrator must be able to delete a game instance that has not yet been played
-- FC1.8 The portal administrator must be able to allocate a user to be the administrator of a game instance
+- FC1.6 The portal administrator must be able to create a new game
+- FC1.7 The portal administrator must be able to delete a game that has no game versions
+- FC1.8 The portal administrator must be able to allocate a user to be the game administrator for a game
 - FC1.9 The portal administrator must be able to create an organization
 - FC1.10 The portal administrator must be able to delete an organization (or to disallow access for users of the organization)
 - FC1.11 The portal administrator must be able to allocate a user to be the administrator of an organization
@@ -46,16 +47,16 @@ Non-functional requirements:
 - NFO1.5 The portal administration should have a responsive UI to scale to the device properties. A responsive UI means that the output scales with the window or device size, and does not have a fixed maximum width.
 
 Won't haves:
-- W1.1 The portal administrator won't be able to delete a game instance that has already been played
+- W1.1 The portal administrator won't be able to delete a game that has already been played
 
 
 > [!NOTE]
 > Note for FC1.5: The access rights for a user are:
-> - super-administrator
+> - portal-administrator
 > - organization administrator, with a link to one or more organizations
 > - organization member, with a link to one or more organizations
-> - game administrator, with a link to one or more game instances
-> - game member, with a link to one or more game instances
+> - game designer, with a link to one or more games
+> - game member, with a link to one or more games
 > - session administrator, with a link to one or more game sessions
 > - session facilitator, with a link to one or more game sessions
 > - game player, with a link to one or more game sessions
@@ -67,16 +68,16 @@ Won't haves:
 ## 3.2. Game design
 
 - FC2.1 The game designer must be able to change their own password to enter the GSCG portal
-- FC2.2 The game designer must be able to create a game instance
-- FC2.3 The game designer must be able to clone a game instance
-- FC2.4 The game designer must be able to choose a game instance to maintain
-- FC2.5 The game designer must be able to set the player goals for the chosen game instance
-- FC2.6 The game designer must be able to set the actors to use for the chosen game instance
-- FC2.7 The game designer must be able to set the scenario to use for the chosen game instance
-- FC2.8 The game designer must be able to set the parameters for an actor in the chosen game instance (see note)
-- FC2.9 The game designer must be able to set the parameters for a scenario in the chosen game instance (see note)
+- FC2.2 The game designer must be able to create a game version
+- FC2.3 The game designer must be able to clone a game version
+- FC2.4 The game designer must be able to choose a game version to maintain
+- FC2.5 The game designer must be able to set the player goals for the chosen game version
+- FC2.6 The game designer must be able to set the actors to use for the chosen game version
+- FC2.7 The game designer must be able to set the scenario to use for the chosen game version
+- FC2.8 The game designer must be able to set the parameters for an actor in the chosen game version (see note)
+- FC2.9 The game designer must be able to set the parameters for a scenario in the chosen game version (see note)
 - FO2.10 The game design should present one or more screens that provide an overview of the defined actors with their capabilities
-- FO2.11 The game design should present a timeline with the scenario events for the game instance
+- FO2.11 The game design should present a timeline with the scenario events for the game version
 - FO2.12 The game design should present a map with the actors displayed at their locations
 - FC2.13 The game designer must be able to login to the portal
 - FC2.14 The game designer must be able to logout from the portal
@@ -140,7 +141,7 @@ Non-functional requirements:
 - FC4.6 The session administrator must be able to create a game session
 - FC4.7 The session administrator must be able to change the dates of a game session
 - FC4.8 The session administrator must be able to delete a game session that has not yet been played
-- FC4.9 The session administrator must be able to allocate users to a game instance
+- FC4.9 The session administrator must be able to allocate users to a game session
 - FC4.10 The session administrator must be able to turn on user self registration for a game session
 - FC4.11 The session administrator must be able to generate a batch of anonymous users with login codes and passwords
 - FO4.12 The session administration should present an overview of the sessions with dates and play status
@@ -157,7 +158,7 @@ Non-functional requirements:
 - NFO4.5 The session administration should have a responsive UI to scale to the device properties. A responsive UI means that the output scales with the window or device size, and does not have a fixed maximum width.
 
 Won't haves:
-- W4.1 The session administrator won't be able to delete a game instance that has already been played
+- W4.1 The session administrator won't be able to delete a game session that has already been played
 
 
 > [!NOTE]
