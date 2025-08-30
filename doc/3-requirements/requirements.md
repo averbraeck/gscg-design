@@ -18,6 +18,7 @@ __Changelog:__
  - 2025-08-29 - Improve clarity of game terms in requirements [Issue #21](https://github.com/averbraeck/gscg-design/issues/21).
  - 2025-08-29 - Clarify `player` versus `user` in requirements [Issue #25](https://github.com/averbraeck/gscg-design/issues/25).
  - 2025-08-29 - Requirement added for debriefing by facilitator [Issue #28](https://github.com/averbraeck/gscg-design/issues/28).
+ - 2025-08-29 - Re-allocate tasks between session admin and facilitator [Issue #24](https://github.com/averbraeck/gscg-design/issues/24).
  
  
 ## 3.0. Legend
@@ -180,7 +181,7 @@ Won't haves:
 - FC5.2 The session facilitator must be able to create a player for the game session
 - FC5.3 The session facilitator must be able to delete a player for the game session
 - FC5.4 The session facilitator must be able to reset the password of a player allocated to the game session
-- FC5.5 The session facilitator must be able to change the access rights of a player for the game session
+- FC5.5 The session facilitator must be able to change the access of a player to the game session
 - FC5.6 The session facilitator must be able to allocate an existing user to the game session
 - FC5.7 The session facilitator must be able to deallocate an existing user from the game session
 - FO5.8 The session facilitator should provide a briefing of the game to the players
@@ -200,6 +201,9 @@ Won't haves:
 - FC5.22 The session administrator must be able to login to the portal
 - FC5.23 The session administrator must be able to logout from the portal
 - FO5.24 The session facilitator should provide a debriefing of the game to the players
+- FC5.25 The session administrator must be able to change the dates of a game session
+- FC5.26 The session administrator must be able to generate a batch of anonymous players with login codes and passwords
+- FC5.27 The session administrator must be able to set or change the allowable strategies that can be chosen by the players
 
 Non-functional requirements:
 - NFC5.1 The session facilitation must run in any modern browser (Chrome, Edge, Firefox, Brave, Safari, Opera)

@@ -17,6 +17,7 @@ __Changelog:__
  - 2025-08-29 - Clarify `player` versus `user` in requirements [Issue #25](https://github.com/averbraeck/gscg-design/issues/25).
  - 2025-08-29 - Requirement added for debriefing by facilitator [Issue #28](https://github.com/averbraeck/gscg-design/issues/28).
  - 2025-08-29 - Add `organization_game_role` table to the database [Issue #24](https://github.com/averbraeck/gscg-design/issues/24).
+ - 2025-08-29 - Re-allocate tasks between session admin and facilitator [Issue #24](https://github.com/averbraeck/gscg-design/issues/24).
  
 
 ## 4.1.1. High-level database design
@@ -359,7 +360,7 @@ The non-functional requirements have no effect on the database.
 - FO4.12 The session administration should present an overview of the sessions with dates and play status
   <br>Not easy right now. See NOTE.
 - FO4.13 The session administration should present an overview of the facilitators and players allocated to a session
-  <br>Players are linked to a game sesion and can be easily enumerated. Facilitators are users that have a `game_session_role` with an `edit` allocation. Probably the fields `edit` and `view` can be made more explicit. See NOTE.
+  <br>Players are linked to a game session and can be easily enumerated. Facilitators are users that have a `game_session_role` with an `edit` allocation. Probably the fields `edit` and `view` can be made more explicit. See NOTE.
 - FC4.14 The session administrator must be able to login to the portal
   <br>No consequences for database.
 - FC4.15 The session administrator must be able to logout from the portal
@@ -390,8 +391,8 @@ The non-functional requirements have no effect on the database.
   <br>The session facilitator has access to the `game_session` with attached `player` records.
 - FC5.4 The session facilitator must be able to reset the password of a player allocated to the game session
   <br>The session facilitator has access to the `game_session` with attached `player` records. Each `player` record has a `password` field (with a `salt`).
-- FC5.5 The session facilitator must be able to change the access rights of a player for the game session
-  <br>There are no access rights for players. A field to *block* a `player` from playing can be added. See NOTE.
+- FC5.5 The session facilitator must be able to change the access of a player to the game session
+  <br>A field to *block* a `player` from playing the game should be added. See NOTE.
 - FC5.6 The session facilitator must be able to allocate an existing user to the game session
   <br>A `player` can be linked to a `user` in the database through a nullable field `user_id`.
 - FC5.7 The session facilitator must be able to deallocate an existing user from the game session
@@ -429,6 +430,13 @@ The non-functional requirements have no effect on the database.
 - FC5.23 The session administrator must be able to logout from the portal
   <br>No consequences for database.
 - FO5.24 The session facilitator should provide a debriefing of the game to the players
+  <br>The field or table for debriefing is missing from the database. See NOTE.
+- FC5.25 The session administrator must be able to change the dates of a game session
+  <br>A `game_session` has fields `play_date`, `valid_from` and `valid_until` (all `DATETIME` fields).
+- FC5.26 The session administrator must be able to generate a batch of anonymous players with login codes and passwords
+  <br>The table `player` has a `name` and `password` field (with `salt`).
+- FC5.27 The session administrator must be able to set or change the allowable strategies that can be chosen by the players
+  <br>The field or table for allowable strategies is missing from the database. See NOTE.
 
 The non-functional requirements have no effect on the database.
 
@@ -436,13 +444,10 @@ The non-functional requirements have no effect on the database.
 > **FC5**: The boolean `edit` and `view` fields are not fine-grained enough to distinguish between a game session admin and a facilitator.
 
 > [!NOTE]
-> **FC5.5**: A field to block a `player` from playing can be added.
+> **FC5.5**: A field to block a `player` from playing must be added.
 
 > [!NOTE]
 > **FO5.8**: A table for storing the briefing for a `game_version` and a more specific briefing for a `game_session` should be added to the database.
-
-> [!NOTE]
-> **FO5.24**: A table for storing the debriefing for a `game_version` and a more specific debriefing for a `game_session` should be added to the database.
 
 > [!NOTE]
 > **FO5.13**. When a facilitator adds a `news_item` record, this means that it is added for **all** game sessions. So, a specific news item table should be added that is only applicable to the game session. This asks for a new table in the database.
@@ -458,6 +463,12 @@ The non-functional requirements have no effect on the database.
 
 > [!NOTE]
 > **FO5.21**: A table for storing chats between players and between facilitator and player should be added to the database.
+
+> [!NOTE]
+> **FO5.24**: A table for storing the debriefing for a `game_version` and a more specific debriefing for a `game_session` should be added to the database.
+
+> [!NOTE]
+> **FC5.27**: A table for linking allowable player strategies to a game session is missing.
 
 
 ### 4.1.6.6. Game play
