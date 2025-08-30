@@ -24,6 +24,7 @@ __Changelog:__
  - 2025-08-30 - Enable blocking of player for a game session [Issue #29](https://github.com/averbraeck/gscg-design/issues/29).
  - 2025-08-30 - Table handler_valid_actor also on actor_type level [Issue #19](https://github.com/averbraeck/gscg-design/issues/19).
  - 2025-08-30 - Add database tables for briefing and debriefing [Issue #30](https://github.com/averbraeck/gscg-design/issues/30).
+ - 2025-08-30 - Allow limits to be set on a trigger [Issue #33](https://github.com/averbraeck/gscg-design/issues/33).
  
 
 ## 4.1.1. High-level database design
@@ -415,7 +416,7 @@ The non-functional requirements have no effect on the database.
 - FC5.16 The event of adding an intervention to the the game session must be sent to the gamedata platform
   <br>No consequences for database.
 - FO5.17 The facilitator should be able to trigger an existing manual intervention during gameplay
-  <br>The `trigger_interval` and `trigger_fixed` tables have a boolean field called `facilitator_trigger`. If true, the facilitator can trigger the event. Maybe we have to restrict the number of times that an event can be triggered. See NOTE. We might also record the fact that an event has been triggered. See NOTE.
+  <br>The `trigger_interval` and `trigger_fixed` tables have a boolean field called `facilitator_trigger`. If true, the facilitator can trigger the event. We must record the fact that an event has been triggered. See NOTE.
 - FC5.18 The event of triggering an existing intervention during the the game play must be sent to the gamedata platform
   <br>No consequences for database.
 - FO5.19 The session facilitation should present an overview of the players allocated to a session
@@ -446,9 +447,6 @@ The non-functional requirements have no effect on the database.
 
 > [!NOTE]
 > **FO5.15**. When a facilitator adds an `event` record, this means that it is added for **all** game sessions. So, a specific event table should be added that only applies to the game session. This asks for a new table in the database.
-
-> [!NOTE]
-> **FO5.17**: Add a maximum number of times an event has been triggered to the database.
 
 > [!NOTE]
 > **FO5.17**: Record that an event has been triggered to the database. This probably asks for a new table that is linked to the `game_session`.
