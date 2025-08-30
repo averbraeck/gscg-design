@@ -5,10 +5,10 @@ The inner working of the simulation model is based on a simplified diagram of me
 ## 5.1.1. Actors in the simulation
 
 In total, we see the following Actor Types (each fulfilling multiple roles):
-- **Seller**: provides products or components to any other Actor.
+- **Seller**: provides products or components to any other Actor. A Supplier is a special type of Seller.
 - **Manufacturer**: provides added value operation on components to create products, e.g. by assembly.
-- **Distributor**: has multiple warehouses to store products for a  local market; sources these goods, and redistributes them between different warehouses; carries out rework for quality where necessary; negotiates orders with Buyers, and arranges the transport to these buyers.
-- **Buyer**: sources products with a certain frequencies, volumes, and request for quality.
+- **Distributor**: has one or more warehouses to store products for a  local market; sources these goods, and redistributes them between different warehouses; negotiates orders with bBuyers, and arranges the transport to these buyers.
+- **Buyer**: sources products with a certain frequencies, volumes, and request for quality. A Customer or Retailer is a special type of Buyer.
 - **Transporter**: arranges transport between different Actors, can use different modes of transport with a different speed, cost, and environmental impact.
 - **Banker**: maintains the bank accounts; transfers money between Actors; provides loans to Actors for a certain interest percentage; pays interest when there’s money in the bank.
 - **Searcher**: maintains information about all the companies in the simulation, can provide a list of Actors based on a search profile.
