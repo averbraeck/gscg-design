@@ -18,14 +18,16 @@ In total, we see the following Actor Types (each fulfilling multiple roles):
 
 We assume the following roles to be present in the actors to carry out the work:
 - Banking Role (handles money transfer betrween actors and provides loans)
-- Consuming Role (handles the purchases and stays in contact with the Sellers)
+- Consuming Role (handles the purchases and stays in contact with the sellers)
+- Directing Role (high-level decisions about product-market combinations or services offered)
 - Financing Role (handles sending of invoices and paying of invoices)
+- Manufacturing Role (transforms products according to a Bill of Materials)
 - Purchasing Role (keeps track of price developments on the supplier side)
 - Receiving Role (receives shipments from suppliers, and assesses quality before the shipment is put into inventory)
 - Searching Role (maintains information about actors; handles search for actors given a profile)
 - Selling Role (handles the sales and stays in contact with the customers)
-- Shipping Role (ships an order from a Warehouse to a Buyer or other Warehouse)
-- Transporting Role (arranges transport between warehouses and customers)
+- Shipping Role (ships an order from a warehouse to a buyer or other warehouse)
+- Transporting Role (moves shipments between sellers, warehouses and buyers)
 - Warehousing Role (guards the inventory and places internal orders for safety stock)
 
 Right now, we assume that each role keeps its own information, and its own statistics / world model of the environment. It could be, though, that separate roles will take care of this. 
