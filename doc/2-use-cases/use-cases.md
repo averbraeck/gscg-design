@@ -21,7 +21,7 @@ __Changelog:__
  - 2025-08-26 - Add missing function in use case diagram for game design (consistency with requirements)
  - 2025-08-29 - Improve clarity of game terms in use cases [Issue #21](https://github.com/averbraeck/gscg-design/issues/21).
  - 2025-08-29 - Re-allocate tasks for session admin and facilitator [Issue #24](https://github.com/averbraeck/gscg-design/issues/24).
- - 2025-08-30 - Allow facilitator to set player self registration [Issue #27](https://github.com/averbraeck/gscg-design/issues/27).
+ - 2025-08-30 - Allow facilitator to set player self registration [Issue #26](https://github.com/averbraeck/gscg-design/issues/26).
  
  
 ## 2.1. Portal administration
