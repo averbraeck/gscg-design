@@ -17,12 +17,12 @@ In total, we see the following Actor Types (each fulfilling multiple roles):
 ## 5.1.2. Roles in the simulation
 
 We assume the following roles to be present in the actors to carry out the work:
-- Banking Role (handles money transfer betrween actors and provides loans)
+- Banking Role (handles money transfer between actors and provides loans)
 - Consuming Role (handles the purchases and stays in contact with the sellers)
 - Directing Role (high-level decisions about product-market combinations or services offered)
 - Financing Role (handles sending of invoices and paying of invoices)
 - Manufacturing Role (transforms products according to a Bill of Materials)
-- Purchasing Role (keeps track of price developments on the supplier side)
+- Purchasing Role (keeps track of price developments and offers from sellers)
 - Receiving Role (receives shipments from suppliers, and assesses quality before the shipment is put into inventory)
 - Searching Role (maintains information about actors; handles search for actors given a profile)
 - Selling Role (handles the sales and stays in contact with the customers)
@@ -35,8 +35,42 @@ Right now, we assume that each role keeps its own information, and its own stati
 
 ## 5.1.3. Sequence diagram with messages
 
-The sequence diagram of messages between Roles in the simulation model looks as follows:
+The sequence diagram of messages between Roles in the simulation model for a transaction between a buyer and a seller, based on a Request for Quote (RFQ) looks as follows. The workflow starts with a Seller receiving an RFQ (Request for Quote) from a Buyer. The RFQ is sent by the Purchase Role in the Buyer Actor. The Selling Role in the Seller handles the RFQ, and goes through an extended process with many dead-ends to potentially answer the RFQ with one or more Quotes. This means that not every RFQ receives a Quote as an answer. Transport for the Shipment is also arranged, and both the Transporter and the Seller are paid. 
 
 ![](diagrams/gscg-sim-sequence.svg)
 
+
+## 5.1.4. Content (message) types
+
+In the basic sequence diagram, we see the following content types (message types), alphabetically ordered:
+
+| Content Type | From Actor &rarr; To Actor |
+| ------------ | -------------------------- |
+| [Demand](data-model/demand.md) | Consuming &rarr; Purchasing |
+| Fulfillment | |
+| InventoryEntry | |
+| [InventoryQuote](data-model/inventory-quote.md) Warehousing &rarr; Selling
+| [InventoryQuoteRequest](data-model/inventory-quote-request.md) Selling &rarr; Warehousing
+| [InventoryRelease](data-model/inventory-release.md) Selling &rarr; Warehousing
+| InventoryReleaseRequest | |
+| [InventoryReservation](data|model/inventory-reservation.md) Warehousing &rarr; Selling
+| [InventoryReservationRequest](data-model/inventory-reservation-request.md) Selling &rarr; Warehousing
+| Invoice | |
+| [OrderBasedOnQuote](data-model/order-based-onquote.md) Purchasing &rarr; Selling
+| [OrderConfirmation](data-model/order-confirmation.md) Selling &rarr; Purchasing
+| OrderStandalone | |
+| Payment | |
+| [Quote](data-model/quote.md) Selling &rarr; Purchasing
+| [QuoteNo](data-model/quote-no.md) Selling &rarr; Purchasing
+| [RequestForQuote](data-model/request-for-quote.md) Purchasing &rarr; Selling
+| [SearchAnswer](data-model/search-answer.md) Searching &rarr; Purchasing
+| [SearchRequest](data-model/search-request.md) Purchasing &rarr; Searching
+| ShippingOrder | |
+| TransportConfirmation | |
+| TransportDelivery | |
+| TransportInvoice | |
+| TransportOrder | |
+| TransportPayment | |
+| [TransportQuote](data-model/transport-quote.md) Transporting &rarr; Selling
+| [TransportQuoteRequest](data-model/transport-quote-request.md) Selling &rarr; Transporting
 
