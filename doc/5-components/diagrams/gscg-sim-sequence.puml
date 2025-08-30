@@ -44,7 +44,7 @@ CR1 -> PR1: Demand
     SR3 -> TR4: TransportQuoteRequest
       activate TR4
       return TransportQuote
-    SR3 --> PR1: NoQuote
+    SR3 --> PR1: QuoteNo
     return Quote
     
   PR1 -> SR3: OrderBasedOnQuote
