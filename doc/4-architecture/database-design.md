@@ -21,7 +21,7 @@ __Changelog:__
  - 2025-08-30 - Make `edit` and `view` fields more descriptive [Issue #27](https://github.com/averbraeck/gscg-design/issues/27).
  - 2025-08-30 - Add self registration option for players in database [Issue #26](https://github.com/averbraeck/gscg-design/issues/26).
  - 2025-08-30 - Allow facilitator to set player self registration [Issue #26](https://github.com/averbraeck/gscg-design/issues/26).
- 
+ - 2025-08-30 - Enable blocking of player for a game session [Issue #29](https://github.com/averbraeck/gscg-design/issues/29).
  
 
 ## 4.1.1. High-level database design
@@ -392,7 +392,7 @@ The non-functional requirements have no effect on the database.
 - FC5.4 The facilitator must be able to reset the password of a player allocated to the game session
   <br>The facilitator has access to the `game_session` with attached `player` records. Each `player` record has a `password` field (with a `salt`).
 - FC5.5 The facilitator must be able to change the access of a player to the game session
-  <br>A field to *block* a `player` from playing the game should be added. See NOTE.
+  <br>The field `blocked` for player (default false) can block a player from playing.
 - FC5.6 The facilitator must be able to allocate an existing user to the game session
   <br>A `player` can be linked to a `user` in the database through a nullable field `user_id`.
 - FC5.7 The facilitator must be able to deallocate an existing user from the game session
@@ -441,9 +441,6 @@ The non-functional requirements have no effect on the database.
   <br>The boolean field `self_registration` in `game_session` can turn self registration on or off.
 
 The non-functional requirements have no effect on the database.
-
-> [!NOTE]
-> **FC5.5**: A field to block a `player` from playing must be added.
 
 > [!NOTE]
 > **FO5.8**: A table for storing the briefing for a `game_version` and a more specific briefing for a `game_session` should be added to the database.
