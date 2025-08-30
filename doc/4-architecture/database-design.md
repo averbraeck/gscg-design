@@ -17,7 +17,9 @@ __Changelog:__
  - 2025-08-29 - Clarify `player` versus `user` in requirements [Issue #25](https://github.com/averbraeck/gscg-design/issues/25).
  - 2025-08-29 - Requirement added for debriefing by facilitator [Issue #28](https://github.com/averbraeck/gscg-design/issues/28).
  - 2025-08-29 - Add `organization_game_role` table to the database [Issue #24](https://github.com/averbraeck/gscg-design/issues/24).
- - 2025-08-29 - Re-allocate tasks between session admin and facilitator [Issue #24](https://github.com/averbraeck/gscg-design/issues/24).
+ - 2025-08-30 - Re-allocate tasks between session admin and facilitator [Issue #24](https://github.com/averbraeck/gscg-design/issues/24).
+ - 2025-08-30 - Make `edit` and `view` fields more descriptive [Issue #27](https://github.com/averbraeck/gscg-design/issues/27).
+ 
  
 
 ## 4.1.1. High-level database design
@@ -220,7 +222,7 @@ Below, all requirements of GSCG are checked against the availability of the data
 - FC1.7 The portal administrator must be able to delete a game that has no game versions
   <br>The `game` table is in the database. The foreign key to `game_version` prevents deletion of an active game.
 - FC1.8 The portal administrator must be able to allocate a user to be the game administrator for a game
-  <br>The `game_role` table with the boolean `edit` field makes a user a game administrator.
+  <br>The `game_role` table with the boolean `admin` field makes a user a game administrator.
 - FC1.9 The portal administrator must be able to create an organization
   <br>The `organization` table is in the database.
 - FC1.10 The portal administrator must be able to delete an organization (or to disallow access for users of the organization)
@@ -239,26 +241,28 @@ The non-functional requirements have no effect on the database.
 
 Note for FC1.5: The access rights for a user are:
 - portal-administrator
-  <br>the `user` table has a field `portal_admin` that defines the portal administrator.
+  <br>The `user` table has a field `portal_admin` that defines the portal administrator.
 - organization administrator, with a link to one or more organizations
-  <br>The `admin` field in `organization_role` codes organization administration.
+  <br>A true value for the `admin` field in `organization_role` codes organization administration.
 - organization member, with a link to one or more organizations
-  <br>The `edit` and `view` field in `organization_role` codes organization access for a `user`.
+  <br>A false value for the `admin` field in `organization_role` codes organization access for a `user`.
 - game designer, with a link to one or more games
-  <br>The `edit` field in `game_role` codes game admin access for a `user`.
+  <br>A true value for the `admin` field in `game_role` codes game admin access for a `user`.
 - game member, with a link to one or more games
-  <br>The `view` field in `game_role` codes game view access for a `user`.
-- session administrator, with a link to one or more game sessions
-  <br>The `edit` field in `game_session_role` codes game session admin access for a `user`.
+  <br>A false value for the `admin` field in `game_role` codes game view access for a `user`.
+- session administrator, with a link to one or more game games for the organization
+  <br>A true value for the `admin` field in `organization_game_role` codes game session admin access for a `user`.
 - session facilitator, with a link to one or more game sessions
-  <br>The `view` field in `game_session_role` codes facilitator access for a `user`.
+  <br>A true value for the `facilitator` field in `game_session_role` codes game facilitator access for a `user`.
+- session observer, with a link to one or more game sessions
+  <br>A false value for the `facilitator` field in `game_session_role` codes game observer access for a `user`.
 - game player, with a link to one or more game sessions
   <br>The `game_session_id` field in `player` codes game session access for a `player`.
 
 
 ### 4.1.6.2. Game design.
 
-- General: the `game_role` table with the boolean `edit` field makes a `user` a game administrator.
+- General: the `game_role` table with the boolean `admin` field set to true makes a `user` a game administrator.
 - FC2.1 The game designer must be able to change their own password to enter the GSCG portal
   <br>The `user.password` field is in the database.
 - FC2.2 The game designer must be able to create a game version
@@ -334,7 +338,7 @@ The non-functional requirements have no effect on the database.
 
 ### 4.1.6.4. Session administration.
 
-- General: the `organization_game_role` table with the boolean `edit` field makes a `user` a session administrator.
+- General: the `organization_game_role` table with the boolean `admin` field set to true emakes a `user` a session administrator.
 - FC4.1 The session administrator must be able to change their own password to enter the GSCG portal
   <br>The `user.password` field is in the database.
 - FC4.2 The session administrator must be able to create a user
@@ -360,7 +364,7 @@ The non-functional requirements have no effect on the database.
 - FO4.12 The session administration should present an overview of the sessions with dates and play status
   <br>Not easy right now. See NOTE.
 - FO4.13 The session administration should present an overview of the facilitators and players allocated to a session
-  <br>Players are linked to a game session and can be easily enumerated. Facilitators are users that have a `game_session_role` with an `edit` allocation. Probably the fields `edit` and `view` can be made more explicit. See NOTE.
+  <br>Players are linked to a game session and can be easily enumerated. Facilitators are users that have a `game_session_role` with the field `facilitator` set to true.
 - FC4.14 The session administrator must be able to login to the portal
   <br>No consequences for database.
 - FC4.15 The session administrator must be able to logout from the portal
@@ -374,15 +378,12 @@ The non-functional requirements have no effect on the database.
 > **FC4.10**: A field `self_registration` should be added to the `game_session`.
 
 > [!NOTE]
-> **FO4.13**: The fields `edit` and `view` for the `same_session_role` are not descriptive enough to indicate who is a facilitator for a session. Maybe change the fields to `facilitator` and `observer`?
-
-> [!NOTE]
 > **FC4.16**: A table for linking allowable player strategies to a game session is missing.
 
 
 ### 4.1.6.5. Session facilitation
 
-- General: the `game_session_role` table with the boolean `edit` field makes a `user` a session facilitator.
+- General: the `game_session_role` table with the boolean `facilitator` field set to true makes a `user` a session facilitator.
 - FC5.1 The session facilitator must be able to change their own password to enter the GSCG portal
   <br>The `user.password` field is in the database.
 - FC5.2 The session facilitator must be able to create a player for the game session
@@ -439,9 +440,6 @@ The non-functional requirements have no effect on the database.
   <br>The field or table for allowable strategies is missing from the database. See NOTE.
 
 The non-functional requirements have no effect on the database.
-
-> [!NOTE]
-> **FC5**: The boolean `edit` and `view` fields are not fine-grained enough to distinguish between a game session admin and a facilitator.
 
 > [!NOTE]
 > **FC5.5**: A field to block a `player` from playing must be added.

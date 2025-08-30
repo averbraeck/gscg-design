@@ -60,8 +60,9 @@ Won't haves:
 > - organization member, with a link to one or more organizations
 > - game designer, with a link to one or more games
 > - game member, with a link to one or more games
-> - session administrator, with a link to one or more game sessions
+> - session administrator, with a link to one or more game games for the organization
 > - session facilitator, with a link to one or more game sessions
+> - session observer, with a link to one or more game sessions
 > - game player, with a link to one or more game sessions
 
 > [!NOTE]
