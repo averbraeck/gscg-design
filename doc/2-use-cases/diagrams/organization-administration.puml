@@ -12,7 +12,6 @@ User --> (Logout)
 Administrator --> (User administration)
 note bottom
   - organization member
-  - organization-game admin
   - session administrator
   - facilitator
   - player
