@@ -26,6 +26,7 @@ SF --> (User allocation)
 "Manage\ngame session" as (Manage)
 SF --> Manage
 Manage --> (Set session dates)
+Manage --> (Allow self registration\nfor players)
 Manage --> (Set allowable strategies)
 Manage --> (Generate anonymous players)
 
