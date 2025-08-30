@@ -25,6 +25,7 @@ __Changelog:__
  - 2025-08-30 - Table handler_valid_actor also on actor_type level [Issue #19](https://github.com/averbraeck/gscg-design/issues/19).
  - 2025-08-30 - Add database tables for briefing and debriefing [Issue #30](https://github.com/averbraeck/gscg-design/issues/30).
  - 2025-08-30 - Allow limits to be set on a trigger [Issue #33](https://github.com/averbraeck/gscg-design/issues/33).
+ - 2025-08-30 - Specify goals for a game version [Issue #22](https://github.com/averbraeck/gscg-design/issues/22).
  
 
 ## 4.1.1. High-level database design
@@ -274,7 +275,7 @@ Note for FC1.5: The access rights for a user are:
 - FC2.4 The game designer must be able to choose a game version to maintain
   <br>The `game_version` table is in the database.
 - FC2.5 The game designer must be able to set the player goals for the chosen game version
-  <br>This still needs to be designed and added to the database. SEE NOTE.
+  <br>Player goals are contained in the tabled `goal_list` and `goal`, linked to a `game_version`.
 - FC2.6 The game designer must be able to set the actors to use for the chosen game version
   <br>The database contains `actor_type` and `actor` with `role_type` and `role`.
 - FC2.7 The game designer must be able to set the scenario to use for the chosen game version
@@ -297,9 +298,6 @@ Note for FC1.5: The access rights for a user are:
   <br>This still needs to be designed and added to the database. SEE NOTE.
 
 The non-functional requirements have no effect on the database.
-
-> [!NOTE]
-> **FC2.5**: Player goals have to be added to the database.
 
 > [!NOTE]
 > **FC2.15**: Allowable Player strategies have to be added to the database.
