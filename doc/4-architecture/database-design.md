@@ -29,6 +29,7 @@ __Changelog:__
  - 2025-08-30 - Specify allowed strategies for a game version and session [Issue #23](https://github.com/averbraeck/gscg-design/issues/23).
  - 2025-08-30 - Store game play data [Issue #20](https://github.com/averbraeck/gscg-design/issues/20).
  - 2025-08-30 - Store chats in the database [Issue #35](https://github.com/averbraeck/gscg-design/issues/35).
+ - 2025-08-30 - Add game play data for extra news items [Issue #31](https://github.com/averbraeck/gscg-design/issues/31).
  
 
 ## 4.1.1. High-level database design
@@ -435,7 +436,7 @@ The non-functional requirements have no effect on the database.
 - FC5.12 The facilitator must be able to pause the game
   <br>No consequence for database.
 - FO5.13 The facilitator should be able to insert an extra news item for the players
-  <br>This is not yet foreseen in the database. Adding a `news_item` record means that it is added for **all** game sessions. So, a specific news item should be added that is added for the game session. See NOTE.
+  <br>The table `extra_news_message` stores news messages that have been injected by the facilitator into the game play.
 - FC5.14 The event of adding a news item to the the game session must be sent to the gamedata platform
   <br>No consequences for database.
 - FO5.15 The facilitator should be able to add an intervention into the game
@@ -468,9 +469,6 @@ The non-functional requirements have no effect on the database.
   <br>The boolean field `self_registration` in `game_session` can turn self registration on or off.
 
 The non-functional requirements have no effect on the database.
-
-> [!NOTE]
-> **FO5.13**. When a facilitator adds a `news_item` record, this means that it is added for **all** game sessions. So, a specific news item table should be added that is only applicable to the game session. This asks for a new table in the database.
 
 > [!NOTE]
 > **FO5.15**. When a facilitator adds an `event` record, this means that it is added for **all** game sessions. So, a specific event table should be added that only applies to the game session. This asks for a new table in the database.
