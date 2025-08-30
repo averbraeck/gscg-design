@@ -11,9 +11,8 @@ User --> (Logout)
 
 Administrator --> (User administration)
 note bottom
-  - session administrator
-  - player
   - facilitator
+  - player
 end note
 
 (User administration) --> (Create user)
