@@ -27,6 +27,7 @@ __Changelog:__
  - 2025-08-30 - Allow limits to be set on a trigger [Issue #33](https://github.com/averbraeck/gscg-design/issues/33).
  - 2025-08-30 - Specify goals for a game version [Issue #22](https://github.com/averbraeck/gscg-design/issues/22).
  - 2025-08-30 - Specify allowed strategies for a game version and session [Issue #23](https://github.com/averbraeck/gscg-design/issues/23).
+ - 2025-08-30 - Store game play data [Issue #20](https://github.com/averbraeck/gscg-design/issues/20).
  
 
 ## 4.1.1. High-level database design
@@ -63,7 +64,9 @@ The design of the GSCG Admin data tables looks as follows:
 ![](diagrams/gscg-database-admin.png)
 
 The goals and strategies have been defined in a separate diagram to keep the overview.
-- `goal` is a variable with a minimum and/or maximum value that the player should try to reach in the game. Each goal contains a brief explanation for the player. `game_version` can have multiple instances of `goal`, e.g., profit and sustainability, each with their own thresholds that the player should try to reach.
+- `goal` is a variable with a minimum and/or maximum value that the player should try to reach in the game. Each goal contains a brief explanation for the player. `game_version` and `game_session` can have multiple instances of `goal`, e.g., profit and sustainability, each with their own thresholds that the player should try to reach. Goals from `game_session` override those of `game_version`.
+- `game_version_goal` links a goal to a game version.
+- `game_session_goal` links a goal to a game session.
 - `allowed_strategy_list` containing a number of strategy categories.
 - `allowed_strategy_category` containing a number of possible strategies to choose from.
 - `allowed_strategy` explaining one strategy an a few lines.
@@ -200,10 +203,24 @@ Several solutions exist for the storage of game state data:
 2. Saving the *entire state* of the game regularly, e.g., once per play day or week. The advantage of this approach is that it allows for a quick restore. The disadvantage is that tracing the progress of the game for analysis purposes is much harder, although that is actually the task of the Game Play data for analytics. Another disadvantage is that the latest player decisions are lost.
 3. *Combining* a regular state save with the transactions since the last state save. The advantage is that it is complete and can do a quick full restore. The disadvantage is that two mechanisms have to be implemented.
 
-The data tables for game state data will be defined after a choice has been made. This asks for a bit deeper analysis of the software setup.
+For now, transactions are stored, since they are needed anyhow for the game analytics platform and to show game state to the facilitator and players. In addition, regular state saves of the game for rapid retrieval can be done as well. 
 
-> [!NOTE]
-> A choice has to be made for the persistence layer of the GSCG platform.
+A first set of tables to store the most important information per player has been created. All tables have a `game_time` field, and a `wall_time` field, storing the game time in UTC and the wall clock time of the game play record.
+
+- `player_decision` stores input from players to the live game session. The `state` field can be a copy of the json data sent from the player's browser, to easily replicate and analyze it later.
+- `chosen_strategy` stores the strategy that the player has chosen, for each `strategy_category`. Note that the player could change the strategy at some time during the game, if allowed by the facilitator. Strategies an be chosen by players as long as the field `allow_strategy_choice` in `game_session` is true.
+- `sent_content` stores every content message that was sent between actors in the game into the database.
+- `chat_message` stores chats between players and between a facilitator and a player into the database.
+- `triggered_event` stores the timestamp and state of an event that was triggered automatically (`triggered_facilitator` is false) or by the facilitator (`triggered_facilitator` is true). The state information of the event, if applicable, can be stored as well.
+- `triggered_process` stores the timestamp and state of an autonomous process that was triggered automatically. The state information of the process execution, if applicable, can be stored as well.
+- `triggered_news_message` stores the timestamp of a news message that was released automatically (`triggered_facilitator` is false) or released by the facilitator (`triggered_facilitator` is true). 
+- `extra_event` stores the timestamp and state of a new event that was injected by the facilitator during game play.
+- `extra_news_message` stores the timestamp of a news message that was injected by the facilitator during game play.
+- `player_score` updates the changes in the variables that are defined in the `game_version_goal` or `game_session_goal`. To this end, the `player_score` table is linked to `goal`. 
+
+The game play tables are indicated by a yellow banner.
+
+![](diagrams/gscg-database-game-play.png)
 
 
 
@@ -475,15 +492,15 @@ The non-functional requirements have no effect on the database.
 - FO6.4 The game play platform should show the briefing (note that the game might take place in a distributed setting)
   <br>The field `briefing_page_list_id` in `game_version` and `game_session` (for an override) link to a `page_list` with multiple `page` records for the briefing.
 - FC6.5 The game play platform must show dynamic state information about the player's firm during game play
-  <br>The dynamic state information is not yet explicitly stored in the database, since the **Game Play** data has not yet been fixed. 
+  <br>The table `player_decision` and `player_score` contain information about the player's firm. 
 - FC6.6 The game play platform must show the news at the correct times during game play
   <br>Each `news_message` has a `trigger_fixed` record attached to it, defining when the news item should be displayed to the player.
 - FC6.7 The player must be able to enter decisions into the game play platform during game play
-  <br>The storage of player decisions is not yet included in the database design, since the **Game Play** data has not yet been fixed. 
+  <br>The table `player_decision` stores decision information in the database.
 - FC6.8 The game play platform must send player decisions to the gamedata platform
   <br>No consequences for database.
 - FC6.9 The game play platform must show the scores to the player during and after game play
-  <br>The storage of player scores is not yet included in the database design, since the **Game Play** data has not yet been fixed. 
+  <br>The table `player_score` stores the scores of the player, related to a `goal`. 
 - FO6.10 The game play platform should show the debriefing (note that the game might take place in a distributed setting)
   <br>The field `debriefing_page_list_id` in `game_version` and `game_session` (for an override) link to a `page_list` with multiple `page` records for the debriefing.
 - FC6.11 The player must be able to logout from the game session
@@ -493,16 +510,13 @@ The non-functional requirements have no effect on the database.
 - FO6.13 The game play platform should allow chatting with other players in the game session and with the facilitator
   <br>Chats should probably also stored in the database. This is not yet included. See NOTE.
 - FC6.14 The player must be able to define a strategy, dependent on the settings in the game
-  <br>The storage of a player strategy is not yet included in the database design, since the **Game Play** data has not yet been fixed. 
+  <br>The player's chosen strategy is defined in the table `chosen_strategy`, which links to an `allowed_strategy`.
 - FC6.15 The player must be able to motivate their chosen strategy
-  <br>The storage of a motivation for a player strategy is not yet included in the database design, since the **Game Play** data has not yet been fixed. 
+  <br>The table `chosen_strategy` contains a `motivation` field. 
 - FC6.16 The game play platform must send the strategy and the motivation of the player to the gamedata platform
   <br>No consequences for database.
 
 The non-functional requirements have no effect on the database.
-
-> [!NOTE]
-> **FC6.5**, **FC6.7**, **FC6.9**, **FC6.14**, **FC6.15**: Check these requirements again when Game Play data has been added to the database.
 
 > [!NOTE]
 > **FO6.13**: A table for storing chats between players and between facilitator and player should be added to the database.
