@@ -20,6 +20,7 @@ __Changelog:__
  - 2025-08-30 - Re-allocate tasks between session admin and facilitator [Issue #24](https://github.com/averbraeck/gscg-design/issues/24).
  - 2025-08-30 - Make `edit` and `view` fields more descriptive [Issue #27](https://github.com/averbraeck/gscg-design/issues/27).
  - 2025-08-30 - Add self registration option for players in database [Issue #26](https://github.com/averbraeck/gscg-design/issues/26).
+ - 2025-08-30 - Allow facilitator to set player self registration [Issue #26](https://github.com/averbraeck/gscg-design/issues/26).
  
  
 
@@ -358,7 +359,7 @@ The non-functional requirements have no effect on the database.
   <br>A session administrator has access to the session through the table `game_session_role`.
 - FC4.9 The session administrator must be able to allocate players to a game session
   <br>Players can be allocated to a game session: A `player` has a `game_session_id`.
-- FC4.10 The session administrator must be able to turn on player self registration for a game session
+- FC4.10 The session administrator must be able to turn player self registration for a game session on or off.
   <br>The boolean field `self_registration` in `game_session` can turn self registration on or off.
 - FC4.11 The session administrator must be able to generate a batch of anonymous players with login codes and passwords
   <br>The table `player` has a `name` and `password` field (with `salt`).
@@ -382,60 +383,62 @@ The non-functional requirements have no effect on the database.
 ### 4.1.6.5. Session facilitation
 
 - General: the `game_session_role` table with the boolean `facilitator` field set to true makes a `user` a session facilitator.
-- FC5.1 The session facilitator must be able to change their own password to enter the GSCG portal
+- FC5.1 The facilitator must be able to change their own password to enter the GSCG portal
   <br>The `user.password` field is in the database.
-- FC5.2 The session facilitator must be able to create a player for the game session
-  <br>The session facilitator has access to the `game_session` with attached `player` records.
-- FC5.3 The session facilitator must be able to delete a player for the game session
-  <br>The session facilitator has access to the `game_session` with attached `player` records.
-- FC5.4 The session facilitator must be able to reset the password of a player allocated to the game session
-  <br>The session facilitator has access to the `game_session` with attached `player` records. Each `player` record has a `password` field (with a `salt`).
-- FC5.5 The session facilitator must be able to change the access of a player to the game session
+- FC5.2 The facilitator must be able to create a player for the game session
+  <br>The facilitator has access to the `game_session` with attached `player` records.
+- FC5.3 The facilitator must be able to delete a player for the game session
+  <br>The facilitator has access to the `game_session` with attached `player` records.
+- FC5.4 The facilitator must be able to reset the password of a player allocated to the game session
+  <br>The facilitator has access to the `game_session` with attached `player` records. Each `player` record has a `password` field (with a `salt`).
+- FC5.5 The facilitator must be able to change the access of a player to the game session
   <br>A field to *block* a `player` from playing the game should be added. See NOTE.
-- FC5.6 The session facilitator must be able to allocate an existing user to the game session
+- FC5.6 The facilitator must be able to allocate an existing user to the game session
   <br>A `player` can be linked to a `user` in the database through a nullable field `user_id`.
-- FC5.7 The session facilitator must be able to deallocate an existing user from the game session
+- FC5.7 The facilitator must be able to deallocate an existing user from the game session
   <br>A `user` can be unlinked from a `game_session` by deleting the `player` record.
-- FO5.8 The session facilitator should provide a briefing of the game to the players
+- FO5.8 The facilitator should provide a briefing of the game to the players
   <br>The briefing is not yet in the database. See NOTE.
-- FC5.9 The session facilitator must be able to start the game session
+- FC5.9 The facilitator must be able to start the game session
   <br>No consequence for database.
 - FC5.10 The event of starting the game session must be sent to the gamedata platform
   <br>No consequences for database.
-- FC5.11 The session facilitator must be able to change the game speed
+- FC5.11 The facilitator must be able to change the game speed
   <br>No consequence for database.
-- FC5.12 The session facilitator must be able to pause the game
+- FC5.12 The facilitator must be able to pause the game
   <br>No consequence for database.
-- FO5.13 The session facilitator should be able to insert an extra news item for the players
+- FO5.13 The facilitator should be able to insert an extra news item for the players
   <br>This is not yet foreseen in the database. Adding a `news_item` record means that it is added for **all** game sessions. So, a specific news item should be added that is added for the game session. See NOTE.
 - FC5.14 The event of adding a news item to the the game session must be sent to the gamedata platform
   <br>No consequences for database.
-- FO5.15 The session facilitator should be able to add an intervention into the game
+- FO5.15 The facilitator should be able to add an intervention into the game
   <br>This is not yet foreseen in the database. Adding a `event` record means that it is added for **all** game sessions. So, a specific event should be added that is added for the game session. See NOTE.
 - FC5.16 The event of adding an intervention to the the game session must be sent to the gamedata platform
   <br>No consequences for database.
-- FO5.17 The session facilitator should be able to trigger an existing manual intervention during gameplay
+- FO5.17 The facilitator should be able to trigger an existing manual intervention during gameplay
   <br>The `trigger_interval` and `trigger_fixed` tables have a boolean field called `facilitator_trigger`. If true, the facilitator can trigger the event. Maybe we have to restrict the number of times that an event can be triggered. See NOTE. We might also record the fact that an event has been triggered. See NOTE.
 - FC5.18 The event of triggering an existing intervention during the the game play must be sent to the gamedata platform
   <br>No consequences for database.
 - FO5.19 The session facilitation should present an overview of the players allocated to a session
-  <br>Players are linked to a game sesion and can be easily enumerated.
+  <br>Players are linked to a game session and can be easily enumerated.
 - FO5.20 The session facilitation should present a map with the actors displayed at their locations
   <br>All `actor` instances have a `location` with lat,lon or x,y.
 - FO5.21 The session facilitation should allow chatting with the active players in the game session
   <br>Chats should probably also stored in the database. This is not yet included. See NOTE.
-- FC5.22 The session administrator must be able to login to the portal
+- FC5.22 The facilitator must be able to login to the portal
   <br>No consequences for database.
-- FC5.23 The session administrator must be able to logout from the portal
+- FC5.23 The facilitator must be able to logout from the portal
   <br>No consequences for database.
-- FO5.24 The session facilitator should provide a debriefing of the game to the players
+- FO5.24 The facilitator should provide a debriefing of the game to the players
   <br>The field or table for debriefing is missing from the database. See NOTE.
-- FC5.25 The session administrator must be able to change the dates of a game session
+- FC5.25 The facilitator must be able to change the dates of a game session
   <br>A `game_session` has fields `play_date`, `valid_from` and `valid_until` (all `DATETIME` fields).
-- FC5.26 The session administrator must be able to generate a batch of anonymous players with login codes and passwords
+- FC5.26 The facilitator must be able to generate a batch of anonymous players with login codes and passwords
   <br>The table `player` has a `name` and `password` field (with `salt`).
-- FC5.27 The session administrator must be able to set or change the allowable strategies that can be chosen by the players
+- FC5.27 The facilitator must be able to set or change the allowable strategies that can be chosen by the players
   <br>The field or table for allowable strategies is missing from the database. See NOTE.
+- FC5.28 The facilitator must be able to turn player self registration for a game session on or off.
+  <br>The boolean field `self_registration` in `game_session` can turn self registration on or off.
 
 The non-functional requirements have no effect on the database.
 

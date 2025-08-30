@@ -18,7 +18,8 @@ __Changelog:__
  - 2025-08-29 - Improve clarity of game terms in requirements [Issue #21](https://github.com/averbraeck/gscg-design/issues/21).
  - 2025-08-29 - Clarify `player` versus `user` in requirements [Issue #25](https://github.com/averbraeck/gscg-design/issues/25).
  - 2025-08-29 - Requirement added for debriefing by facilitator [Issue #28](https://github.com/averbraeck/gscg-design/issues/28).
- - 2025-08-29 - Re-allocate tasks between session admin and facilitator [Issue #24](https://github.com/averbraeck/gscg-design/issues/24).
+ - 2025-08-30 - Re-allocate tasks between session admin and facilitator [Issue #24](https://github.com/averbraeck/gscg-design/issues/24).
+ - 2025-08-30 - Allow facilitator to set player self registration [Issue #26](https://github.com/averbraeck/gscg-design/issues/26).
  
  
 ## 3.0. Legend
@@ -148,7 +149,7 @@ Session administration is responsible for the creation or deletion of game sessi
 - FC4.7 The session administrator must be able to change the dates of a game session
 - FC4.8 The session administrator must be able to delete a game session that has not yet been played
 - FC4.9 The session administrator must be able to allocate players to a game session
-- FC4.10 The session administrator must be able to turn on player self registration for a game session
+- FC4.10 The session administrator must be able to turn player self registration for a game session on or off
 - FC4.11 The session administrator must be able to generate a batch of anonymous players with login codes and passwords
 - FO4.12 The session administrator should present an overview of the sessions with dates and play status
 - FO4.13 The session administration should present an overview of the facilitators and players allocated to a session
@@ -178,33 +179,34 @@ Won't haves:
 
 ## 3.5. Session facilitation
 
-- FC5.1 The session facilitator must be able to change their own password to enter the GSCG portal
-- FC5.2 The session facilitator must be able to create a player for the game session
-- FC5.3 The session facilitator must be able to delete a player for the game session
-- FC5.4 The session facilitator must be able to reset the password of a player allocated to the game session
-- FC5.5 The session facilitator must be able to change the access of a player to the game session
-- FC5.6 The session facilitator must be able to allocate an existing user to the game session
-- FC5.7 The session facilitator must be able to deallocate an existing user from the game session
-- FO5.8 The session facilitator should provide a briefing of the game to the players
-- FC5.9 The session facilitator must be able to start the game session
+- FC5.1 The facilitator must be able to change their own password to enter the GSCG portal
+- FC5.2 The facilitator must be able to create a player for the game session
+- FC5.3 The facilitator must be able to delete a player for the game session
+- FC5.4 The facilitator must be able to reset the password of a player allocated to the game session
+- FC5.5 The facilitator must be able to change the access of a player to the game session
+- FC5.6 The facilitator must be able to allocate an existing user to the game session
+- FC5.7 The facilitator must be able to deallocate an existing user from the game session
+- FO5.8 The facilitator should provide a briefing of the game to the players
+- FC5.9 The facilitator must be able to start the game session
 - FC5.10 The event of starting the game session must be sent to the gamedata platform
-- FC5.11 The session facilitator must be able to change the game speed
-- FC5.12 The session facilitator must be able to pause the game
-- FO5.13 The session facilitator should be able to insert an extra news item for the players
+- FC5.11 The facilitator must be able to change the game speed
+- FC5.12 The facilitator must be able to pause the game
+- FO5.13 The facilitator should be able to insert an extra news item for the players
 - FC5.14 The event of adding a news item to the the game session must be sent to the gamedata platform
-- FO5.15 The session facilitator should be able to add an intervention into the game
+- FO5.15 The facilitator should be able to add an intervention into the game
 - FC5.16 The event of adding an intervention to the the game session must be sent to the gamedata platform
-- FO5.17 The session facilitator should be able to trigger an existing manual intervention during gameplay
+- FO5.17 The facilitator should be able to trigger an existing manual intervention during gameplay
 - FC5.18 The event of triggering an existing intervention during the the game play must be sent to the gamedata platform
 - FO5.19 The session facilitation should present an overview of the players allocated to a session
 - FO5.20 The session facilitation should present a map with the actors displayed at their locations
 - FO5.21 The session facilitation should allow chatting with the active players in the game session
-- FC5.22 The session administrator must be able to login to the portal
-- FC5.23 The session administrator must be able to logout from the portal
-- FO5.24 The session facilitator should provide a debriefing of the game to the players
-- FC5.25 The session administrator must be able to change the dates of a game session
-- FC5.26 The session administrator must be able to generate a batch of anonymous players with login codes and passwords
-- FC5.27 The session administrator must be able to set or change the allowable strategies that can be chosen by the players
+- FC5.22 The facilitator must be able to login to the portal
+- FC5.23 The facilitator must be able to logout from the portal
+- FO5.24 The facilitator should provide a debriefing of the game to the players
+- FC5.25 The facilitator must be able to change the dates of a game session
+- FC5.26 The facilitator must be able to generate a batch of anonymous players with login codes and passwords
+- FC5.27 The facilitator must be able to set or change the allowable strategies that can be chosen by the players
+- FC5.28 The facilitator must be able to turn player self registration for a game session on or off.
 
 Non-functional requirements:
 - NFC5.1 The session facilitation must run in any modern browser (Chrome, Edge, Firefox, Brave, Safari, Opera)
