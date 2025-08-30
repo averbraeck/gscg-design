@@ -21,7 +21,7 @@ end note
 (User administration) --> (Set user access)
 
 "Manage\ngame session" as (Manage)
-OGA --> Manage : "\n\n\n\n\n\n\n\n\n\n"
+OGA --> Manage : "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n"
 Manage --> (Create game session)
 Manage --> (Set session dates)
 Manage --> (Set allowable strategies)
