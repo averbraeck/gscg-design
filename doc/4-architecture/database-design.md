@@ -22,6 +22,8 @@ __Changelog:__
  - 2025-08-30 - Add self registration option for players in database [Issue #26](https://github.com/averbraeck/gscg-design/issues/26).
  - 2025-08-30 - Allow facilitator to set player self registration [Issue #26](https://github.com/averbraeck/gscg-design/issues/26).
  - 2025-08-30 - Enable blocking of player for a game session [Issue #29](https://github.com/averbraeck/gscg-design/issues/29).
+ - 2025-08-30 - Table handler_valid_actor also on actor_type level [Issue #19](https://github.com/averbraeck/gscg-design/issues/19).
+ 
  
 
 ## 4.1.1. High-level database design
@@ -137,12 +139,9 @@ The partial relations look as follows:
 
 ![](diagrams/gscg-database-handler-process.png)
 
-Additionally, handlers can be restricted from which actors they process messages (e.g., take an order), and for which products they process messages (e.g., take an order):
+Additionally, handlers can be restricted from which actors or actor types they process messages (e.g., take an order), and for which products they process messages (e.g., take an order):
 
 ![](diagrams/gscg-database-handler-valid.png)
-
-> [!NOTE]
-> The `handler_valid_actor` now works on the `actor` instance level. Maybe the restriction should be defined on the `actor_type` level. As an example, a personal customer can typically not buy products from a factory. Factory is an `actor_type` with many instances. Maybe two restrictions can be added: one for `actor`, and one for `actor_type`.
 
 
 ### Transport tables
