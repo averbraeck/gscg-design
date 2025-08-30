@@ -30,6 +30,8 @@ __Changelog:__
  - 2025-08-30 - Store game play data [Issue #20](https://github.com/averbraeck/gscg-design/issues/20).
  - 2025-08-30 - Store chats in the database [Issue #35](https://github.com/averbraeck/gscg-design/issues/35).
  - 2025-08-30 - Add game play data for extra news items [Issue #31](https://github.com/averbraeck/gscg-design/issues/31).
+ - 2025-08-30 - Add game play data for extra events [Issue #32](https://github.com/averbraeck/gscg-design/issues/32).
+ 
  
 
 ## 4.1.1. High-level database design
@@ -440,7 +442,7 @@ The non-functional requirements have no effect on the database.
 - FC5.14 The event of adding a news item to the the game session must be sent to the gamedata platform
   <br>No consequences for database.
 - FO5.15 The facilitator should be able to add an intervention into the game
-  <br>This is not yet foreseen in the database. Adding a `event` record means that it is added for **all** game sessions. So, a specific event should be added that is added for the game session. See NOTE.
+  <br>The table `extra_event` stores events that have been injected by the facilitator into the game play.
 - FC5.16 The event of adding an intervention to the the game session must be sent to the gamedata platform
   <br>No consequences for database.
 - FO5.17 The facilitator should be able to trigger an existing manual intervention during gameplay
@@ -469,9 +471,6 @@ The non-functional requirements have no effect on the database.
   <br>The boolean field `self_registration` in `game_session` can turn self registration on or off.
 
 The non-functional requirements have no effect on the database.
-
-> [!NOTE]
-> **FO5.15**. When a facilitator adds an `event` record, this means that it is added for **all** game sessions. So, a specific event table should be added that only applies to the game session. This asks for a new table in the database.
 
 > [!NOTE]
 > **FO5.17**: Record that an event has been triggered to the database. This probably asks for a new table that is linked to the `game_session`.
