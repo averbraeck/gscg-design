@@ -12,7 +12,7 @@ User --> (Logout)
 Administrator --> (User administration)
 note bottom
   all user types
-  including super-admin
+  including portal-admin
 end note
 
 (User administration) --> (Create user)
