@@ -53,7 +53,7 @@ In the basic sequence diagram, we see the following content types (message types
 | [InventoryQuote](data-model/inventory-quote.md)                            | Warehousing &rarr; Selling    |
 | [InventoryQuoteRequest](data-model/inventory-quote-request.md)             | Selling &rarr; Warehousing    |
 | [InventoryRelease](data-model/inventory-release.md)                        | Warehousing &rarr; Financing  |
-| [InventoryReleaseRequest(data-model/inventory-release-request.md)          | Selling &rarr; Warehousing    |
+| [InventoryReleaseRequest](data-model/inventory-release-request.md)         | Selling &rarr; Warehousing    |
 | [InventoryReservation](data-model/inventory-reservation.md)                | Warehousing &rarr; Selling    |
 | [InventoryReservationRequest](data-model/inventory-reservation-request.md) | Selling &rarr; Warehousing    |
 | [Invoice](data-model/invoice.md)                                           | Financing &rarr; Financing    |
