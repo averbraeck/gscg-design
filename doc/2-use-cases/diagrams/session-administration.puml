@@ -23,12 +23,15 @@ end note
 
 "Manage\ngame session" as (Manage)
 SA --> Manage : "\n\n\n\n\n\n\n\n\n\n"
+Manage --> (Create game session)
 Manage --> (Set session dates)
 Manage --> (Set allowable strategies)
+Manage --> (Delete game session)
 Manage --> (Allocate user to game)
 Manage --> (Allocate player to game)
 Manage --> (Allow self registration\nfor players)
 Manage --> (Generate anonymous players)
+Manage --> (Show sessions with status)
 Manage --> (Show facilitators and\nplayers for session)
 
 @enduml

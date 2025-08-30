@@ -14,15 +14,20 @@ note bottom
   player
 end note
 
-(User administration) --> (Create user)
-(User administration) --> (Delete user)
-(User administration) --> (Reset user password)
-(User administration) --> (Set user access)
+(User administration) --> (Create player)
+(User administration) --> (Delete player)
+(User administration) --> (Reset player password)
 
 SF --> (User allocation)
 (User allocation) --> (Allocate user to session)
 (User allocation) --> (Deallocate user from session)
 (User allocation) --> (Show players for session)
+
+"Manage\ngame session" as (Manage)
+SF --> Manage
+Manage --> (Set session dates)
+Manage --> (Set allowable strategies)
+Manage --> (Generate anonymous players)
 
 SF --> (Brief game)
 
@@ -34,16 +39,16 @@ SF --> (Start/stop game session)
 
 SF --> (Facilitate session)
 (Facilitate session) --> (Add news item)
-(Facilitate session) --> (Add intervention)
-(Facilitate session) --> (Trigger intervention)
+(Facilitate session) --> (Add event)
+(Facilitate session) --> (Trigger event)
 (Facilitate session) --> (Chat with players)
 (Facilitate session) --> (Show actor map)
 (Facilitate session) --> (Show scores)
 
 (Start game session) --> (Send data to\ngame data platform)
 (Add news item) --> (Send data to\ngame data platform)
-(Add intervention) --> (Send data to\ngame data platform)
-(Trigger intervention) --> (Send data to\ngame data platform)
+(Add event) --> (Send data to\ngame data platform)
+(Trigger event) --> (Send data to\ngame data platform)
 (Stop game session) --> (Send data to\ngame data platform)
 
 SF --> (Debrief game)
