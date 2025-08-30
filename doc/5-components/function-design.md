@@ -1,4 +1,4 @@
-# 5.1 Function and Service Design
+# 5.1 Simulation Model Design
 
 The inner working of the simulation model is based on a simplified diagram of messages between actors in the supply chain simulation. The model has its roots in SCOR, and in the research by Van Houten (2007) and Van Krevelen (2011). 
 
@@ -33,11 +33,15 @@ We assume the following roles to be present in the actors to carry out the work:
 Right now, we assume that each role keeps its own information, and its own statistics / world model of the environment. It could be, though, that separate roles will take care of this. 
 
 
-## 5.1.3. Sequence diagram with messages
+## 5.1.3. Sequence diagrams with messages for buying and selling
 
 The sequence diagram of messages between Roles in the simulation model for a transaction between a buyer and a seller, based on a Request for Quote (RFQ) looks as follows. The workflow starts with a Seller receiving an RFQ (Request for Quote) from a Buyer. The RFQ is sent by the Purchase Role in the Buyer Actor. The Selling Role in the Seller handles the RFQ, and goes through an extended process with many dead-ends to potentially answer the RFQ with one or more Quotes. This means that not every RFQ receives a Quote as an answer. Transport for the Shipment is also arranged, and both the Transporter and the Seller are paid. 
 
-![](diagrams/gscg-sim-sequence.svg)
+![](diagrams/gscg-sim-sequence-rfq.svg)
+
+A second possibility to buy and sell is based on a direct order. The Buyer knows exactly from which Seller the product has to be bought. Instead of an OrderBasedOnQuote, the Buyer sends an OrderStandalone. Usually, pricing is based on a fixed price agreement or a publicly available price table (Note: this still has to be implemented). The sequence of activities and messages is a bit different, but except for the search and the quoting, almost all messages are similar.
+
+![](diagrams/gscg-sim-sequence-order.svg)
 
 
 ## 5.1.4. Content (message) types
