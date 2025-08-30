@@ -28,6 +28,7 @@ __Changelog:__
  - 2025-08-30 - Specify goals for a game version [Issue #22](https://github.com/averbraeck/gscg-design/issues/22).
  - 2025-08-30 - Specify allowed strategies for a game version and session [Issue #23](https://github.com/averbraeck/gscg-design/issues/23).
  - 2025-08-30 - Store game play data [Issue #20](https://github.com/averbraeck/gscg-design/issues/20).
+ - 2025-08-30 - Store chats in the database [Issue #35](https://github.com/averbraeck/gscg-design/issues/35).
  
 
 ## 4.1.1. High-level database design
@@ -450,7 +451,7 @@ The non-functional requirements have no effect on the database.
 - FO5.20 The session facilitation should present a map with the actors displayed at their locations
   <br>All `actor` instances have a `location` with lat,lon or x,y.
 - FO5.21 The session facilitation should allow chatting with the active players in the game session
-  <br>Chats should probably also stored in the database. This is not yet included. See NOTE.
+  <br>The table `chat_message` stores chats between players and between a facilitator and a player into the database.
 - FC5.22 The facilitator must be able to login to the portal
   <br>No consequences for database.
 - FC5.23 The facilitator must be able to logout from the portal
@@ -476,9 +477,6 @@ The non-functional requirements have no effect on the database.
 
 > [!NOTE]
 > **FO5.17**: Record that an event has been triggered to the database. This probably asks for a new table that is linked to the `game_session`.
-
-> [!NOTE]
-> **FO5.21**: A table for storing chats between players and between facilitator and player should be added to the database.
 
 
 ### 4.1.6.6. Game play
@@ -508,7 +506,7 @@ The non-functional requirements have no effect on the database.
 - FO6.12 The game play platform should show a map with the actors displayed at their locations, highlighting the player
   <br>All `actor` instances have a `location` with lat,lon or x,y.
 - FO6.13 The game play platform should allow chatting with other players in the game session and with the facilitator
-  <br>Chats should probably also stored in the database. This is not yet included. See NOTE.
+  <br>The table `chat_message` stores chats between players and between a facilitator and a player into the database.
 - FC6.14 The player must be able to define a strategy, dependent on the settings in the game
   <br>The player's chosen strategy is defined in the table `chosen_strategy`, which links to an `allowed_strategy`.
 - FC6.15 The player must be able to motivate their chosen strategy
@@ -517,9 +515,6 @@ The non-functional requirements have no effect on the database.
   <br>No consequences for database.
 
 The non-functional requirements have no effect on the database.
-
-> [!NOTE]
-> **FO6.13**: A table for storing chats between players and between facilitator and player should be added to the database.
 
 
 ### 4.1.6.7. Game data analytics
