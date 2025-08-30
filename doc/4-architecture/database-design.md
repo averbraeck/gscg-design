@@ -462,7 +462,7 @@ The non-functional requirements have no effect on the database.
   <br>No consequences for database.
 - FO5.24 The facilitator should provide a debriefing of the game to the players
   <br>The field `debriefing_page_list_id` in `game_version` and `game_session` (for an override) link to a `page_list` with multiple `page` records for the debriefing.
-  - FC5.25 The facilitator must be able to change the dates of a game session
+- FC5.25 The facilitator must be able to change the dates of a game session
   <br>A `game_session` has fields `play_date`, `valid_from` and `valid_until` (all `DATETIME` fields).
 - FC5.26 The facilitator must be able to generate a batch of anonymous players with login codes and passwords
   <br>The table `player` has a `name` and `password` field (with `salt`).
