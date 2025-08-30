@@ -55,9 +55,9 @@ CR1 -> PR1: Demand
     SR3 --> PR1: OrderConfirmation
   deactivate PR1
     SR3 -> SR3: wait <&clock>
-    SR3 -> WR3: InventoryRelease
+    SR3 -> WR3: InventoryReleaseRequest
     activate WR3
-    SR3 -> FR3: IRFinance
+    SR3 -> FR3: InventoryRelease
       deactivate SR3
       activate FR3
       FR3 -> FR1: Invoice
@@ -71,7 +71,7 @@ CR1 -> PR1: Demand
     WR3 -> ShR3: ShippingOrder
       deactivate WR3
       activate ShR3
-      ShR3 -> TR4: TransportPickup\n & <back:yellow><b>Shipment</b>
+      ShR3 -> TR4: TransportOrder\n & <back:yellow><b>Shipment</b>
         deactivate ShR3
         activate TR4
         TR4 -> FR4: Transport\nConfirmation
@@ -82,13 +82,13 @@ CR1 -> PR1: Demand
         RR1 -> WR1: InventoryEntry\n & <back:yellow><b>Shipment</b>
           deactivate RR1
           activate WR1
-          WR1 -> CR1: Delivery
+          WR1 -> CR1: Fulfillment
           deactivate WR1
       deactivate CR1
-      FR4 -> FR3: Invoice
+      FR4 -> FR3: TrannsportInvoice
       activate FR3
         FR3 -> FR3: wait <&clock>
-        FR3 --> FR4: Payment
+        FR3 --> FR4: TransportPayment
         deactivate FR3
       FR4 -> BR0: BankTransfer
     deactivate FR4

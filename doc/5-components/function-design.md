@@ -46,31 +46,33 @@ In the basic sequence diagram, we see the following content types (message types
 
 | Content Type | From Actor &rarr; To Actor |
 | ------------ | -------------------------- |
-| [Demand](data-model/demand.md)                                             | Consuming &rarr; Purchasing |
-| Fulfillment | |
-| InventoryEntry | |
-| [InventoryQuote](data-model/inventory-quote.md)                            | Warehousing &rarr; Selling  |
-| [InventoryQuoteRequest](data-model/inventory-quote-request.md)             | Selling &rarr; Warehousing  |
-| [InventoryRelease](data-model/inventory-release.md)                        | Selling &rarr; Warehousing  |
-| InventoryReleaseRequest | |
-| [InventoryReservation](data-model/inventory-reservation.md)                | Warehousing &rarr; Selling  |
-| [InventoryReservationRequest](data-model/inventory-reservation-request.md) | Selling &rarr; Warehousing  |
-| Invoice | |
-| [OrderBasedOnQuote](data-model/order-based-onquote.md)                     | Purchasing &rarr; Selling   |
-| [OrderConfirmation](data-model/order-confirmation.md)                      | Selling &rarr; Purchasing   |
-| OrderStandalone | |
-| Payment | |
-| [Quote](data-model/quote.md)                                               | Selling &rarr; Purchasing   |
-| [QuoteNo](data-model/quote-no.md)                                          | Selling &rarr; Purchasing   |
-| [RequestForQuote](data-model/request-for-quote.md)                         | Purchasing &rarr; Selling   |
-| [SearchAnswer](data-model/search-answer.md)                                | Searching &rarr; Purchasing |
-| [SearchRequest](data-model/search-request.md)                              | Purchasing &rarr; Searching |
-| ShippingOrder | |
-| TransportConfirmation | |
-| TransportDelivery | |
-| TransportInvoice | |
-| TransportOrder | |
-| TransportPayment | |
-| [TransportQuote](data-model/transport-quote.md)                            | Transporting &rarr; Selling |
-| [TransportQuoteRequest](data-model/transport-quote-request.md)             | Selling &rarr; Transporting |
+| [BankTransfer](data-model/bank-transfer.md)                                | Financing &rarr; Banking      |
+| [Demand](data-model/demand.md)                                             | Consuming &rarr; Purchasing   |
+| [Fulfillment](data-model/fulfillment.md)                                   | Warehousing &rarr; Consuming  |
+| [InventoryEntry](data-model/inventory-entry.md)                            | Receiving &rarr; Warehousing  |
+| [InventoryQuote](data-model/inventory-quote.md)                            | Warehousing &rarr; Selling    |
+| [InventoryQuoteRequest](data-model/inventory-quote-request.md)             | Selling &rarr; Warehousing    |
+| [InventoryRelease](data-model/inventory-release.md)                        | Warehousing &rarr; Financing  |
+| [InventoryReleaseRequest(data-model/inventory-release-request.md)          | Selling &rarr; Warehousing    |
+| [InventoryReservation](data-model/inventory-reservation.md)                | Warehousing &rarr; Selling    |
+| [InventoryReservationRequest](data-model/inventory-reservation-request.md) | Selling &rarr; Warehousing    |
+| [Invoice](data-model/invoice.md)                                           | Financing &rarr; Financing    |
+| [OrderBasedOnQuote](data-model/order-based-on-quote.md)                    | Purchasing &rarr; Selling     |
+| [OrderConfirmation](data-model/order-confirmation.md)                      | Selling &rarr; Purchasing     |
+| [OrderStandalone](data-model/order-standalone.md)                          | Purchasing &rarr; Selling     |
+| [Payment](data-model/payment.md)                                           | Financing &rarr; Financing    |
+| [Quote](data-model/quote.md)                                               | Selling &rarr; Purchasing     |
+| [QuoteNo](data-model/quote-no.md)                                          | Selling &rarr; Purchasing     |
+| [RequestForQuote](data-model/request-for-quote.md)                         | Purchasing &rarr; Selling     |
+| [SearchAnswer](data-model/search-answer.md)                                | Searching &rarr; Purchasing   |
+| [SearchRequest](data-model/search-request.md)                              | Purchasing &rarr; Searching   |
+| [ShippingOrder](data-model/shipping-order.md)                              | Warehousing &rarr; Shipping   |
+| [TransportConfirmation](data-model/transport-confirmation.md)              | Transporting &rarr; Financing |
+| [TransportDelivery](data-model/transport-delivery.md)                      | Transporting &rarr; Receiving |
+| [TransportInvoice](data-model/transport-invoice.md)                        | Financing &rarr; Financing    |
+| [TransportOrder](data-model/shipping-order.md)                             | Shipping &rarr; Transporting  |
+| [TransportPayment](data-model/transport-payment.md)                        | Financing &rarr; Financing    |
+| [TransportPickup](data-model/transport-pickup.md)                          | Shipping &rarr; Transporting  |
+| [TransportQuote](data-model/transport-quote.md)                            | Transporting &rarr; Selling   |
+| [TransportQuoteRequest](data-model/transport-quote-request.md)             | Selling &rarr; Transporting   |
 
