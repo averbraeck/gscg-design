@@ -31,6 +31,7 @@ __Changelog:__
  - 2025-08-30 - Store chats in the database [Issue #35](https://github.com/averbraeck/gscg-design/issues/35).
  - 2025-08-30 - Add game play data for extra news items [Issue #31](https://github.com/averbraeck/gscg-design/issues/31).
  - 2025-08-30 - Add game play data for extra events [Issue #32](https://github.com/averbraeck/gscg-design/issues/32).
+ - 2025-08-30 - Record triggered events in the database [Issue #34](https://github.com/averbraeck/gscg-design/issues/34).
  
  
 
@@ -446,7 +447,7 @@ The non-functional requirements have no effect on the database.
 - FC5.16 The event of adding an intervention to the the game session must be sent to the gamedata platform
   <br>No consequences for database.
 - FO5.17 The facilitator should be able to trigger an existing manual intervention during gameplay
-  <br>The `trigger_interval` and `trigger_fixed` tables have a boolean field called `facilitator_trigger`. If true, the facilitator can trigger the event. We must record the fact that an event has been triggered. See NOTE.
+  <br>The `trigger_interval` and `trigger_fixed` tables have a boolean field called `facilitator_trigger`. If true, the facilitator can trigger the event. The fact that an event has been triggered is stored into the `triggered_event` table.
 - FC5.18 The event of triggering an existing intervention during the the game play must be sent to the gamedata platform
   <br>No consequences for database.
 - FO5.19 The session facilitation should present an overview of the players allocated to a session
@@ -472,8 +473,6 @@ The non-functional requirements have no effect on the database.
 
 The non-functional requirements have no effect on the database.
 
-> [!NOTE]
-> **FO5.17**: Record that an event has been triggered to the database. This probably asks for a new table that is linked to the `game_session`.
 
 
 ### 4.1.6.6. Game play
