@@ -44,7 +44,25 @@ A second possibility to buy and sell is based on a direct order. The Buyer knows
 ![](diagrams/gscg-sim-sequence-order.svg)
 
 
-## 5.1.4. Content (message) types
+## 5.1.4. Sequence diagrams with messages for warehousing
+
+A Distributor or Warehouse uses an inventory policy to (re)stock certain products depending on the stock levels and sales. Often, an MRP-II type system is used to calculate the products in stock, the products ordered by buyers, the products already ordered by the warehouse to replenish the stock at sellers. In the calculation, the lead time for buying stock from sellers is explicitly taken into account. 
+
+A warehouse can choose to have zero stock, and only order the products at a Seller when an order from a Buyer comes in. It can also choose to have a stock that is always available given regular sales of the product.
+
+> [!NOTE]
+> TODO.
+
+
+## 5.1.5. Sequence diagrams with messages for manufacturing
+
+For a Manufacturing Actor, it is important to distinguish between an Make-to-Order (MTO) and Make-to-Stock (MTS) manufacturing policy. MTO means that the manufacturer waits till an order comes in for a product, and starts manufacturing at that moment and not earlier. MTS means that the manufacturer keeps an inventory of the manufactured products to sell immediately from the inventory when an order comes in. Manufacturers can apply an MTO rule for some products, and an MTS rule for others, depending on the complexity of the product, the shelve price, the number of sales, and the speed by which the buyer wants the products to arrive.
+
+> [!NOTE]
+> TODO.
+
+
+## 5.1.6. Content (message) types
 
 In the basic sequence diagram, we see the following content types (message types), alphabetically ordered:
 
