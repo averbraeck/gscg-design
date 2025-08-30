@@ -20,6 +20,7 @@ __Changelog:__
  - 2025-08-13 - Add chapter number for SE-step "2" to the headers in the document
  - 2025-08-26 - Add missing function in use case diagram for game design (consistency with requirements)
  - 2025-08-29 - Improve clarity of game terms in use cases [Issue #21](https://github.com/averbraeck/gscg-design/issues/21).
+ - 2025-08-29 - Add organizaton-game role [Issue #24](https://github.com/averbraeck/gscg-design/issues/24).
  
  
 ## 2.1. Portal administration
@@ -35,13 +36,13 @@ In game design, the actual game play of the game instance is determined.
 
 
 ## 2.3. Organization administration
-Organization administration takes care of creating users for their organization, and allocating roles such as facilitators or session managers.
+Organization administration takes care of creating users for their organization, and allocating roles such as facilitators or organization-game administrators.
 
 ![](diagrams/organization-administration.svg)
 
 
 ## 2.4. Session administration
-Session design takes care of the definition of a new game session (game play) and allocating facilitators. It is possible to set self registration for users, or to define users beforehand. 
+Session administration takes care of defining the details for a new game session (game play) and allocating facilitators. It is possible to set self registration for users, or to define users beforehand. Note that a session has to be created beforehand by an organization-game administrator.
 
 ![](diagrams/session-administration.svg)
 
@@ -61,3 +62,10 @@ In game play, players are able to register for the game, or log on when they hav
 ## 2.7. Game data analysis
 
 ![](diagrams/game-data-analysis.svg)
+
+
+## 2.8. Organization-Game administration
+Organization-Game administrators take care of creating sessions for a game in their organization, and allocating roles such as facilitators or session administrators. They can also execute all the tasks of a session administrator.
+
+![](diagrams/organization-game-administration.svg)
+
