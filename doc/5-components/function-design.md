@@ -49,28 +49,28 @@ In the basic sequence diagram, we see the following content types (message types
 | [Demand](data-model/demand.md) | Consuming &rarr; Purchasing |
 | Fulfillment | |
 | InventoryEntry | |
-| [InventoryQuote](data-model/inventory-quote.md) Warehousing &rarr; Selling
-| [InventoryQuoteRequest](data-model/inventory-quote-request.md) Selling &rarr; Warehousing
-| [InventoryRelease](data-model/inventory-release.md) Selling &rarr; Warehousing
+| [InventoryQuote](data-model/inventory-quote.md) Warehousing &rarr; Selling |
+| [InventoryQuoteRequest](data-model/inventory-quote-request.md) Selling &rarr; Warehousing |
+| [InventoryRelease](data-model/inventory-release.md) Selling &rarr; Warehousing |
 | InventoryReleaseRequest | |
-| [InventoryReservation](data|model/inventory-reservation.md) Warehousing &rarr; Selling
-| [InventoryReservationRequest](data-model/inventory-reservation-request.md) Selling &rarr; Warehousing
+| [InventoryReservation](data|model/inventory-reservation.md) Warehousing &rarr; Selling |
+| [InventoryReservationRequest](data-model/inventory-reservation-request.md) Selling &rarr; Warehousing |
 | Invoice | |
-| [OrderBasedOnQuote](data-model/order-based-onquote.md) Purchasing &rarr; Selling
-| [OrderConfirmation](data-model/order-confirmation.md) Selling &rarr; Purchasing
+| [OrderBasedOnQuote](data-model/order-based-onquote.md) Purchasing &rarr; Selling |
+| [OrderConfirmation](data-model/order-confirmation.md) Selling &rarr; Purchasing |
 | OrderStandalone | |
 | Payment | |
-| [Quote](data-model/quote.md) Selling &rarr; Purchasing
-| [QuoteNo](data-model/quote-no.md) Selling &rarr; Purchasing
-| [RequestForQuote](data-model/request-for-quote.md) Purchasing &rarr; Selling
-| [SearchAnswer](data-model/search-answer.md) Searching &rarr; Purchasing
-| [SearchRequest](data-model/search-request.md) Purchasing &rarr; Searching
+| [Quote](data-model/quote.md) Selling &rarr; Purchasing |
+| [QuoteNo](data-model/quote-no.md) Selling &rarr; Purchasing |
+| [RequestForQuote](data-model/request-for-quote.md) Purchasing &rarr; Selling |
+| [SearchAnswer](data-model/search-answer.md) Searching &rarr; Purchasing |
+| [SearchRequest](data-model/search-request.md) Purchasing &rarr; Searching |
 | ShippingOrder | |
 | TransportConfirmation | |
 | TransportDelivery | |
 | TransportInvoice | |
 | TransportOrder | |
 | TransportPayment | |
-| [TransportQuote](data-model/transport-quote.md) Transporting &rarr; Selling
-| [TransportQuoteRequest](data-model/transport-quote-request.md) Selling &rarr; Transporting
+| [TransportQuote](data-model/transport-quote.md) Transporting &rarr; Selling |
+| [TransportQuoteRequest](data-model/transport-quote-request.md) Selling &rarr; Transporting |
 
