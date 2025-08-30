@@ -23,7 +23,7 @@ __Changelog:__
  - 2025-08-30 - Allow facilitator to set player self registration [Issue #26](https://github.com/averbraeck/gscg-design/issues/26).
  - 2025-08-30 - Enable blocking of player for a game session [Issue #29](https://github.com/averbraeck/gscg-design/issues/29).
  - 2025-08-30 - Table handler_valid_actor also on actor_type level [Issue #19](https://github.com/averbraeck/gscg-design/issues/19).
- 
+ - 2025-08-30 - Add database tables for briefing and debriefing [Issue #30](https://github.com/averbraeck/gscg-design/issues/30).
  
 
 ## 4.1.1. High-level database design
@@ -397,7 +397,7 @@ The non-functional requirements have no effect on the database.
 - FC5.7 The facilitator must be able to deallocate an existing user from the game session
   <br>A `user` can be unlinked from a `game_session` by deleting the `player` record.
 - FO5.8 The facilitator should provide a briefing of the game to the players
-  <br>The briefing is not yet in the database. See NOTE.
+  <br>The field `briefing_page_list_id` in `game_version` and `game_session` (for an override) link to a `page_list` with multiple `page` records for the briefing.
 - FC5.9 The facilitator must be able to start the game session
   <br>No consequence for database.
 - FC5.10 The event of starting the game session must be sent to the gamedata platform
@@ -429,8 +429,8 @@ The non-functional requirements have no effect on the database.
 - FC5.23 The facilitator must be able to logout from the portal
   <br>No consequences for database.
 - FO5.24 The facilitator should provide a debriefing of the game to the players
-  <br>The field or table for debriefing is missing from the database. See NOTE.
-- FC5.25 The facilitator must be able to change the dates of a game session
+  <br>The field `debriefing_page_list_id` in `game_version` and `game_session` (for an override) link to a `page_list` with multiple `page` records for the debriefing.
+  - FC5.25 The facilitator must be able to change the dates of a game session
   <br>A `game_session` has fields `play_date`, `valid_from` and `valid_until` (all `DATETIME` fields).
 - FC5.26 The facilitator must be able to generate a batch of anonymous players with login codes and passwords
   <br>The table `player` has a `name` and `password` field (with `salt`).
@@ -440,9 +440,6 @@ The non-functional requirements have no effect on the database.
   <br>The boolean field `self_registration` in `game_session` can turn self registration on or off.
 
 The non-functional requirements have no effect on the database.
-
-> [!NOTE]
-> **FO5.8**: A table for storing the briefing for a `game_version` and a more specific briefing for a `game_session` should be added to the database.
 
 > [!NOTE]
 > **FO5.13**. When a facilitator adds a `news_item` record, this means that it is added for **all** game sessions. So, a specific news item table should be added that is only applicable to the game session. This asks for a new table in the database.
@@ -460,9 +457,6 @@ The non-functional requirements have no effect on the database.
 > **FO5.21**: A table for storing chats between players and between facilitator and player should be added to the database.
 
 > [!NOTE]
-> **FO5.24**: A table for storing the debriefing for a `game_version` and a more specific debriefing for a `game_session` should be added to the database.
-
-> [!NOTE]
 > **FC5.27**: A table for linking allowable player strategies to a game session is missing.
 
 
@@ -475,7 +469,7 @@ The non-functional requirements have no effect on the database.
 - FC6.3 The player must be able to login to the game session with a userid and password
   <br>The `player.name` and `player.password` fields are in the database.
 - FO6.4 The game play platform should show the briefing (note that the game might take place in a distributed setting)
-  <br>The briefing is not yet in the database. See NOTE.
+  <br>The field `briefing_page_list_id` in `game_version` and `game_session` (for an override) link to a `page_list` with multiple `page` records for the briefing.
 - FC6.5 The game play platform must show dynamic state information about the player's firm during game play
   <br>The dynamic state information is not yet explicitly stored in the database, since the **Game Play** data has not yet been fixed. 
 - FC6.6 The game play platform must show the news at the correct times during game play
@@ -487,7 +481,7 @@ The non-functional requirements have no effect on the database.
 - FC6.9 The game play platform must show the scores to the player during and after game play
   <br>The storage of player scores is not yet included in the database design, since the **Game Play** data has not yet been fixed. 
 - FO6.10 The game play platform should show the debriefing (note that the game might take place in a distributed setting)
-  <br>The debriefing is not yet in the database. See NOTE.
+  <br>The field `debriefing_page_list_id` in `game_version` and `game_session` (for an override) link to a `page_list` with multiple `page` records for the debriefing.
 - FC6.11 The player must be able to logout from the game session
   <br>No consequences for database.
 - FO6.12 The game play platform should show a map with the actors displayed at their locations, highlighting the player
@@ -508,12 +502,6 @@ The non-functional requirements have no effect on the database.
 
 > [!NOTE]
 > **FO6.13**: A table for storing chats between players and between facilitator and player should be added to the database.
-
-> [!NOTE]
-> **FO6.4**: A table for storing the briefing for a `game_version` and a more specific briefing for a `game_session` should be added to the database.
-
-> [!NOTE]
-> **FO6.10**: A table for storing the debriefing for a `game_version` and a more specific debriefing for a `game_session` should be added to the database.
 
 
 ### 4.1.6.7. Game data analytics
