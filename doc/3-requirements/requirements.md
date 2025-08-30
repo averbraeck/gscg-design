@@ -135,6 +135,8 @@ Non-functional requirements:
 
 ## 3.4. Session administration
 
+Session administration is responsible for the creation or deletion of game sessions and allocation of a session facilitator, and for doing the administration of the game session.
+
 - FC4.1 The session administrator must be able to change their own password to enter the GSCG portal
 - FC4.2 The session administrator must be able to create a user
 - FC4.3 The session administrator must be able to delete a user
@@ -146,7 +148,7 @@ Non-functional requirements:
 - FC4.9 The session administrator must be able to allocate players to a game session
 - FC4.10 The session administrator must be able to turn on player self registration for a game session
 - FC4.11 The session administrator must be able to generate a batch of anonymous players with login codes and passwords
-- FO4.12 The session administration should present an overview of the sessions with dates and play status
+- FO4.12 The session administrator should present an overview of the sessions with dates and play status
 - FO4.13 The session administration should present an overview of the facilitators and players allocated to a session
 - FC4.14 The session administrator must be able to login to the portal
 - FC4.15 The session administrator must be able to logout from the portal
@@ -160,7 +162,7 @@ Non-functional requirements:
 - NFO4.5 The session administration should have a responsive UI to scale to the device properties. A responsive UI means that the output scales with the window or device size, and does not have a fixed maximum width.
 
 Won't haves:
-- W4.1 The session administrator won't be able to delete a game session that has already been played
+- W4.1 The organization administrator for a game won't be able to delete a game session that has already been played
 
 
 > [!NOTE]
@@ -265,3 +267,5 @@ Non-functional requirements:
 
 > [!NOTE]
 > Note for NFO7.4: it is not required to scale all the way down to a mobile device. The gamedata platform is expected to run on screens with a size of at least 1920x1080 pixels or better.
+
+

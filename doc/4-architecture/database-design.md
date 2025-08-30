@@ -15,7 +15,8 @@ __Changelog:__
  - 2025-08-29 - Add `timezone_offset` to the location [Issue #36](https://github.com/averbraeck/gscg-design/issues/36).
  - 2025-08-29 - Improve clarity of game terms in requirements [Issue #21](https://github.com/averbraeck/gscg-design/issues/21).
  - 2025-08-29 - Clarify `player` versus `user` in requirements [Issue #25](https://github.com/averbraeck/gscg-design/issues/25).
- - 2025-08-29 - Requirement missing for debriefing by facilitator [Issue #28](https://github.com/averbraeck/gscg-design/issues/28).
+ - 2025-08-29 - Requirement added for debriefing by facilitator [Issue #28](https://github.com/averbraeck/gscg-design/issues/28).
+ - 2025-08-29 - Add `organization_game_role` table to the database [Issue #24](https://github.com/averbraeck/gscg-design/issues/24).
  
 
 ## 4.1.1. High-level database design
@@ -212,7 +213,7 @@ Below, all requirements of GSCG are checked against the availability of the data
 - FC1.4 The portal administrator must be able to reset the password of a user
   <br>The `user.password` field is in the database.
 - FC1.5 The portal administrator must be able to change the access rights of a user (* see below)
-  <br>The `organization_role`, `game_role` and `game_session_role` tables in the database define the access rights of a user.
+  <br>The `organization_role`, `game_role`, `organization_game_role` and `game_session_role` tables in the database define the access rights of a user.
 - FC1.6 The portal administrator must be able to create a new game
   <br>The `game` table is in the database.
 - FC1.7 The portal administrator must be able to delete a game that has no game versions
@@ -332,7 +333,7 @@ The non-functional requirements have no effect on the database.
 
 ### 4.1.6.4. Session administration.
 
-- General: the `game_session_role` table with the boolean `edit` field makes a `user` a session administrator.
+- General: the `organization_game_role` table with the boolean `edit` field makes a `user` a session administrator.
 - FC4.1 The session administrator must be able to change their own password to enter the GSCG portal
   <br>The `user.password` field is in the database.
 - FC4.2 The session administrator must be able to create a user
@@ -343,8 +344,8 @@ The non-functional requirements have no effect on the database.
   <br>The `user.password` field is in the database.
 - FC4.5 The session administrator must be able to change the access rights of a user
   <br>The `game_session_role` tables in the database define the access rights of a user.
-- FC4.6 The session administrator must be able to create a game session
-  <br>This is not logical from the database right now. See NOTE.
+- FC4.6 The organization administrator for a game must be able to create a game session
+  <br>The table `organization_game_role` defines users who can create game sessions, and appoint the session administrator, after which the session administrator can fill in the further details. 
 - FC4.7 The session administrator must be able to change the dates of a game session
   <br>A `game_session` has fields `play_date`, `valid_from` and `valid_until` (all `DATETIME` fields).
 - FC4.8 The session administrator must be able to delete a game session that has not yet been played
@@ -364,20 +365,18 @@ The non-functional requirements have no effect on the database.
 - FC4.15 The session administrator must be able to logout from the portal
   <br>No consequences for database.
 - FC4.16 The session administrator must be able to set or change the allowable strategies that can be chosen by the players
+  <br>A table is missing here. See NOTE.
 
 The non-functional requirements have no effect on the database.
-
-> [!NOTE]
-> **FC4.6**: It is not logical for a session admin to be able to create a session in the database, since the session admin is allocated to individual sessions through the `game_session_role` table. Non-existent game sessions are not linked and can therefore not be created. This has to be solved, probably in the `organization_role` table, or in a new table `organization_game_role`.
 
 > [!NOTE]
 > **FC4.10**: A field `self_registration` should be added to the `game_session`.
 
 > [!NOTE]
-> **FO4.12**: Maybe a table `organization_game_role` should be added to allow to appoint session administrators for a certain `game` from an `organization`.
+> **FO4.13**: The fields `edit` and `view` for the `same_session_role` are not descriptive enough to indicate who is a facilitator for a session. Maybe change the fields to `facilitator` and `observer`?
 
 > [!NOTE]
-> **FO4.13**: The fields `edit` and `view` for the `same_session_role` are not descriptive enough to indicate who is a facilitator for a session. Maybe change the fields to `facilitator` and `observer`?
+> **FC4.16**: A table for linking allowable player strategies to a game session is missing.
 
 
 ### 4.1.6.5. Session facilitation
