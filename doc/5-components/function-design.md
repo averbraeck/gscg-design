@@ -64,7 +64,7 @@ For a Manufacturing Actor, it is important to distinguish between an Make-to-Ord
 
 ## 5.1.6. Content (message) types
 
-In the basic sequence diagram, we see the following content types (message types), alphabetically ordered:
+In the basic sequence diagrams, we see the following content types (message types), alphabetically ordered:
 
 | Content Type | From Actor &rarr; To Actor |
 | ------------ | -------------------------- |
