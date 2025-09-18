@@ -1,6 +1,6 @@
 # 3. GSCG Requirements
 
-Last Updated: 2025-05-01
+Last Updated: 2025-09-18
 
 __Changelog:__
  - 2025-04-30 - Document Creation
@@ -20,10 +20,11 @@ __Changelog:__
  - 2025-08-29 - Requirement added for debriefing by facilitator [Issue #28](https://github.com/averbraeck/gscg-design/issues/28).
  - 2025-08-30 - Re-allocate tasks between session admin and facilitator [Issue #24](https://github.com/averbraeck/gscg-design/issues/24).
  - 2025-08-30 - Allow facilitator to set player self registration [Issue #26](https://github.com/averbraeck/gscg-design/issues/26).
+ - 2025-09-18 - Repair broken link to use cases [Issue #41](https://github.com/averbraeck/gscg-design/issues/41).
  
  
 ## 3.0. Legend
-The requirements are numbered respective to the use case from the document ['use-cases'](../1-use-cases/use-cases.md). The requirements are divided into Functional requirements, indicated with an abbreviation "F", and non-functional requirements, indicated with the abbreviation "NF". The requirements are categorized into two classes from the MoSCoW-framework, the "Must-haves", with the letter "C" for "constraint", and the "Should-haves", with the letter "O" for "objective". Combinations are, e.g. NFC2.3, indicating the third non-functional requirement for use-case 2, being a constraint (a must-have). All "F" and "NF" requirements are consecutively numbered within the use case, both starting with number 1. 
+The requirements are numbered respective to the use case from the document ['use-cases'](../2-use-cases/use-cases.md). The requirements are divided into Functional requirements, indicated with an abbreviation "F", and non-functional requirements, indicated with the abbreviation "NF". The requirements are categorized into two classes from the MoSCoW-framework, the "Must-haves", with the letter "C" for "constraint", and the "Should-haves", with the letter "O" for "objective". Combinations are, e.g. NFC2.3, indicating the third non-functional requirement for use-case 2, being a constraint (a must-have). All "F" and "NF" requirements are consecutively numbered within the use case, both starting with number 1. 
 
 
 ## 3.1. Portal administration
