@@ -15,7 +15,7 @@ On a very high level, the overall GSCG application looks as follows:
 
 ![](diagrams/gscg-architecture.png)
 
-All roles as identified in the use cases interact with the applications through a web page. On the server, several applications (e.g., servlets) are running for the different roles. All data is persisted in one or more databases. Three different data sets are identified:
+All roles as identified in the use cases interact with the applications through a web page. On the server, several applications (e.g., servlets) are running for the different roles. All data is persisted in one or more databases. Four different data sets are identified:
 
 - GSCG data with the organizational details and users per organization
 - Game design data with game definitions and game settings
