@@ -1,6 +1,6 @@
 # 2. GSCG Use Cases
 
-Last Updated: 2025-08-26
+Last Updated: 2025-09-18
 
 __Changelog:__
  - 2025-04-03 - Document Creation
@@ -22,7 +22,8 @@ __Changelog:__
  - 2025-08-29 - Improve clarity of game terms in use cases [Issue #21](https://github.com/averbraeck/gscg-design/issues/21).
  - 2025-08-29 - Re-allocate tasks for session admin and facilitator [Issue #24](https://github.com/averbraeck/gscg-design/issues/24).
  - 2025-08-30 - Allow facilitator to set player self registration [Issue #26](https://github.com/averbraeck/gscg-design/issues/26).
- - 2025-09-18 - Add explanation of game data analysis use case in [Issue #39](https://github.com/averbraeck/gscg-design/issues/39).
+ - 2025-09-18 - Add explanation of game data analysis use case [Issue #39](https://github.com/averbraeck/gscg-design/issues/39).
+ - 2025-09-18 - Add explanation of 'game version' in game design [Issue #40](https://github.com/averbraeck/gscg-design/issues/40).
  
  
 ## 2.1. Portal administration
@@ -32,7 +33,7 @@ Portal administration takes care of creating (super) users, designing organizati
  
  
 ## 2.2. Game design
-In game design, the actual game play of the game instance is determined. 
+In game design, the actual game play of the game instance is determined. This is done by making a specific version of the game that contains parameters that determine the game play and game experience for the players (events, included actors, map, scenarios, etc.). 
  
 ![](diagrams/game-design.svg)
 
