@@ -1,6 +1,11 @@
 ## Data model: demand
 
-Content of the message:
+### Short description
+
+The demand message represents content for an demand of a supply chain actor. The demand triggers purchasing or manufacturing of products, and is usually the first in a long chain of messages that are exchanged between actors.
+
+ 
+### Content of the message:
 
 | field      | type           | short explanation |
 | -----      | ----           | ----------------- |
@@ -14,6 +19,8 @@ Content of the message:
 | earliestDeliveryDate | Time | the earliest delivery date |
 | latestDeliveryDate   | Time | the latest delivery date |
 
+
+### Further explanation
 
 This request is produced as the result of an internal demand process. The process is often modeled by the following parameters:
 
