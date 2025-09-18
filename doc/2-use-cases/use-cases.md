@@ -22,6 +22,7 @@ __Changelog:__
  - 2025-08-29 - Improve clarity of game terms in use cases [Issue #21](https://github.com/averbraeck/gscg-design/issues/21).
  - 2025-08-29 - Re-allocate tasks for session admin and facilitator [Issue #24](https://github.com/averbraeck/gscg-design/issues/24).
  - 2025-08-30 - Allow facilitator to set player self registration [Issue #26](https://github.com/averbraeck/gscg-design/issues/26).
+ - 2025-09-18 - Add explanation of game data analysis use case in [Issue #39](https://github.com/averbraeck/gscg-design/issues/39).
  
  
 ## 2.1. Portal administration
@@ -61,6 +62,12 @@ In game play, players are able to register for the game, or log on when they hav
 
 
 ## 2.7. Game data analysis
+A game data analyst analyzes the data that is stored about one or more game sessions, either in the application itself, or by exporting data to files. Five categories of data are distinguished: 
+- game events (either pre-programmed or injected by the facilitator)
+- player events (e.g., every time a player makes a decision or clicks)
+- player scores (score development over time or final scores per player)
+- log data (anything that is logged to the data storage as log information; could contain technical information about the platform)
+- errors (recoverable or non-recoverable errors that can help to increase the stability of the platform)
 
 ![](diagrams/game-data-analysis.svg)
 
