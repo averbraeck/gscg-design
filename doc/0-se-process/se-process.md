@@ -1,10 +1,11 @@
 # Plan for GSCG development
 
-Last Updated: 2025-08-12
+Last Updated: 2025-09-18
 
 __Changelog:__
  - 2025-08-12 - Changed 'stakeholders' into 'end-users' in step 1
  - 2025-08-09 - Document creation
+ - 2025-09-18 - Make website update more explicit as a task [Issue #37](https://github.com/averbraeck/gscg-design/issues/37).
 
 
 ## Standards for Systems and Software Engineering
@@ -66,8 +67,9 @@ The development process for the new Global Supply Chain Game (GSCG) implementati
 9. System Verification & Validation
    ├── Against requirements & scenarios
    └── Against stakeholder expectations
-10. Final Documentation & Delivery
-    └── Code, interfaces, user manuals, test results, web site
+10.Final Documentation & Delivery
+   ├── Code, interfaces, user manuals, test results
+   └── Create / replace the website for the project
 ```
 
 
@@ -121,7 +123,8 @@ The development process for the new Global Supply Chain Game (GSCG) implementati
 10. **Documentation and Delivery**
 
     - [ ] Description: Final packaging of code, manuals, test evidence
-    - [ ] Deliverables: User manual, API reference, release package, web site
+    - [ ] Deliverables: User manual, API reference, release package
+    - [ ] Deliverables: new or adapted website for the project
 
 
 ## Relation between above Steps and SE Standards
