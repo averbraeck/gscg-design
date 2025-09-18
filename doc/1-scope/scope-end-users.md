@@ -1,10 +1,11 @@
 # 1. Scope and Stakeholders
 
-Last Updated: 2025-08-12
+Last Updated: 2025-09-18
 
 __Changelog:__
- - 2025-08-12 - Added role diagram, made roles more clear, changed 'stakeholders' into 'end-users'
- - 2025-08-09 - Document creation
+ - 2025-09-18 - Clarify how portal administrator has access to all functions in the system (https://github.com/averbraeck/gscg-design/issues/38)
+ - 2025-08-12 - Added role diagram, made roles more clear, changed 'stakeholders' into 'end-users'.
+ - 2025-08-09 - Document creation.
 
 
 ## 1.1. Project goals
@@ -32,7 +33,7 @@ In the GSCG project, there are a number of end-users or roles (all in blue). The
 A short definition of each end-user is given below.
 
 ### Portal administrator
-The portal administrator can create organizations, users and games. In a sense, the portal administrator has access to all functions of the other stakeholders, except the player's functions since that might involve another web interface.
+The portal administrator can create organizations, users and games. Because the portal administrator can allocate roles for organizations and games, the portal administrator indirectly has access to all functions of the other end users, by allocating a role to itself.
 
 ### Game designer
 The game designer is responsible for creating and removing games from the database, and setting the game parameters such as organizations, scenarios and allowable strategies for the players. 
