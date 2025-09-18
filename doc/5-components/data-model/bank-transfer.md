@@ -1,8 +1,8 @@
-## Data model: bank-transfer
+## Data model: `BankTransfer`
 
 ### Short description
 
-The bank-transfer is a request to the BankingActor to transfer money between the account of the sender and the account of a payee.
+The `BankTransfer` is a request to the BankingActor to transfer money between the account of the sender and the account of a payee.
 
 
 ### Content of the message:
