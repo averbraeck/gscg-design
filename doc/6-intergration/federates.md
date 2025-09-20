@@ -1,4 +1,4 @@
-# 7.1. Federates
+# 6.1. Federates
 
 Last Updated: 2025-09-20
 
@@ -9,9 +9,9 @@ __Changelog:__
 There are two major options with variants how to set-up the internal architecture of simulation components. These will be discussed below, with their advantages and disadvantages.
 
 
-## 7.1.1. Central simulation model
+## 6.1.1. Central simulation model
 
-### 7.1.1.1 Central simulation model with one execution thread
+### 6.1.1.1 Central simulation model with one execution thread
 
 The old setup of GSCG had a central simulation model. This means one clock, and one shared state. The big advantage is simplicity: starting the model involves one action, and there is one point of contact for the player clients. The big disadvantage is robustness or resilience. One exception in a relatively unimportant part of the simulation can end the game for all players. 
 
@@ -53,7 +53,7 @@ In this way, by polling events from the UI, all player and facilitator actions a
 | simple communication between actors: direct calls on other objects |                       |
 
 
-### 7.1.1.2. Central simulation model with parallel execution threads
+### 6.1.1.2. Central simulation model with parallel execution threads
 
 A variant on the central simulation model is one where multiple threads exist, that each execute the code for one actor (either an agent or a human player). The simulation is faster than the single-threaded solution, but to the cost of simplicity. Causality and strict ordering of time are not guaranteed by default, and concurrent issues can play a role. 
 
@@ -73,7 +73,7 @@ Polling for player and facilitator events is no longer necessary: the thread can
 | robust against errors in actors | communication between actors is now indirect and once per time step |
 
 
-## 7.1.2. Distributed simulation model
+## 6.1.2. Distributed simulation model
 
 If we take the central simulation architecture with parallel execution threads one step further, we arrive at a fully distributed model. Here, actors do not run in their own thread in a combined simulation model, but are completely separate federates that can run on one or more hardware units. This can, in theory, maximize parallelism and is very robust against failure of one of the actor, agent, or facilitator processes. When late joiners are allowed, processes could easily reconnect to the game when they have failed, retrieving their latest state data from the game state data database.
 
@@ -94,7 +94,7 @@ When we use
 | scalable architecture           | complex architecture to build                                           |
 
 
-## 7.1.3. Conclusion
+## 6.1.3. Conclusion
 
 The fully distributed architecture is the most robust, since parts can fail where the overall federation can continue. It can also scale better than the other architectures. This does come at a very high cost for building a fully distributed architecture. If the distributed architecture is to be implemented, an HLA RTI (open source such as Portico) will save quite some time in the construction process.
 
