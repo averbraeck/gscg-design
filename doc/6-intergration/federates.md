@@ -91,8 +91,7 @@ When we use
 | no polling of events needed     | causality no longer guaranteed, except on a time step level             |
 | strict ordering of time steps   | no strict ordering of time for the overall simulation                   |
 | robust against errors in actors | communication between actors has to use network (can become bottleneck) |
-| complex architecture to build   |   |
-| scalable architecture           |   |
+| scalable architecture           | complex architecture to build                                           |
 
 
 ## 7.1.3. Conclusion
