@@ -53,6 +53,10 @@ A `TransportOption` is a door-to-door transport solution for transporting goods 
 
 ![](diagrams/transport-option-classes.svg)
 
+There is also a variant with a `StochasticTransportOptionStep` for the `StochasticTransportOption`, which contains estimates for the time and costs of loading and unloading of an SKU, and an estimated speed of transport.
+
+![](diagrams/stochastic-transport-option-classes.svg)
+
 
 ## 5.2.6. Manufacturing
 
