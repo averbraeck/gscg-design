@@ -1,0 +1,55 @@
+@startuml
+
+skinparam nodesep 50
+skinparam SameClassWidth true
+
+interface NamedLocation {
+  String getname()
+  String getDescription()
+  Point2d getLocation()
+}
+
+class StochasticTransportOption {
+}
+
+class StochasticTransportOptionStep {
+  Map<Sku, Dist<Duration>> estimatedLoadingTimes
+  Map<Sku, Dist<Duration>> estimatedUnloadingTimes
+  Map<Sku, Dist<Money>> estimatedLoadingCosts
+  Map<Sku, Dist<Money>> estimatedUnloadingCosts
+  Map<Sku, Dist<Money>> estimatedTransportCostsPerKm
+}
+
+class WarehousingActor {
+}
+
+class TransportingActor {
+}
+
+class TransportingRole {
+}
+
+class TransportMode {
+  Speed avgSpeed
+  Duration avgHandlingTime
+  boolean continental
+  boolean intercontinental
+  ___
+  TransportMode AIRPLANE {static}
+  TransportMode TRUCK {static}
+  TransportMode SHIP {static}
+  TransportMode RAIL{static}
+  TransportMode BARGE {static}
+}
+
+StochasticTransportOption -u- WarehousingActor : > pickup
+StochasticTransportOption -u- WarehousingActor : > delivery
+StochasticTransportOption -r- TransportingActor : > responsible
+StochasticTransportOption *-d- StochasticTransportOptionStep : > consists of
+StochasticTransportOptionStep -l- NamedLocation : > origin
+StochasticTransportOptionStep -l- NamedLocation : > destination
+StochasticTransportOptionStep  -d- TransportMode : > uses
+StochasticTransportOptionStep  -r- TransportingRole : > belongs  to
+TransportingActor -- TransportingRole : > has
+
+@enduml
