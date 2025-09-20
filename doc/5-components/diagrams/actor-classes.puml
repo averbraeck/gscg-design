@@ -1,0 +1,35 @@
+@startuml
+abstract class Actor {
+  void receiveContent(content)
+  void sendContent(content)
+}
+
+abstract class Model {
+}
+
+abstract class Simulator {
+}
+
+abstract class Role {
+}
+
+abstract class ContentHandler {
+}
+
+abstract class AutonomousProcess{
+}
+
+interface Content {
+  Actor sender()
+  Actor receiver()
+  Time timestamp()
+}
+
+Actor *-- Role
+Actor -l- Model
+Model -l- Simulator
+Actor -r- Geography
+Role *-l- ContentHandler
+Role *-r- AutonomousProcess
+ContentHandler -d- Content
+@enduml
