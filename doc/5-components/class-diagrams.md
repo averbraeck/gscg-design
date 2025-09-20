@@ -1,6 +1,6 @@
 # 5.2. Class design of the simulation model
 
-## 5.2.1. Actor and Role
+## 5.2.1. Actor and Role: exchanging information and products
 
 The `Actor` with one or more `Role` instances is at the heart of the design. The `Actor` represents a (department in a) supply chain organization that is responsible to process certain information and/or products. The processing of information and/or products is done by a so-called `ContentHandler`. Roles only have handlers for the tasks they are supposed to do. So a `FinancingRole` has a `ContentHandler` for an `Invoice`, whereas a `SellingRole` has a `ContentHandler` for an `Order`. The actors, roles, and content handlers enable a fine-grained set of responses for information coming in, where each handler typically consists of only a few lines of code that determine whether to react on the incoming content, how to react, and when to react. Reactions are always implemented by sending new content -- sometimes to the sender of the original request, sometimes to another actor or role. A `Role` can also start autonomous processes at regular intervals, e.g., to check on inventory or to purchase goods.
 
@@ -11,12 +11,24 @@ The relation between these important objects is as follows:
 For each type of `Content`, a different `record` is used. Each content record minimally contains the `sender`, `receiver` and a `timestamp`. The content types have been described in the [function design](function-design.md).
 
 
-## 5.2.2. Warehousing
+## 5.2.2. Product and Shipment
+
+In the end, a supply chain model is all about sending and receiving a certain amount of a product. Products are packaged and sent based on their stock-keeping unit or SKU. SKU's are, for instance, a pallet, a box, a single item, a truckload, or a container. Some SKU's are weight constrained, some are volume constrained. When products can be assembled by one of the actors from smaller units, the product has a Bill of Materials. 
+
+![](diagrams/product-classes.svg)
+
+A `Shipment` is an amount of product that is delivered by a transporter from Actor A to Actor B. Note that the location of pickup and delivery (of class `NamedLocation`), which are actual warehouses, might be different from the location of the `WarehousingActor`, which is the office. Typically, these locations will be the same, but flexibility has already been built in to allow the location of the physical warehouse to be different from the location of the actor's office.
+
+![](diagrams/shipment-classes.svg)
 
 
 
-## 5.2.3. Transport
+## 5.2.3. Warehousing: storing products
 
 
-## 5.2.4. Storing content, the 'ERP' system of an Actor
+
+## 5.2.4. Transport
+
+
+## 5.2.5. Storing content, the 'ERP' system of an Actor
 
