@@ -1,5 +1,12 @@
 # 5.1 Simulation Model Design
 
+Last Updated: 2025-09-18
+
+__Changelog:__
+ - 2025-09-16 - Document Creation
+ - 2025-09-20 - Update with manufacturing and warehousing strategies
+ 
+
 The inner working of the simulation model is based on a simplified diagram of messages between actors in the supply chain simulation. The model has its roots in SCOR, and in the research by Van Houten (2007) and Van Krevelen (2011). 
 
 ## 5.1.1. Actors in the simulation
