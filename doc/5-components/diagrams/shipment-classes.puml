@@ -1,0 +1,42 @@
+@startuml
+
+skinparam nodesep 70
+
+class Shipment {
+  Time createTime
+  Money value
+  boolean inTransit
+  boolean delivered
+}
+
+interface NamedLocation {
+  String getname()
+  String getDescription()
+  Point2d getLocation()
+}
+
+interface Order {
+}
+
+interface ProductContent {
+  Product getProduct()
+  double getAmount()
+}
+
+interface Content {
+}
+
+Shipment -l- WarehousingActor : > sender
+Shipment -l- WarehousingActor : > receiver
+
+Shipment -r- NamedLocation : > origin
+Shipment -r- NamedLocation : > destination
+
+Shipment -d- Order : > belongs to
+
+WarehousingActor -d-|> Actor
+Order -r-|> ProductContent
+ProductContent -r-|> Content
+ProductContent -d- Product
+
+@enduml
