@@ -1,0 +1,47 @@
+@startuml
+
+skinparam nodesep 60
+
+class WarehousingActor {
+}
+
+class WarehousingRole {
+}
+
+abstract class Actor {
+}
+
+class InventoryRecord {
+  double actualAmount
+  double reservedAmount
+  double orderedAmount
+  Money value
+}
+
+abstract class AutonomousProcess {
+}
+
+abstract class RestockingProcess {
+}
+
+class RestockingProcessFixed {
+  boolean ceiling
+  boolean includeClaim
+  double amount
+}
+
+class RestockingProcessSafety {
+  double safetyAmount
+}
+
+WarehousingActor -u-|> Actor
+WarehousingActor -d- WarehousingRole
+WarehousingRole -l- Inventory
+Inventory *-u- InventoryRecord
+InventoryRecord -u- Product
+WarehousingRole -r- RestockingProcess
+RestockingProcess -u-|> AutonomousProcess
+RestockingProcess <|-- RestockingProcessFixed
+RestockingProcessFixed <|-l- RestockingProcessSafety
+
+@enduml
