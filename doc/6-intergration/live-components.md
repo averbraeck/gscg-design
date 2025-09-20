@@ -54,3 +54,17 @@ These use non-blocking IO to handle many connections efficiently.
 
 In this case, we do not need a cloud architecture, as the game will be server-based. It has to scale to several dozen users, not (hundreds of) thousands. So, no cloud architecture (Kubernetes), nor cloud-native solutions. Spring is pretty heavy and has a very steep learning curve. The 'old' Tomcat solution has less overhead and probably works best.
 
+In the end, the choice was made for:
+- **MariaDB database**<br>
+  could be any database, but MariaDB is open and a good SQL choice. It also links nicely to the SQL database schemes that were drawn for the [database design](../4-architecture/database-design.md). If necessary, MariaDB can be replaced by any other SQL database without much effort.
+- **jOOQ library**<br>
+  jOOQ offers SQL syntax in Java, and can automatically generate Java equivalent for the SQL database tables for the game with a script.
+- **HikariCP**<br>
+  the HihariCP library offers connection pooling for the MariaDB database from Java. This makes the database access faster and more scalable.
+- **Apache Tomcat**<br>
+  for the servlet, we choose for a traditional, relatively lightweight solution. Overhead from many of the other frameworks is not needed here, since the number of users is relatively limited, and we do not need the extra functions that are offered by some of the newer frameworks. Tomcat is fully serviced, and Tomcat-11 is current and well-maintained.
+- **Apache httpd**
+  On the server, apache httpd is the front-end that the clients 'see'. using a proxy plus reverse proxy, information from Apache is exchanged with the Tomcat containers that run locally on the server (e.g., on port 8080 or 8081). Apache httpd is robust, scalable, and safe.
+
+
+
