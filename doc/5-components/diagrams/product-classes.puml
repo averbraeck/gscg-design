@@ -1,0 +1,32 @@
+@startuml
+
+skinparam nodesep 70
+
+class ProductAmount {
+  Product product
+  double amount
+}
+
+class Product {
+  String name
+  Volume avgVolume
+  Mass avgMass
+  Money avgPrice
+}
+
+class WeightSku {
+  double weightKg
+}
+
+class VolumeSku {
+  double volumeM3
+}
+
+Product -l- Sku : > has
+Sku <|-- VolumeSku
+Sku <|-- WeightSku
+Product -right- "0..1" BillOfMaterials
+BillOfMaterials *-- ProductAmount : materials
+ProductAmount -- Product
+
+@enduml
