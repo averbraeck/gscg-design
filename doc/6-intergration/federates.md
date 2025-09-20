@@ -1,9 +1,17 @@
 # 7.1. Federates
 
+Last Updated: 2025-09-20
+
+__Changelog:__
+ - 2025-09-20 - Document Creation
+
+
 There are two major options with variants how to set-up the internal architecture of simulation components. These will be discussed below, with their advantages and disadvantages.
 
 
 ## 7.1.1. Central simulation model
+
+### 7.1.1.1 Central simulation model with one execution thread
 
 The old setup of GSCG had a central simulation model. This means one clock, and one shared state. The big advantage is simplicity: starting the model involves one action, and there is one point of contact for the player clients. The big disadvantage is robustness or resilience. One exception in a relatively unimportant part of the simulation can end the game for all players. 
 
@@ -37,5 +45,33 @@ void pollUI() {
 
 In this way, by polling events from the UI, all player and facilitator actions are neatly interleaved between the simulation events from the agents, autonomous processes, scenario events, and player-triggered processes. 
 
+| Advantages               | Disadvantages                                                   |
+| ----------               | -------------                                                   |
+| simplicity               | lack of robustness and resilience; one error kills entire game  |
+| causality guaranteed     | slow, single-threaded simulation; not utilizing available cores |
+| strict ordering of time  | polling of player and facilitator events                        |
+| simple communication between actors: direct calls on other objects |                       |
 
+
+### 7.1.1.2. Central simulation model with parallel execution threads
+
+A variant on the central simulation model is one where multiple threads exist, that each execute the code for one actor (either an agent or a human player). The simulation is faster than the single-threaded solution, but to the cost of simplicity. Causality and strict ordering of time are not guaranteed by default, and concurrent issues can play a role. 
+
+Therefore, it is very important to use the correct mechanism for time advance. Probably, a time-stepping mechanism using relaxed time synchronization is to be preferred, where all thread can execute their tasks for the current time step in parallel (e.g., for an hour or for a day), where communication between actors, agents and scenario take place at the end of the time step. No objects in *different* threads communicate with each other within the execution of the time step.
+
+The architecture roughly looks as follows:
+
+![](diagrams/central-simulation-model-parallel.png)
+
+Polling for player and facilitator events is no longer necessary: the thread can handle the inputs from players and facilitators, where all processed events will be timed at the end of the current time step, e.g., on an hour or day level of precision. Thread synchronization has become a major component / layer in the technical architecture: it has to ensure all threads are ready with their current events before communication takes place, after which the next time step starts. 
+
+| Advantages                    | Disadvantages                                                       |
+| ----------                    | -------------                                                       |
+| speed through parallelism     | lack of robustness and resilience; one error kills entire game      |
+| no polling of events needed   | causality no longer guaranteed, except on a time step level         |
+| strict ordering of time steps | no strict ordering of time for the overall simulation               |
+|                               | communication between actors is now indirect and once per time step |
+
+
+## 7.1.2. Distributed simulation model
 
