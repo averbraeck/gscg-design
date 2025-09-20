@@ -17,17 +17,19 @@ In web searches and discussion with AI, several suggestions came up to further f
   `H2Direct on`, `H2ModernTLSOnly on`.<br>
   `AddOutputFilterByType BROTLI_COMPRESS text/html text/css application/javascript application/json`.
 - Caching: serve `/static/` directly with long Cache-Control (e.g., 30–90 days) + ETag; add a cache-buster in filenames.
-- Reverse proxy: prefer `mod_proxy_http` over AJP (simpler & safer).<br>
+- Reverse proxy: prefer `mod_proxy_http` over AJP (Apache JServ Protocol), since it is simpler and safer.<br>
   Keep backend to Tomcat on HTTP/1.1; clients get HTTP/2 from Apache.
 - Timeouts/keep-alive: `KeepAlive On` with a sane `KeepAliveTimeout` (2–5 s) and `MaxKeepAliveRequests 100–200`.
+
+*For Brotli, see below.*
 
 
 #### 2) Tomcat 11 basics
 
-- Thread pool: default ~200 is already fine for 100 users. If you use blocking DB calls, keep it 100–300. Don’t over crank.
-- Compression: if you don’t rely on Apache for compression, enable Tomcat gzip; otherwise disable to avoid double work.
+- Thread pool: default ~200 is already fine for 100 users. If blocking DB calls are used, keep it 100–300.
+- Compression: if Apache is not used for compression, enable Tomcat gzip; otherwise disable to avoid double work.
 - Static offload: map `/static/*` to Apache only; exclude it from Tomcat.
-- JSP discipline: EL + JSTL only (no scriptlets). For complex HTML, keep current approach (server-side generation) or consider a tiny template engine (Pebble/Mustache) for maintainability.
+- JSP discipline: EL (Expression Language) + JSTL (JavaServer Pages Standard Tag Library) only; see [https://www.oracle.com/application-development/technologies/jdeveloper/jstl-el-adf.html](https://www.oracle.com/application-development/technologies/jdeveloper/jstl-el-adf.html). Do not use scriptlets as they make the code very unreadable and bug-prone. For complex HTML, keep current approach (server-side generation) or consider a tiny template engine (Pebble/Mustache) for maintainability.
 
 
 #### 3) Java 21 niceties (optional)
@@ -43,6 +45,8 @@ In web searches and discussion with AI, several suggestions came up to further f
 - Fail fast: set `initializationFailTimeout=0` in dev for quick boot, >0 in prod if startup should fail when DB is down.
 - jOOQ: keep SQL explicit; add Flyway for schema migrations.
 
+*For Flyway, see below*
+
 
 #### 5) MariaDB tuning for this load
 
@@ -56,15 +60,21 @@ In web searches and discussion with AI, several suggestions came up to further f
 #### 6) Frontend without SPA (Single-Page Application) pain
 
 - HTMX for partial updates + progressive enhancement; plays great with JSP/templating.
-- Alpine.js for tiny interactivity.
-- Streams via SSE for "live-ish" updates; WebSocket only if you truly need bidirectional.
+- Alpine.js for tiny interactivity. Other libraries to consider are Pebble, Tailwind, and ChartJS.
+- Streams via SSE for "live-ish" updates; WebSocket only if we truly need bidirectional.
+
+*For HTMX, see below*<br>
+*For Alpine.js, see below*<br>
+*For Pebble, see below*<br>
+*For Tailwind, see below*<br>
+*For ChartJS, see below*
 
 
 #### 7) Security & sessions
 
 - TLS: strong ciphers in Apache; HSTS.
 - Cookies: `Secure; HttpOnly; SameSite=Lax/Strict`.
-- CSP: at least `default-src 'self'` plus CDNs that are actually used.
+- CSP: at least `default-src 'self'`.
 - CSRF: Tomcat filter or a simple token pattern on POST forms.
 
 
