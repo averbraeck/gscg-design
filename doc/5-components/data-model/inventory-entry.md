@@ -9,7 +9,7 @@ The `InventoryEntry` message is the trigger to the warehouse to store the goods 
 
 | field      | type             | short explanation |
 | -----      | ----             | ----------------- |
-| sender     | WarehousingActor | the sender of the Fulfillment; indicates that the shipment has arrived in the warehouse  |
+| sender     | WarehousingActor | the sender of the InventoryEntry; indicates that the shipment has arrived in the warehouse  |
 | receiver   | FinancingActor   | the receiver of the message, e.g., to indicate payment can take place |
 | timestamp  | Time             | the absolute time when the message was created |
 | uniqueId   | long             | the id used to group multiple messages, such as the demandId or the orderId |
