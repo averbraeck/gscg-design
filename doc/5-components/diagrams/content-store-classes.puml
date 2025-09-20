@@ -1,0 +1,29 @@
+@startuml
+
+skinparam nodesep 70
+
+abstract class Actor {
+}
+
+interface ContentStoreInterface {
+  void addContent(content, sent)
+  void addContent(messageId, sent)
+  void removeContent(content, sent)
+  void removeContent(messageId, sent)
+  void removeAllContent(groupingId)
+  List getContentList(groupingId, sent)
+  boolean contains(content, sent)
+  boolean contains(messageId, sent)
+}
+
+class ContentStoreFull {
+  Map<Long, Content> groupingContentMap
+  Map<Class<Content>, List<Content>> receivedContentMap
+  Map<Class<Content>, List<Content>> sentContentMap
+}
+
+Actor -d- ContentStoreInterface
+ContentStoreInterface <|..r.. ContentStoreFull
+ContentStoreInterface <|..l.. ContentStoreEmpty
+
+@enduml
