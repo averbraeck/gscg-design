@@ -13,7 +13,7 @@ The `Demand` message represents content for an demand of a supply chain actor. T
 | receiver   | Actor          | the receiver of the `Demand` (same actor). This is also not specified since the sender is not specified. Yet, it will be typically handled by the PurchasingActor role |
 | timestamp  | Time           | the absolute time when the message was created |
 | uniqueId   | long           | the unique id of the message |
-| groupingId | long           | the id used to group multiple messages, such as the demandId or the orderId |
+| groupingId | long           | the id used to group multiple messages, in this case a copy of the the demandId |
 | product    | Product        | the product which is demanded |
 | amount     | double         | the amount of the product expressed in the product's SKU |
 | earliestDeliveryDate | Time | the earliest delivery date |
