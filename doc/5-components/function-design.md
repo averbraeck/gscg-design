@@ -47,7 +47,7 @@ A second possibility to buy and sell is based on a direct order. The Buyer knows
 
 Each `Actor` needs to decide what products to keep in inventory as a final product to be sold, and what products to acquire (either through manufacturing or through purchasing) once an order comes in. For manufacturing and warehousing, the following strategies exist and are used in the game:
 
-| **Strategy Type**        | **Manufacturing Term** | **Warehouse / Procurement Term** | **Meaning** |
+| **Strategy Type**         | **Manufacturing Term** | **Warehouse / Procurement Term** | **Meaning** |
 |---------------------------|------------------------|----------------------------------|-------------|
 | Forecast-based / stocked  | **MTS** – Make to Stock | **STF** – Stock to Forecast (or *Stocked Item*) | Goods are produced or procured in advance and kept on hand, based on demand forecast or service-level target. |
 | Order-based / non-stocked | **MTO** – Make to Order | **PTO / BTO** – Procure to Order / Buy to Order (or *Non-stocked Item*) | Goods are only produced or purchased once an external customer order is received. |
