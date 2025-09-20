@@ -38,7 +38,7 @@ The `groupingId` plays an important role: all messages belonging to the same ord
 
 Several implementations of a `ContentStore` exist. The `ContentStoreEmpty` does not store any data. For some actors, storing any data is not necessary. An example is the `BankActor` in the game. It processes transactions, but does not need to keep all of them for the supply chain game's purpose. The `ContentStoreFull` keeps all messages until they are removed with one of the `remove` methods.
 
-![](diagramscontent-store-classes.svg)
+![](diagrams/content-store-classes.svg)
 
 
 ## 5.2.5. Transport
