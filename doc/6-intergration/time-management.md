@@ -1,4 +1,4 @@
-# 7.2. Time management
+# 6.2. Time management
 
 Last Updated: 2025-09-20
 
@@ -6,7 +6,7 @@ __Changelog:__
  - 2025-09-20 - Document Creation
 
 
-## 7.2.1. Choice for simulator
+## 6.2.1. Choice for simulator
 
 The time management choices below assume a central simulation model with one execution thread (see the [federates document](federates.md) for more information).
 
@@ -18,7 +18,7 @@ The time management is taken care of by the [DSOL](https://github.com/averbraeck
 For now, one central time manager is foreseen. All player panels, actors, and simulation components refer to the central simulation time for the game time. The actors and simulation components are all part of the simulation model that runs on the server. 
 
 
-## 7.2.2. Issues with player panels
+## 6.2.2. Issues with player panels
 
 The player panel can have latency in sending information. This means that the timestamp of a message originating from a player panel can only be set in the simulation model running on the server. 
 
