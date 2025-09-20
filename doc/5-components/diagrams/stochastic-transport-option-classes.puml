@@ -1,7 +1,7 @@
 @startuml
 
 skinparam nodesep 50
-skinparam SameClassWidth true
+skinparam SameClassWidth false
 
 interface NamedLocation {
   String getname()
