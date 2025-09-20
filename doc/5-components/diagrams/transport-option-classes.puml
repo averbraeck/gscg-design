@@ -1,0 +1,50 @@
+@startuml
+
+skinparam nodesep 50
+skinparam SameClassWidth true
+
+interface NamedLocation {
+  String getname()
+  String getDescription()
+  Point2d getLocation()
+}
+
+class TransportOption {
+}
+
+class TransportOptionStep {
+}
+
+class WarehousingActor {
+}
+
+class TransportingActor {
+}
+
+class TransportingRole {
+}
+
+class TransportMode {
+  Speed avgSpeed
+  Duration avgHandlingTime
+  boolean continental
+  boolean intercontinental
+  ___
+  TransportMode AIRPLANE {static}
+  TransportMode TRUCK {static}
+  TransportMode SHIP {static}
+  TransportMode RAIL{static}
+  TransportMode BARGE {static}
+}
+
+TransportOption -l- WarehousingActor : > pickup
+TransportOption -l- WarehousingActor : > delivery
+TransportOption -r- TransportingActor : > responsible
+TransportOption *-d- TransportOptionStep : > consists of
+TransportOptionStep -l- NamedLocation : > origin
+TransportOptionStep -l- NamedLocation : > destination
+TransportOptionStep  -d- TransportMode : > uses
+TransportOptionStep  -r- TransportingRole : > belongs  to
+TransportingActor -- TransportingRole : > has
+
+@enduml
