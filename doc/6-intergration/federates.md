@@ -97,7 +97,7 @@ When we use
 
 ## 7.1.3. Conclusion
 
-The fully distributed architecture is the most robust, since parts can fail where the overall federation can continue. It can also scale better than the other architectures. This does come at a very high cost for building a fully distributed architecture. If the distributed architecture is to be implemented, an HLA RTI (open source such as Portico) will save quite some time in the v=construction process.
+The fully distributed architecture is the most robust, since parts can fail where the overall federation can continue. It can also scale better than the other architectures. This does come at a very high cost for building a fully distributed architecture. If the distributed architecture is to be implemented, an HLA RTI (open source such as Portico) will save quite some time in the construction process.
 
 The current simulation models run on a central simulation architecture. The best strategy is probably to *prepare* the technical implementation for distributed execution, but start with a central simulation architecture for the game first.
 
