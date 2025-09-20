@@ -30,11 +30,18 @@ The `Inventory` of a warehouse is stored in the `WarehousingRole`. It contains r
 ![](diagrams/warehousing-classes.svg)
 
 
-## 5.2.4. Transport
+## 5.2.4. Storing content, the 'ERP' system of an Actor
+
+Each `Actor` has a repository for storing trade messages, both the messages it received and the messages it sent. This repository can help to retrieve the original order or order confirmation for a shipment when the shipment is received: was the delivery as ordered or confirmed? The same for when an invoice is received: is the invoiced amount correct? 
+
+The `groupingId` plays an important role: all messages belonging to the same order or demand request, can be grouped together. In the `ContentStore`, a distinction is also made between sent and received content. The boolean `sent` parameter in the below class diagrams indicates whether information is sent or received by this actor.
+
+Several implementations of a `ContentStore` exist. The `ContentStoreEmpty` does not store any data. For some actors, storing any data is not necessary. An example is the `BankActor` in the game. It processes transactions, but does not need to keep all of them for the supply chain game's purpose. The `ContentStoreFull` keeps all messages until they are removed with one of the `remove` methods.
+
+![](diagramscontent-store-classes.svg)
 
 
-## 5.2.5. Storing content, the 'ERP' system of an Actor
-
+## 5.2.5. Transport
 
 ## 5.2.6. Manufacturing
 
