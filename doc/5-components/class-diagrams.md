@@ -25,10 +25,17 @@ A `Shipment` is an amount of product that is delivered by a transporter from Act
 
 ## 5.2.3. Warehousing: storing products
 
+The `Inventory` of a warehouse is stored in the `WarehousingRole`. It contains records for a `Product` with an amount. For the MRP functionality, ordered amounts and reserved amounts are also included. With this information, one can see whether there is an expected shortage of product in the future or not. An `AutonomousProcess` for restocking observes the `Inventory` at regular intervals, and decides to order new products for the inventory or not. It does so by creating a `Demand` message. Several restocking policies exist, of which two have been depicted in the class diagram. ordering fixed amounts, and working with a safety stock.
+
+![](diagrams/warehousing-classes.svg)
 
 
 ## 5.2.4. Transport
 
 
 ## 5.2.5. Storing content, the 'ERP' system of an Actor
+
+
+## 5.2.6. Manufacturing
+
 
