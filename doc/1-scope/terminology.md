@@ -4,6 +4,7 @@ Last Updated: 2025-09-18
 
 __Changelog:__
  - 2025-09-18 - Document Creation
+ - 2025-09-20 - Add more abbreviations such as MTO/MTS, PTO/STF, MRP and SKU
 
 
 ## Clarification of terms
