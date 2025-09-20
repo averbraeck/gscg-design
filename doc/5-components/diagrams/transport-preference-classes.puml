@@ -1,0 +1,35 @@
+@startuml
+
+skinparam nodesep 50
+
+record TransportPreference {
+}
+
+enum CostTimeImportance {
+  COST
+  TIME
+  DISTANCE
+  NONE
+}
+
+class TransportMode {
+  Speed avgSpeed
+  Duration avgHandlingTime
+  boolean continental
+  boolean intercontinental
+  ___
+  TransportMode AIRPLANE {static}
+  TransportMode TRUCK {static}
+  TransportMode SHIP {static}
+  TransportMode RAIL{static}
+  TransportMode BARGE {static}
+}
+
+class Sku {
+}
+
+TransportPreference -r- CostTimeImportance
+TransportPreference *-d- TransportMode : > preferred
+TransportMode *-r- Sku : > can handle
+
+@enduml
