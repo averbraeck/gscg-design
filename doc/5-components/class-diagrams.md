@@ -43,6 +43,20 @@ Several implementations of a `ContentStore` exist. The `ContentStoreEmpty` does 
 
 ## 5.2.5. Transport
 
+Transport is modeled by a special set of actors in the game, the `TransportingActor`. Each actor can transport certain types of goods (depending on the SKU) using a certain mode of transport (the `TransportMode`). 
+
+A `TransportPreference` specifies how an `Actor` would like the `Shipment` to be transported. It contains a list of preferred `TransportMode`s and a relative preference for either cost, time, or distance. Note that each `TransportMode` might or might not do continental or intercontinental transport, and that each TransportMode can handle a limited number of SKUs.
+
+![](diagrams/transport-preference-classes.svg)
+
+A `TransportOption` is a door-to-door transport solution for transporting goods from the origin (warehouse) to the destination (warehouse). A `TransportOption` consists of `TransportStep` parts: E.g., trucking the goods from Warehouse to the nearest deep-sea Port, deep-sea transportation from origin Port to Destination Port, and then trucking to the receiver of the goods.
+
+![](diagrams/transport-option-classes.svg)
+
+
 ## 5.2.6. Manufacturing
+
+> [!NOTE]
+> TODO.
 
 
