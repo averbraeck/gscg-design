@@ -1,6 +1,6 @@
 # 5.2. Class design of the simulation model
 
-Last Updated: 2025-09-18
+Last Updated: 2025-09-20
 
 __Changelog:__
  - 2025-09-20 - Document Creation
