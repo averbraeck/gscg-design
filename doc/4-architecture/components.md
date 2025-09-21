@@ -1,6 +1,8 @@
-# High-level component breakdown
+# 4.2. High-level component breakdown
 
-Last updated: 25-0802925
+[Back to Table of Contents](../../README.md)
+
+Last Updated: 2025-09-21
 
 __Changelog:__
  - 2025-08-25 - Document creation

@@ -1,6 +1,8 @@
-# 5.2. Class design of the simulation model
+# 5.2. Class design for the simulation model
 
-Last Updated: 2025-09-20
+[Back to Table of Contents](../../README.md)
+
+Last Updated: 2025-09-21
 
 __Changelog:__
  - 2025-09-20 - Document Creation

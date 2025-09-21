@@ -1,4 +1,4 @@
-# 6.3. Live components
+# 6.3. Live Components
 
 [Back to Table of Contents](../../README.md)
 

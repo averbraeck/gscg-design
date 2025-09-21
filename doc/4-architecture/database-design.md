@@ -1,6 +1,8 @@
 # 4.1. Database design
 
-Last Updated: 2025-08-26
+[Back to Table of Contents](../../README.md)
+
+Last Updated: 2025-09-21
 
 __Changelog:__
  - 2025-08-11 - Document creation
