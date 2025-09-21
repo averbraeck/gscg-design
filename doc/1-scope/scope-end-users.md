@@ -1,12 +1,14 @@
 # 1. Scope and Stakeholders
 
-Last Updated: 2025-09-18
+[Back to Table of Contents](../../README.md)
+
+Last Updated: 2025-09-21
 
 __Changelog:__
- - 2025-09-18 - Clarify how portal administrator has access to all functions in the system (https://github.com/averbraeck/gscg-design/issues/38)
- - 2025-08-12 - Added role diagram, made roles more clear, changed 'stakeholders' into 'end-users'.
  - 2025-08-09 - Document creation.
-
+ - 2025-08-12 - Added role diagram, made roles more clear, changed 'stakeholders' into 'end-users'.
+ - 2025-09-18 - Clarify how portal administrator has access to all functions in the system (https://github.com/averbraeck/gscg-design/issues/38)
+ 
 
 ## 1.1. Project goals
 

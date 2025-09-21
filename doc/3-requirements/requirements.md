@@ -1,6 +1,8 @@
 # 3. GSCG Requirements
 
-Last Updated: 2025-09-18
+[Back to Table of Contents](../../README.md)
+
+Last Updated: 2025-09-21
 
 __Changelog:__
  - 2025-04-30 - Document Creation

@@ -1,6 +1,8 @@
 # 6.3. Live components
 
-Last Updated: 2025-09-20
+[Back to Table of Contents](../../README.md)
+
+Last Updated: 2025-09-21
 
 __Changelog:__
  - 2025-09-20 - Document Creation

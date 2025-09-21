@@ -1,6 +1,8 @@
 # Plan for GSCG development
 
-Last Updated: 2025-09-18
+[Back to Table of Contents](../../README.md)
+
+Last Updated: 2025-09-21
 
 __Changelog:__
  - 2025-08-12 - Changed 'stakeholders' into 'end-users' in step 1
