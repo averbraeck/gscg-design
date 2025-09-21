@@ -25,5 +25,6 @@ Design documents for the Global Supply Chain Game project. See below for the Tab
    6.3. [Live Components](doc/6-integration/live-components.md)
 7. Solution Development<br>
    7.1. [Detailed technical choices](doc/7-development/technical-choices.md)<br>
+   7.2. [UI Design Admin Panel](doc/7-development/ui-design-admin.md)<br>
 
 [Terminology and abbreviations](doc/1-scope/terminology.md)

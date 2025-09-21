@@ -1,6 +1,14 @@
 # 7.2. UI Design Admin Panel
 
-The admin panel will be modeled after the gamedata platform, and reuse code.
+[Back to Table of Contents](../../README.md)
+
+Last Updated: 2025-09-21
+
+__Changelog:__
+ - 2025-09-21 - Document Creation
+
+
+The admin panel will be modeled after the gamedata platform, and reuse code of the gamedata project.
 
 Menu choices as a hierarchy are as follows:
 
