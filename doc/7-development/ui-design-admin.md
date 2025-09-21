@@ -118,6 +118,7 @@ Menu choices as a hierarchy are as follows:
     - Page
 
 **GAME PLAY**
+
 13. Game Play
     - Game
     - Game Version
