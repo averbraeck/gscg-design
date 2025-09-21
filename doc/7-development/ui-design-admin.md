@@ -47,7 +47,7 @@ Menu choices as a hierarchy are as follows:
    - Process Type
    - Process Param
 
-** GAME DESIGN**
+**GAME DESIGN**
 
 6. Product
    - Game
