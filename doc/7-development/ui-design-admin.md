@@ -108,6 +108,7 @@ Menu choices as a hierarchy are as follows:
     - Game
     - Game Version
     - Game Session
+    - Player
     - Goal
     - Game Session Goal
     - Strategy Category
@@ -116,10 +117,17 @@ Menu choices as a hierarchy are as follows:
     - Page List
     - List Page
     - Page
+13. Player Scores
+    - Game
+    - Game Version
+    - Game Session
+    - Player
+    - Player scores
+    - Session Graphs
 
 **GAME PLAY**
 
-13. Game Play
+14. Game Analysis
     - Game
     - Game Version
     - Game Session
@@ -133,9 +141,10 @@ Menu choices as a hierarchy are as follows:
     - Player Score
     - Chat Message
     - Sent Content
-14. Errors
+15. Errors
     
 **SETTINGS**
 
-14. Settings
-15. Logoff
+16. Settings
+17. Logoff
+
